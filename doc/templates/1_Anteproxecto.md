@@ -25,7 +25,7 @@ O proxecto consiste é unha páxina web dun taboleiro de anuncios e avisos infor
 
 O proposito principal permitir informacion de interese, avisos e anuncios a persoas, e facilitar a comunicacion entre as persoas e entidades publicas ou empresas.
 
-Este proxecto abre a posibilidade de que empresas locais e individuos poidan publicitarse e ofrecer servizos, pagando tarifas ou subcripcions.
+Este proxecto axuda a empresas locais e individuos poidan publicitarse e ofrecer servizos, pagando tarifas ou subcripcions.
 
 A web estaría desenvolvida empregando HTML, CSS e JavaScript no frontend, e o backend con PHP.
 
@@ -43,7 +43,7 @@ Aporta valor engadido aos avisos destacados e á posibilidade de compartilos fac
 
 ### 2.2- Xustificación da idea
 
-A idea cubre a necesidade de mellorar as comunicacións locais entre persoas e entidades.
+Satisface a necesidade de mellorar as comunicacións locais entre persoas e entidades.
 
 Existen varias aplicacións parecidas como Milanuncios e Wallapop; estas están orientadas principalmente ao uso comercial e non cobren a parte de avisos, comunicados oficiais nin eventos locais.
 

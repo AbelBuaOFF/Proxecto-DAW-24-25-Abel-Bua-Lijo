@@ -18,7 +18,8 @@ Desenrolando.
 
 ## Descrición
 
-O proxecto consiste é unha páxina web dun taboleiro de anuncios e avisos informativos, onde usuarios e entidades poidan publicar anuncios e comunicados como: mascotas perdidas, anuncios de compra, eventos locais, actividades. Tamén os organismos públicos poidan anunciar eventos e comunicados.
+O proxecto é unha páxina web dun taboleiro de anuncios e avisos informativos, onde usuarios e entidades poidan publicar anuncios e comunicados. por exemplo mascotas perdidas, anuncios de compra, eventos locais, actividades. 
+Tamén os organismos públicos poidan anunciar eventos e comunicados.
 A web estaría desenvolvida empregando HTML, CSS e JavaScript no frontend, e o backend con PHP.
 
 ## Instalación / Posta en marcha
