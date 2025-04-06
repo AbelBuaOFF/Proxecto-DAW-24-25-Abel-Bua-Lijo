@@ -18,8 +18,8 @@ Desenrolando.
 
 ## Descrición
 
-O proxecto consiste en crear unha páxina web que funcionará como taboleiro de anuncios, onde usuarios e entidades poidan publicar información de interese xeral: mascotas perdidas, anuncios de compra, eventos locais, actividades culturais ou deportivas. Tamén os organismos públicos poderán subir comunicacións oficiais, eventos, etc.
-A web estaría desenvolvida empregando HTML, CSS e JavaScript no frontend, e o backend con PHP, empregando como base de datos MariaDB.
+O proxecto consiste é unha páxina web dun taboleiro de anuncios e avisos informativos, onde usuarios e entidades poidan publicar anuncios e comunicados como: mascotas perdidas, anuncios de compra, eventos locais, actividades. Tamén os organismos públicos poidan anunciar eventos e comunicados.
+A web estaría desenvolvida empregando HTML, CSS e JavaScript no frontend, e o backend con PHP.
 
 ## Instalación / Posta en marcha
 
@@ -36,8 +36,7 @@ A web estaría desenvolvida empregando HTML, CSS e JavaScript no frontend, e o b
 Son Abel, estudante de Desenvolvemento de Aplicacions Web (DAW) no IES Armando Cotarelo.
 Durante a miña formación adquirín coñecementos en tecnoloxías como HTML5, CSS, JavaScript e PHP,
 
-A miña motivación principal é facilitar o acceso á información local. Moitas veces, a xente perde eventos interesantes ou anuncios importantes simplemente porque non sabe onde buscalos. Con esta plataforma, pretendo crear un espazo sinxelo e práctico onde calquera poida publicar ou consultar anuncios, xa sexan particulares ou entidades como o Concello.
-
+O obxectivo do proxecto e facilitar información de interese local. Moitas veces, a xente perde eventos interesantes ou anuncios importantes simplemente porque non sabe onde buscalos.
 Email: abelbualijo.off@gmail.com
 
 ## Licenza
