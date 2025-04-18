@@ -21,7 +21,7 @@
 
 ## 1- Descrición do proxecto
 
-O proxecto consiste é unha páxina web dun taboleiro de anuncios e avisos informativos, onde usuarios e entidades poidan publicar anuncios e comunicados como: mascotas perdidas, anuncios de compra, eventos locais, actividades. Tamén os organismos públicos poidan anunciar eventos e comunicados.
+O proxecto consiste é unha páxina web dun taboleiro de anuncios e avisos informativos, onde usuarios e entidades poidan publicar anuncios e comunicados como: mascotas perdidas, anuncios de compra, eventos locais, actividades. Tamén os organismos públicos poidan anunciar eventos e comunicados. Dixitalizar os taboleiros tradicionais, os carteis que colgan nas ruas.
 
 O proposito principal permitir informacion de interese, avisos e anuncios a persoas, e facilitar a comunicacion entre as persoas e entidades publicas ou empresas.
 
@@ -58,7 +58,7 @@ Por estas estatísticas pode verse que as persoas teñen acceso á rede, en camb
 DAFO
 
 Fortalezas:
-- Apoio por parte de organizacións públicas..
+- Apoio por parte de organizacións públicas que queren ofrecer avisos e anuncios propios nas suas zonas.
 - Capacidade de albergar diferentes tipos de información: avisos, comunicados ou anuncios.
 - Oportunidade de anunciarse para individuos e entidades.
 
@@ -71,7 +71,7 @@ Oportunidades:
 - Mercado non explorado
 
 Ameazas:
-- Depender de entidades para manter o servizo.
+- Dificultade de xerar ingresos a corto prazo.
 - Competencia con redes sociais.
 
 
@@ -100,14 +100,52 @@ Os usuarios son todas as persoas que acceden á páxina para ver os contidos.
 
 > _EXPLICACIÓN_: Neste apartado deberase indicar que outras empresas operan no mercado. Que cota de mercado teñen e como están posicionadas. Existencia de productos/servizos substitutivos. Como están posicionados.
 
+  Competidores:
+  - Milanuncios e Wallapop.
+    - Cota de mercado: Alta cota de mercado en compra-venta a nivel nacional.
+    - Posicionamento: Enfocados en mercados comerciaís.
+
+  - Chollometro.
+    - Cota de mercado: Media en empresas pequenas.
+    - Posicionamento: Centrado en ofertas e descontos comerciais.
+
+  - Grupos de Redes Sociais, Facebook, Whatsapp, Telegram.
+    - Cota de mercado: Alta por a extension de estas redes, moi utilizadas para a comunicacion.
+    - Posicionamento: Centrados en multiples temas diferentes, a informacion perdese por a cantidade de contido.
+
+  Productos/servizos substitutivos:
+  - Taboleriros de anuncios Fisicos
+    - Servicio: Ofrecen anuncios de maneira facil e gratuita.
+    - Posicionamento: No teñen moita visibilidade e alcance efectivo,
+    non poden actualizarse, e gastan recursos fisicos como papel e tinta.
+
 ### 2.5- Proposta de valor
 
 > _EXPLICACIÓN_: **Apartado fundamental.**
->
+
 > - En que se diferencia fronte os competidores.
-> - Que melloras terá fronte os competidores.
-> - Que valor aporta ao mercado.
-> - ¿Porqué mercarán/contratarán este producto/servizo/idea fronte o resto?
+
+ - Diferencias:
+      - As diferencias sobre Milanuncios, Wallapop e Chollometro e que non so se centra na compra-venda, sino tamen en avisos e comunicados oficiais importantes.
+      - As diferencias sobre os Grupos de Redes Sociais, non dependemos de algoritmos de visionamento a demais organizamos o contido para
+      que sexa mais reconocible e visible.
+
+  - Que melloras terá fronte os competidores.
+    Melloras:
+    - Organizacion de informacion por categorias.
+    - Acceso libre a informacion sen necesidade de rexistro.
+    - Centrada na proximidade, aumetar a visibilidade do entrono cercano a os usuarios.
+
+  - Que valor aporta ao mercado.
+    - Mellora a comunicación Local, aumentando a visibilidade de informacion relevante cercana.
+    - Conecta a persoas con entidades publicas ou privadas.
+    - Visibilidade de negocios pequenos que no dispoñen de dixitalización.
+
+  - ¿Porqué mercarán/contratarán este producto/servizo/idea fronte o resto?
+
+    - Porque resolve o problema: de non ter canais de comuncicacións claros ,directos e organizados con entidades locais.
+    - Porque ofrece maior visibilidade a negocios pequenos que as redes sociais e os sistemas tradicionais.
+    - Porque Centraliza a informacion nun so espazo que a dia de hoxe esta disperso en carteis.
 
 ### 2.6- Forma xurídica
 
@@ -117,12 +155,41 @@ Os usuarios son todas as persoas que acceden á páxina para ver os contidos.
 
 > _EXPLICACIÓN_: Neste apartado idicaremos o investimentos, aínda que sexa, só unha enumeración de todo o que necesitan (locais, infraestruturas, equipos, suministros, mobiliario...) cuantificando cada elemento.
 
+ Investimentos
+
+ - Conceptos:
+    -  Dominio WEB (anual) : 15€
+    -  Aloxamento WEB (1 ano) : 120€
+    -  Desenvolvemento WEB : 2000€
+    -  Equipos informaticos (PC, pantalla, etc) : 1200€
+    -  Software e licencias (Licencias, Programas ,IDE) : 300€
+    -  Mobiliario (Mesa, sillas,etc.) : 300€
+    -  Alugueiro de Oficina (6 meses) : 2400€ (400€/mes)  
+    -  Gastos legais e constitucións (SL) : 400€
+    -  Suministro electico y agua (6 meses) 150€ (25€/mes)
+    - TOTAL estimado : 5885 €
+
 #### 2.7.1- Custos
 
-> > _EXPLICACIÓN_: Neste apartado idicaremos o invertimento
->
-> - Diferenzando custos fixos de variables.
-> - Computando impostos e custos sociais.
+ - Diferenzando custos fixos de variables.
+
+ - Custos fixos 
+    - Dominio WEB (anual) : 15€
+    - Aloxamento WEB (1 ano) : 120€
+    - Desenvolvemento WEB : 2000€
+    - Equipos informaticos (PC, pantalla, etc) : 1200€
+    - Mobiliario (Mesa, sillas,etc.) : 300€
+    - Gastos legais e constitucións (SL) : 400€
+
+ - Custos Variables
+    - Software e licencias (Licencias, Programas ,IDE) : 300€
+    - Alugueiro de Oficina (6 meses) : 2400€ (400€/mes) 
+    - Suministro electico y agua (6 meses) 150€ (25€/mes)
+
+- Computando impostos e custos sociais.
+   - Imposto sobre Sociedades: 25 % del beneficio neto.
+   - IVA: 21%
+   - Seguridad Social 30-40% do salario bruto por traballador.
 
 #### 2.7.2- Ingresos
 
