@@ -216,7 +216,7 @@ Os usuarios son todas as persoas que acceden á páxina para ver os contidos.
 > - As perdas poden cubrirse vía financiamento (por parte da administración pública, con subvencións, etc)?
 
 ## 3- Requirimentos técnicos
-
+> ¿QUE ES LO QUE PONES AQUÍ? ES LA MEMORIA, ALMACENAMIENTO Y CPU DEL HOSTING
 - Infraestructura: 
   - 
   - Servidor web e bases de datos no mesmo host.
@@ -228,7 +228,7 @@ Os usuarios son todas as persoas que acceden á páxina para ver os contidos.
 - Frontend: HTML5, CSS e JavaScript para a páxina web.
 
 ## 4- Planificación
-
+> SE PIDE DIAGRAMA GANTT. NO ES CALCAR LO QUE YO OS PONGO DE LAS FASES DE ENTREGA, ES LO QUE CREEIS TU Y LAS FASES QUE REALMENTE APLICARÍAS
  - Estudo preliminar
     - Inicio inicio: 15 abril 2025
     - Duración 1 semana
