@@ -216,13 +216,12 @@ Os usuarios son todas as persoas que acceden á páxina para ver os contidos.
 > - As perdas poden cubrirse vía financiamento (por parte da administración pública, con subvencións, etc)?
 
 ## 3- Requirimentos técnicos
-> ¿QUE ES LO QUE PONES AQUÍ? ES LA MEMORIA, ALMACENAMIENTO Y CPU DEL HOSTING
 - Infraestructura: 
-  - 
-  - Servidor web e bases de datos no mesmo host.
-  - Almacenamento de 500 GB.
-  - Memoria de 16 GB.
-  - CPU de 4 núcleos.
+  - Hosting:
+    - Servidor web e bases de datos no mesmo host.
+    - Almacenamento de 500 GB.
+    - Memoria de 16 GB.
+    - CPU de 4 núcleos.
 
 - Backend: Uso de PHP e base de datos MariaDB.
 - Frontend: HTML5, CSS e JavaScript para a páxina web.
