@@ -149,13 +149,19 @@ Os usuarios son todas as persoas que acceden á páxina para ver os contidos.
 
 ### 2.6- Forma xurídica
 
-> _EXPLICACIÓN_: Neste apartado deberedes indicar a forma xurídica: autónomo, soc. Cooperativa, SL,.. Explicando (nun par de frases) por que escolledes esta forma
+ - Forma Xuridica:
+   A Sociedade Limitada SL, permite comenzar cun capital inicial baixo, Maior seguridade legal ao limitar a responsabilidade do
+   capital aportado e permitindo a participacion de varios socios que aporten capital.
 
 ### 2.7- Investimentos
 
-> _EXPLICACIÓN_: Neste apartado idicaremos o investimentos, aínda que sexa, só unha enumeración de todo o que necesitan (locais, infraestruturas, equipos, suministros, mobiliario...) cuantificando cada elemento.
-
  Investimentos
+
+  - Empleados (1):
+    Salario Bruto: 16000€ anual
+    Seguridade Social 30%: 4800€ anual
+    Total: 20800€
+
 
  - Conceptos:
     -  Dominio WEB (anual) : 15€
@@ -167,7 +173,11 @@ Os usuarios son todas as persoas que acceden á páxina para ver os contidos.
     -  Alugueiro de Oficina (6 meses) : 2400€ (400€/mes)  
     -  Gastos legais e constitucións (SL) : 400€
     -  Suministro electico y agua (6 meses) 150€ (25€/mes)
-    - TOTAL estimado : 5885 €
+    -  Suministro electico y agua (6 meses) 150€ (25€/mes)
+    -  Empleados: 20800€ anual.
+    - TOTAL estimado : 26685 €
+
+
 
 #### 2.7.1- Custos
 
@@ -193,7 +203,35 @@ Os usuarios son todas as persoas que acceden á páxina para ver os contidos.
 
 #### 2.7.2- Ingresos
 
-> _EXPLICACIÓN_: Neste apartado indicarase unha previsión de ventas e unha política de prezos. Isto implicar apuntar unha previsión de ventas e unha política de prezos.
+- Politica de Prezos:
+    Como a web e de acceso libre para os usuarios, na visualizacion.
+    Xeramos ingresos por:
+      - Anuncios destacados e promocions pequenas: Empresas e usuarios pagan para dar ter maior visibilidade. 
+      - Prezo:5€ y 10€ en funcion de duracion y distancia.
+      
+      - Publicidade de empresas
+      - Prezo: 20€ y 50€ por anuncio o promocion, segundo a difusion e duracion.
+
+      - Subcripciones de Entidades ou empresas: para uso de mellores funcionalidades, como estadisticas, visibilidade aumentada, etc..
+      - Prezo 10€ a 20 € mensual.
+
+ - Previsón del aproximada del primer año
+    - Anuncios destacados e promocions pequenas.
+      - Numero: 60
+      - Prezo: 5€
+      - Total Anual: 300€
+
+    - Publicidade de empresas.
+      - Numero: 3
+      - Prezo: 20€ * 12 meses
+      - Total Anual: 720€
+
+    - Subcripciones.
+      - Numero: 2
+      - Prezo: 10€ *12 meses
+      - Total Anual: 600€
+
+    - Total : 1.620 €
 
 ### 2.8- Viabilidade
 
@@ -201,19 +239,46 @@ Os usuarios son todas as persoas que acceden á páxina para ver os contidos.
 
 > _EXPLICACIÓN_: Neste subapartado deberás defender tendo en conta os datos xa aportados, a viabilidade da realización do proyecto.
 > Evidentemente, para poder xustificar a viabilidade económica do proyecto deberás ter en conta os ingresos. **Ainda que está na parte de empresa, este apartado é interesante dende o punto de vista técnico**
->
-> - Será posible dispoñer dos recursos humanos e medios de produción necesarios (materias primas, maquinaria, instalacións, etc.)?
-> - Existe algún impedimento técnico que dificulte o proceso produtivo?
+
+
+- Viabilidade técnica.
+  O proxecto ten una tecnicamente viable, os recursos de funcionamento son accesibles e de baixo custo.
+
+  - Tecnoloxias: HTML, CSS JavaScript e PHP, non requiren licencias.
+  - Infraestructura: Solo necesita un ordenador de traballo, conexion a internet, un espazo fisico de oficina e software de desenvolvemento. O uso de hosting permite so pagar por o necesario de uso permitindo escalalo de maneria sencilla.
+
+ - Será posible dispoñer dos recursos humanos e medios de produción necesarios (materias primas, maquinaria, instalacións, etc.)?
+  - Si, O proxecto require un baixo numero de persoas con coñecemento de desvenvolvemento web e deseño. Os perfis dos empleados non
+  son accesibles no mercado laboral. Os medios de producion son basicos e de baixo custo, o mais caro e o servidor pero ao usar hosting eliminase a necesidade de adquirirlo e mantelo. 
+
+- Existe algún impedimento técnico que dificulte o proceso produtivo?
+
+- Os unicos impedimentos son o mantemento do sistema e a sua escalabilidade, sendo apaliados tendo una boa planificacion e poidendo aumentar o numero de empleados ou subcontrarar os servizos necesarios.
 
 #### 2.8.2 - Viabilidade económica
 
 > _EXPLICACIÓN_: Neste subapartado deberás defender con datos a viabilidade da realización do proyecto, para elo debes indicar os custos e investimentos:
 
+  - Custos Totais: 26685€
+
+  - Ingresos Totais: 1620€
+
+  - Reultado economico: 
+    - Déficit 25065€
+        
+
 #### 2.8.3- Conclusión
 
-> - É viable?
-> - Os beneficios do proxecto son superiores aos costes?
-> - As perdas poden cubrirse vía financiamento (por parte da administración pública, con subvencións, etc)?
+ - É viable a medio prazo, se contamos con financiamiento inicial e con axudas publicas. Se preeve un deficit de 25000€.
+
+  - As perdas poden cubrirse vía financiamento:
+    - Fontes de Financiamento:
+      - Subvencion para contratacion de persoal Novo por parte do SEPE.
+      - Axudas ao emprendemento, como la Ayuda emprende Joven que puede ofrecer 3000€.
+
+  - Conclusiones:
+    O Proxecto e viable a medio prazo con axudas publicas mais se e posible conseguir financiamneto privado para apaliar o deficit.
+    E necesario conseguir un bo financiamento ao principio.
 
 ## 3- Requirimentos técnicos
 - Infraestructura: 
@@ -229,12 +294,12 @@ Os usuarios son todas as persoas que acceden á páxina para ver os contidos.
 ## 4- Planificación
 > SE PIDE DIAGRAMA GANTT. NO ES CALCAR LO QUE YO OS PONGO DE LAS FASES DE ENTREGA, ES LO QUE CREEIS TU Y LAS FASES QUE REALMENTE APLICARÍAS
  - Estudo preliminar
-    - Inicio inicio: 15 abril 2025
-    - Duración 1 semana
+    - Inicio inicio: 5 abril 2025
+    - Duración 2 semanas
     - Remate: 21 abril 2025
     - Tareas:
-            - Estudo de mercado.
-            - Investigación de necesidades de clientes e usuarios.
+              - Creacion del anteproxecto
+              - Investigacion de usuarios y mercado
 
 - Análise
     - Inicio inicio: 22 abril 2025
