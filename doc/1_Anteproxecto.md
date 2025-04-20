@@ -21,6 +21,8 @@
 
 ## 1- Descrición do proxecto
 
+ElTablonDigital
+
 O proxecto consiste é unha páxina web dun taboleiro de anuncios e avisos informativos, onde usuarios e entidades poidan publicar anuncios e comunicados como: mascotas perdidas, anuncios de compra, eventos locais, actividades. Tamén os organismos públicos poidan anunciar eventos e comunicados. Dixitalizar os taboleiros tradicionais, os carteis que colgan nas ruas.
 
 O proposito principal permitir informacion de interese, avisos e anuncios a persoas, e facilitar a comunicacion entre as persoas e entidades publicas ou empresas.
@@ -30,8 +32,6 @@ Este proxecto axuda a empresas locais e individuos poidan publicitarse e ofrecer
 A web estaría desenvolvida empregando HTML, CSS e JavaScript no frontend, e o backend con PHP.
 
 ## 2- Empresa
-
-> _EXPLICACIÓN_: Neste apartado desenvolveredes todo o referente os módulos de Empresa e iniciativa emprendedora e de FOL.
 
 ### 2.1- Idea de negocio
 
@@ -282,6 +282,7 @@ Os usuarios son todas as persoas que acceden á páxina para ver os contidos.
 
 ## 3- Requirimentos técnicos
 - Infraestructura: 
+- Dominio: eltablondigital.es
   - Hosting:
     - Servidor web e bases de datos no mesmo host.
     - Almacenamento de 500 GB.
