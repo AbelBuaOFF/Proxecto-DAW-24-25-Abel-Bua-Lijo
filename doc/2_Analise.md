@@ -55,9 +55,6 @@ Visualizacion de anuncios: Ver os anuncios creados por outros usuarios.
 
 ## 4- Contorno operacional
 
-> *EXPLICACION* Neste apartado deben describirse os recursos necesarios, dende o punto de vista do usuario, para poder operar coa aplicación web. Habitualmente consiste nun navegador web actualizado e unha conexión a internet.
-Se é necesario algún hardware ou software adicional, deberá indicarse.
-
 Recursos Necesarios:
   - Dispositivos:
       - Ordenador sobremesa ou portatil.

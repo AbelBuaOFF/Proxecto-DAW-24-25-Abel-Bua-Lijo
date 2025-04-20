@@ -293,37 +293,66 @@ Os usuarios son todas as persoas que acceden á páxina para ver os contidos.
 - Frontend: HTML5, CSS e JavaScript para a páxina web.
 
 ## 4- Planificación
-> SE PIDE DIAGRAMA GANTT. NO ES CALCAR LO QUE YO OS PONGO DE LAS FASES DE ENTREGA, ES LO QUE CREEIS TU Y LAS FASES QUE REALMENTE APLICARÍAS
- - Estudo preliminar
+
+- Diagrama de Gantt
+
+  ![alt text](<diagrama de gantt.png>)
+
+ - Anteproxecto
     - Inicio inicio: 5 abril 2025
     - Duración 2 semanas
+    - Remate: 7 abril 2025
+    - Tareas:
+              - Creacion de Idea.
+              - Xustificacion de idea.
+              - Investimentos do proxecto.
+              - Viabilidade do proxecto.
+              - Elaboracion de Conclusións.
+              - Planificacion do proxecto
+- Análise
+    - Inicio inicio: 8 abril 2025
+    - Duración 1 semana
     - Remate: 21 abril 2025
     - Tareas:
-              - Creacion del anteproxecto
-              - Investigacion de usuarios y mercado
+            - Análise.
+            - Descripcion de funcionalidades.
+            - Creacion de Normativas.
+            - Ideas futuras do proxecto.
 
-- Análise
+  - Deseño
     - Inicio inicio: 22 abril 2025
     - Duración 1 semana
     - Remate: 28 abril 2025
     - Tareas:
-            - Analizar as funcionalidades da aplicación.
-
- - Deseño
-    - Inicio inicio: 29 abril 2025
-    - Duración 1 semana
-    - Remate: 12 maio 2025
-    - Tareas:
-            - Prototipado
+            - Elaboracion de diagramas
             - Diseño de da paxina Web
             - Creacion da Base de datos
 
- - Codificación e probas.
+
+ - Codificación e probas 1-parte.
+    - Inicio inicio: 29 maio 2025
+    - Duración 5 semana
+    - Remate: 12 maio 2025
+    - Tareas:
+            - Programación do frontend e backend.
+            - Elaboracion de prototipos en figma.
+
+ - Codificación e probas 2-parte.
     - Inicio inicio: 13 maio 2025
     - Duración 5 semana
-    - Remate: 16 maio 2025
+    - Remate: 2 junio 2025
     - Tareas:
             - Programación do frontend e backend.
             - Probas e corrección de erros.
+
+ - Implementación.
+    - Inicio inicio: 3 maio 2025
+    - Duración 5 semana
+    - Remate: 9 maio 2025
+    - Tareas:
+            - Elaboracion de Manual Tecnico
+            - Elaboracion de Manual de Usuario.
+
+
 
 [**<-Anterior**](../../README.md)
