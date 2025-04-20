@@ -97,8 +97,6 @@ Recursos Necesarios:
 
 ## 6- Melloras futuras
 
-> *EXPLICACION* É posible que o noso proxecto se centre en resolver un problema concreto que se poderá ampliar no futuro con novas funcionalidades, novas interfaces, etc.
-
  - Sistemas de comentarios é valoracions: os usuarios poderan comentrar e valora positivamente un anuncio en cuestion.
  - Sistema de mesaxeria de usuarios dentro da aplicacion: os usuarios poderan comunicarse entre eles com mesaxes.
  - Integracions con redes sociais: poder compartir anuncios en distintas redes.
