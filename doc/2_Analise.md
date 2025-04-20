@@ -12,36 +12,60 @@
 
 ## 1- Descrición Xeral
 
->*EXPLICACION*: Descrición Xeral do proxecto
+O Proxecto e sobre una aplicacion Web que dixitaliza e centraliza os anuncios, carteis e avisos que estan repartidos por as ruas das cidades e vilas. Facendo mais accesible, visible e que se poda difundir mellor nun mundo actual que esta moi dixitalizado.
+
+A aplicacion permite que usuarios empresas e entidades poidan difundir informacion sobre avisos, eventos oun incidencias nas zonas proximas a estos.
 
 ## 2- Funcionalidades
 
->*EXPLICACION* Describir que servizos ou operacións se van poder realizar por medio do noso proxecto, indicando que actores interveñen en cada caso.
->
-> Enumeradas, de maneira que na fase de deseño poidamos definir o diagrama ou configuración correspondente a cada funcionalidade.
-> Cada función ten uns datos de entrada e uns datos de saída. Entre os datos de entrada e de saída, realízase un proceso, que debe ser explicado.
-
-Exemplo:
-
 | Acción   |  Descrición        |
-|----------|--------------------|
-| Alta de productos   | Dar de alta os productos na base de datos|
-| Modificar productos | Modificación de productos na base de datos|
-| Presentación dos productos  | Mostra dos productos por medio da páxina web |
+
+Visualizacion de anuncios: Ver os anuncios creados por outros usuarios.
+ - Entrada: Introducir filtros, categoria e zona.
+ - Saida: Mostrar os Anuncios filtrados.
+
+ Rexistro de usuarios : crear conta na aplicacion.
+ - Entrada: Datos de usuario ou entidade.
+ - Saida: Contra creada.
+
+ Inicio de sesion : Autentificacion de usuarios rexistrados.
+ - Entrada: Usuarios autentificado.
+ - Saida: Acceso a aplicacion.
+
+ Publicacion un anuncio: Crear un novo anuncio na Web .
+ - Entrada: Titulo, descripcion, imaxe, categoria e zonas que qu,
+ - Saida: Anuncio publicado.
+
+ Modificacion un anuncio: Modificar un anuncio existente. 
+ - Entrada: Titulo, descripcion, imaxe, categoria e zonas que queran ser modificadas,
+ - Saida: Anuncio Modificado.
+
+  Eliminacion un anuncio: Eliminar un anuncio existente. 
+ - Entrada: ID del anuncio deseado,
+ - Saida: Anuncio Borrado.
 
 ## 3- Tipos de usuarios
 
-> *EXPLICACION* Describir os tipos de usuario que poderán acceder ao noso sistema. Habitualmente os tipos de usuario veñen definidos polas funcionalidades ás cales teñen acceso. En termos xerais existen moitos grupos de usuarios: anónimos, novos, rexistrados, bloqueados, confirmados, verificados, administradores, etc.
->
-> Exemplo:
->
-> - Usuario xenérico, que terá acceso a ...
-> - Usuario técnico, que poderá...
+- Tipos de usuarios:
+  - Usuarios Anonimo: Pode ver as publicacions e usar os filtros, non pode publicar contidos.
+  - Usuarios Rexistrado Particular : Pode ver as publicacions e usar os filtros, pode publicar e mofidicar contidos propios.
+  - Usuarios Rexistrado Entidade ou empresa : Pode ver as publicacions e usar os filtros, pode publicar e mofidicar contidos propios, ter mais funcionalidades dependendo da sua subscripcion ou tipo de publicacion.
+  - Administradores: Ver o panel de administracion, e xestionar todos os elementos da aplicacion.
+  - Usuarios Bloqueados : Non poden acceder a aplicacion.
 
 ## 4- Contorno operacional
 
 > *EXPLICACION* Neste apartado deben describirse os recursos necesarios, dende o punto de vista do usuario, para poder operar coa aplicación web. Habitualmente consiste nun navegador web actualizado e unha conexión a internet.
 Se é necesario algún hardware ou software adicional, deberá indicarse.
+
+Recursos Necesarios:
+  - Dispositivos:
+      - Ordenador sobremesa ou portatil.
+      - Tablet ou Telefono Intelixente.
+  - Navegador Web actualizado as tecnoloxias propias do proxecte. HTML , CSS e JavaScript
+  - Conexion a internet estable.
+
+  Non e necesario instalar ningun software adicion para que os usuarios poidan acceder.
 
 ## 5- Normativa
 
@@ -56,6 +80,9 @@ Se é necesario algún hardware ou software adicional, deberá indicarse.
 > - Política de cookies.
 >
 > É acosenllable ver [exemplos de webs](https://www.spotify.com/es/legal/privacy-policy/) que conteñan textos legais referenciando a LOPDPGDD ou GDPR.
+
+ - Aviso legal.
+  Responsable
 
 ## 6- Melloras futuras
 
