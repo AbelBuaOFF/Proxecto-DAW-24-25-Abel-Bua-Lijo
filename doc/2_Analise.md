@@ -78,6 +78,7 @@ Recursos Necesarios:
 
   Para cumplir a Lei Orgánica 3/2018 e o Regulamento Europeo (GDPR), Os datos persoais que seran tratados de maneira confidencial e exculusivamente utilizados para a xestion e funcionamento da paxina ElTablonDigital.
 
+
   - Responsable: Abel Búa Lijó.
     Finalidades:
       - Xestion de contas de usuario.

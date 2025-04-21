@@ -330,7 +330,7 @@ Os usuarios son todas as persoas que acceden á páxina para ver os contidos.
 
 
  - Codificación e probas 1-parte.
-    - Inicio inicio: 29 maio 2025
+    - Inicio inicio: 29 Abril 2025
     - Duración 5 semana
     - Remate: 12 maio 2025
     - Tareas:
