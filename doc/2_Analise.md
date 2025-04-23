@@ -51,7 +51,7 @@ Visualizacion de anuncios: Ver os anuncios creados por outros usuarios.
   - Usuarios Rexistrado Particular : Pode ver as publicacions e usar os filtros, pode publicar e mofidicar contidos propios.
   - Usuarios Rexistrado Entidade ou empresa : Pode ver as publicacions e usar os filtros, pode publicar e mofidicar contidos propios, ter mais funcionalidades dependendo da sua subscripcion ou tipo de publicacion.
   - Administradores: Ver o panel de administracion, e xestionar todos os elementos da aplicacion.
-  - Usuarios Bloqueados : Non poden acceder a aplicacion.
+  - **Usuarios Bloqueados : Non poden acceder a aplicacion??? Esto no es un tipo de usuario es un estado**.
 
 ## 4- Contorno operacional
 
@@ -59,7 +59,7 @@ Recursos Necesarios:
   - Dispositivos:
       - Ordenador sobremesa ou portatil.
       - Tablet ou Telefono Intelixente.
-  - Navegador Web actualizado as tecnoloxias propias do proxecte. HTML , CSS e JavaScript
+  - Navegador Web actualizado as tecnoloxias propias do proxecto. HTML , CSS e JavaScript
   - Conexion a internet estable.
 
   Non e necesario instalar ningun software adicion para que os usuarios poidan acceder.
