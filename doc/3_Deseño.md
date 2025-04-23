@@ -38,4 +38,4 @@
 >
 > Se temos as ideas máis claras do noso proxecto podemos sustituir os mockups por prototipos.
 >
-[**<-Anterior**](../../README.md)
+[**<-Anterior**](../README.md)

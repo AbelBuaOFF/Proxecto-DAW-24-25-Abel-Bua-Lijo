@@ -38,4 +38,4 @@ No caso de utilizar tecnoloxías diferentes ás estudadas no ciclo formativo, fa
 
 Deben describirse as probas realizadas e conclusión obtidas. Describir os problemas atopados e como foron solucionados.
 
-[**<-Anterior**](../../README.md)
+[**<-Anterior**](../README.md)
