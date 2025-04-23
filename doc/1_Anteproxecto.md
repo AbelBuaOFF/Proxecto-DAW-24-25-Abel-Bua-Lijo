@@ -25,7 +25,7 @@ ElTablonDigital
 
 O proxecto consiste é unha páxina web dun taboleiro de anuncios e avisos informativos, onde usuarios e entidades poidan publicar anuncios e comunicados como: mascotas perdidas, anuncios de compra, eventos locais, actividades. Tamén os organismos públicos poidan anunciar eventos e comunicados. Dixitalizar os taboleiros tradicionais, os carteis que colgan nas ruas.
 
-O proposito principal permitir informacion de interese, avisos e anuncios a persoas, e facilitar a comunicacion entre as persoas e entidades publicas ou empresas.
+O proposito principal dar visivilidade e permitir informacion de interese, avisos e anuncios a persoas, e facilitar a comunicacion entre as persoas e entidades publicas ou empresas.
 
 Este proxecto axuda a empresas locais e individuos poidan publicitarse e ofrecer servizos, pagando tarifas ou subcripcions.
 

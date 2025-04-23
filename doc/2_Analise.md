@@ -12,9 +12,11 @@
 
 ## 1- Descrición Xeral
 
-O Proxecto e sobre una aplicacion Web ElTablonDigital "eltablondigital.es" que dixitaliza e centraliza os anuncios, carteis e avisos que estan repartidos por as ruas das cidades e vilas. Facendo mais accesible, visible e que se poda difundir mellor nun mundo actual que esta moi dixitalizado.
+O Proxecto e sobre una aplicacion Web ElTablonDigital "eltablondigital.es" que dixitaliza e centraliza os anuncios, carteis e avisos que estan repartidos por as ruas das cidades e vilas. Facendo mais accesible, visible e que se poda difundir mellor nun mundo actual que esta moi dixitalizado. Utilizando filtros por zonas.
 
-A aplicacion permite que usuarios empresas e entidades poidan difundir informacion sobre avisos, eventos oun incidencias nas zonas proximas a estos.
+A paxina xestiona distintas zonas onde usuarios empresas e entidades poidan difundir informacion sobre avisos, eventos oun incidencias nas zonas proximas a estos. 
+
+Esta orientada a empresas pequenas e entidades locais. 
 
 ## 2- Funcionalidades
 
