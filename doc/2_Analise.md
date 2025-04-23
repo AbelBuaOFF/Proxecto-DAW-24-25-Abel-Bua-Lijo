@@ -103,4 +103,4 @@ Recursos Necesarios:
  - Integracions con redes sociais: poder compartir anuncios en distintas redes.
  - Aplicacion Mobil: Creacion dunha aplicacion con version para android.
 
-[**<-Anterior**](../../README.md)
+[**<-Anterior**](../README.md)
