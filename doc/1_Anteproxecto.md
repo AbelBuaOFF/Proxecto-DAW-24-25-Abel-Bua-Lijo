@@ -98,8 +98,6 @@ Os usuarios son todas as persoas que acceden á páxina para ver os contidos.
 
 ### 2.4- Competencia
 
-> _EXPLICACIÓN_: Neste apartado deberase indicar que outras empresas operan no mercado. Que cota de mercado teñen e como están posicionadas. Existencia de productos/servizos substitutivos. Como están posicionados.
-
   Competidores:
   - Milanuncios e Wallapop.
     - Cota de mercado: Alta cota de mercado en compra-venta a nivel nacional.
@@ -237,10 +235,6 @@ Os usuarios son todas as persoas que acceden á páxina para ver os contidos.
 
 #### 2.8.1- Viabilidade técnica
 
-> _EXPLICACIÓN_: Neste subapartado deberás defender tendo en conta os datos xa aportados, a viabilidade da realización do proyecto.
-> Evidentemente, para poder xustificar a viabilidade económica do proyecto deberás ter en conta os ingresos. **Ainda que está na parte de empresa, este apartado é interesante dende o punto de vista técnico**
-
-
 - Viabilidade técnica.
   O proxecto ten una tecnicamente viable, os recursos de funcionamento son accesibles e de baixo custo.
 
@@ -257,12 +251,8 @@ Os usuarios son todas as persoas que acceden á páxina para ver os contidos.
 
 #### 2.8.2 - Viabilidade económica
 
-> _EXPLICACIÓN_: Neste subapartado deberás defender con datos a viabilidade da realización do proyecto, para elo debes indicar os custos e investimentos:
-
   - Custos Totais: 26685€
-
   - Ingresos Totais: 1620€
-
   - Reultado economico: 
     - Déficit 25065€
         
@@ -355,4 +345,4 @@ Os usuarios son todas as persoas que acceden á páxina para ver os contidos.
 
 
 
-[**<-Anterior**](../../README.md)
+[**<-Anterior**](../README.md)
