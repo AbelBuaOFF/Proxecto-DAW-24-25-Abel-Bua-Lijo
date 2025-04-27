@@ -18,12 +18,14 @@
 
 ## 3- Diagrama de Base de Datos
 
-> *EXPLICACIÓN:* Neste apartado incluiranse os diagramas relacionados coa Base de Datos:
->
-> - Modelo Entidade/relación
-> - Modelo relacional
->
-> Pódese entregar a captura do phpMyAdmin se se emprega MariaDB como Modelo relacional.
+ - Modelo Entidade/relación
+ ![alt text](<Modelo Entidad-relación.png>)
+
+
+ - Modelo relacional
+ ![alt text](<img/Modelo relacional.png>)
+
+
 
 ## 4- Deseño de interface de usuarios
 
@@ -36,4 +38,6 @@
 >
 > Se temos as ideas máis claras do noso proxecto podemos sustituir os mockups por prototipos.
 >
+Prototipo en FIGMA https://www.figma.com/design/y4H8Sfw6a6Vo7keHFK3eq8/ElTablonDigital?node-id=0-1&t=nioOfL72xUUqnobS-1
+
 [**<-Anterior**](../README.md)
