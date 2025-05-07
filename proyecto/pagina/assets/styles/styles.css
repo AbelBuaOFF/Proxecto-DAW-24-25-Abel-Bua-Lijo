@@ -1,0 +1,156 @@
+@import url('./fonts.css');
+:root{
+    --color-texto: #ffffff;
+    --color-fondo-header: #BF9264;
+    --color-fondo-main: #6F826A;
+    --color-bnt: #BBD8A3;
+    --color-btn-hover: #6F826A;
+    --color-fondo-anuncio: #F0F1C5;
+
+    --fuente-principal: 'Jersey25', sans-serif;
+}
+/*=============================================
+=            Generales         =
+=============================================*/
+*,*::after
+,*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+main{
+    padding: 1rem;
+    flex-grow: 1;
+}
+
+ 
+ /*=====  End of Generales  ======*/
+
+ 
+ /*=============================================
+ =            Header          =
+ =============================================*/
+ 
+
+ header,footer{
+    font-family: var(--fuente-principal);
+
+    color: var(--color-texto);
+    background-color: var(--color-fondo-header);
+    padding: 0 1rem;
+    font-size: 1.2rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ }
+ header{
+    position: sticky;
+    top: 0;
+ }
+ .logo{
+    width: 80px;
+    height: 80px;
+    }
+
+ .logo-menu{
+    display: flex;
+    gap: 1rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+ }
+ .nav-menu{
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.nav-menu li a{
+    text-decoration: none;
+    color: var(--color-texto);
+}
+.nav-menu li a:hover{
+    text-decoration: underline;
+}
+.nav-menu li p:hover{
+    background-color: var(--color-btn-hover);
+}
+.btn-cerrar-sesion{
+    background-color: var(--color-bnt);
+    color: black;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    box-shadow: 0 0 5px black;
+}
+.hamburguesa-menu{
+    display: none;
+    cursor: pointer;
+}
+
+
+  /*=====  End Header ======*/
+ 
+ 
+ /*=============================================
+ =            Main            =
+ =============================================*/
+ 
+ main{
+    background-color: var(--color-fondo-main);
+    justify-items: center;
+ }
+ 
+ main .section-anuncios{
+    justify-content: center;
+    padding: 1rem;
+
+    display: grid;
+    grid-template-columns: repeat(3, 300px);
+    grid-auto-rows: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+ }
+ 
+ main .section-anuncios .anuncio{
+    padding: 1rem;
+    background-color: var(--color-fondo-anuncio);
+    min-height: 300px;
+ }
+
+ /*=============================================
+ =            Footer            =
+ =============================================*/
+ 
+footer{
+    padding: 1rem;
+    width: 100%;
+}
+
+    footer .texto-footer{
+        color: var(--color-texto);
+    }
+    footer .links-footer{ 
+        display: flex;
+        gap: 1rem;
+        list-style: none;
+    }
+
+    footer .links-footer li a{ 
+        text-decoration: none;
+        color: var(--color-texto);
+    }
+
+    footer .links-footer li a:hover{
+        text-decoration: underline;
+    }
+   /*=====  End Footer ======*/
+ 
+ 

@@ -11,6 +11,7 @@
 ## 1- Sitios web de documentación técnica
 
 ## 2- Fontes de interes
+ fuente header y footer: https://fonts.google.com/specimen/Jersey+25
 
 ## 3- Sitios oficiais do software utilizado
 
