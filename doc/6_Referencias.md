@@ -14,6 +14,7 @@
  fuente header y footer: https://fonts.google.com/specimen/Jersey+25
 
 ## 3- Sitios oficiais do software utilizado
+ fuentes y elementos decorativos: https://fontawesome.com/
 
 ## 4- Normas ou documentos legais
 
