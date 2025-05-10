@@ -1,39 +1,4 @@
-@import url('./fonts.css');
-:root{
-    --color-texto: #ffffff;
-    --color-fondo-header: #BF9264;
-    --color-fondo-main: #6F826A;
-    --color-bnt: #BBD8A3;
-    --color-btn-hover: #6F826A;
-    --color-fondo-anuncio: #F0F1C5;
-
-    --fuente-principal: 'Jersey25', sans-serif;
-}
-/*=============================================
-=            Generales         =
-=============================================*/
-*,*::after
-,*::before{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body{
-    margin: 0;
-    width: 100vw;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-main{
-    padding: 1rem;
-    flex-grow: 1;
-}
-
- 
- /*=====  End of Generales  ======*/
-
- 
+@import url('./generales.css');
  /*=============================================
  =            Header          =
  =============================================*/
@@ -80,17 +45,9 @@ main{
 .nav-menu li p:hover{
     background-color: var(--color-btn-hover);
 }
-.btn-cerrar-sesion{
+.btn-sesion{
     background-color: var(--color-bnt);
     color: black;
-    font-weight: 400;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    box-shadow: 0 0 5px black;
-}
-.btn-cerrar-sesion:hover{
-    background-color: var(--color-btn-hover);
-    color: var(--color-texto);
 }
 .hamburguesa-menu{
     display: flex;
@@ -119,6 +76,10 @@ main{
     background-color: var(--color-fondo-main);
     justify-items: center;
     margin-bottom: 2rem;
+ }
+
+ main .off{
+    display: none;
  }
  
  main .section-anuncios{
@@ -177,6 +138,31 @@ main{
  main .buscador form button:hover{
     background-color: var(--color-fondo-anuncio);
  }
+main .section-publicar{
+    text-align: center;
+    width: 50%;
+ }
+ main .section-publicar form{
+    padding: 1rem;
+    background-color: var(--color-fondo-anuncio);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    font-size: 1.2rem;
+ }
+ main .section-publicar form input , main .section-publicar form select{
+    width: 80%;
+    padding: 5px;
+ }
+ main .section-publicar form .fila-form{
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+ } 
+
+
+
  /*=============================================
  =            Footer            =
  =============================================*/
@@ -209,6 +195,8 @@ footer{
     }
    /*=====  End Footer ======*/
  
+
+   
  @media screen and (min-width: 768px){
     header{
         flex-direction: row;
@@ -256,6 +244,4 @@ footer{
         list-style: none;
     }
     
-
-
  }

@@ -17,8 +17,9 @@
         </ul>
         <nav class="navegador">
             <ul class="nav-menu">
-                <li><p class="btn-sesion btn-login btn">Iniciar Sesion</p></li>
-                <li><p class="btn-sesion btn-registro btn">Registrarse</p></li>
+                <li><a href="" class="publicar-anuncio">Publicar Anuncio</a></li>
+                <li><a href="">Panel de Usuario</a></li>
+                <li><p class="btn-cerrar-sesion btn">Cerrar Sesion</p></li>
             </ul>
         </nav>
         <p class="hamburguesa-menu"><i class="fas fa-bars"></i></p>
@@ -30,14 +31,60 @@
                 <input type="text" name="buscador" id="buscador" placeholder="Buscar Auncio...">
                 <select name="buscador-categorias" id="buscador-categorias" class="categorias">
                     <option value="">Seleccionar Categoria</option>
+                    <option value="1">Categoria 1</option>
+                    <option value="2">Categoria 2</option>
+                    <option value="3">Categoria 3</option>
                 </select>
                 <select name="buscador-localizacion" id="buscador-localizacion" class="localizacion">
                     <option value="">Seleccionar Localizacion</option>
+                    <option value="1">Localizacion 1</option>
+                    <option value="2">Localizacion 2</option>
+                    <option value="3">Localizacion 3</option>
                 </select>
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i>
                 </button>
             </form>
         </section >
+        <section class="section-publicar">
+            <form action="">
+                <h2 class="h2">Publicar Anuncio</h2>
+                <ul class="fila-form">
+                    <label for="titulo"> Titulo:</label>
+                    <input type="text" placeholder="Titulo del anuncio..." name="titulo" id="titulo" required>
+                </ul>
+                <ul class="fila-form">
+                    <label for="descripcion"> Descripcion:</label>
+                    <input type="text" placeholder="Breve descripcion del anuncio..." name="descripcion" id="descripcion" required>
+                </ul>
+                <ul class="fila-form">
+                    <label for="texto"> Texto:</label>
+                    <input type="text" placeholder="Texto del anuncio..." name="texto" id="texto" required>
+                </ul>
+                <ul class="fila-form">
+                    <label for="text">Contacto:</label>
+                    <input type="text" placeholder="Telefono o email..." name="contacto" id="contacto" required>
+                </ul>
+                <ul class="fila-form">
+                <label for="img">Imagen:</label>
+                <input type="file" name="img" id="img" accept="image/*" required>
+                </ul>
+                <ul class="fila-form">
+                <label for="localizacion"> Localizacion:</label>
+                <select name="localizacion" id="localizacion" class="localizacion">
+                    <option value="">Seleccionar Localizacion</option>
+                </select>
+                <label for="categoria"> Categoria:</label>
+                <select name="categoria" id="categoria" class="categorias">
+                    <option value="">Seleccionar Categoria</option>
+                </select>
+                </ul>
+                <ul class="grupo-btn">
+                    <li><button type="submit" class="btn-publicar btn">Publicar</button></li>
+                    <li><button type="reset" class="btn-limpiar btn">Limpiar</button></li>
+                    <li><button type="button" class="btn-cancelar btn">Cancelar</button></li>
+                </ul> 
+            </form>
+        </section>
         <section class="section-anuncios">
             <article class="anuncio">
                 <h3 class="anuncio-titulo">Titulo</h3>

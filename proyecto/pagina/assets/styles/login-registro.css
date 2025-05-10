@@ -1,0 +1,25 @@
+
+/*=============================================
+=            Section Login           =
+=============================================*/
+main .section-login{
+    width: 40%;
+    display: flex;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-fondo-anuncio);
+}
+
+main .section-login form{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+}
+
+main .section-login form .fila-form{
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}

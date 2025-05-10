@@ -1,0 +1,64 @@
+@import url('./fonts.css');
+:root{
+    --color-texto: #ffffff;
+    --color-fondo-header: #BF9264;
+    --color-fondo-main: #6F826A;
+    --color-bnt: #BBD8A3;
+    --color-btn-hover: #6F826A;
+    --color-fondo-anuncio: #F0F1C5;
+
+    --fuente-principal: 'Jersey25', sans-serif;
+}
+/*=============================================
+=            Generales         =
+=============================================*/
+*,*::after
+,*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+main{
+    padding: 1rem;
+    flex-grow: 1;
+}
+
+.btn{
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    box-shadow: 0 0 5px black;
+    font-family: var(--fuente-principal);
+}
+.btn:hover{
+    color: var(--color-texto);
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: var(--fuente-principal);
+
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+.btn-volver{
+    background-color: orange;
+}
+
+.grupo-btn{
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+}
+ /*=====  End of Generales  ======*/
