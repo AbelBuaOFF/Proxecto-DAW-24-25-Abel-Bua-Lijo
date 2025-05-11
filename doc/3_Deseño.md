@@ -14,13 +14,13 @@
 
 ## 2- Casos de uso
 
-![alt text](image-1.png)
+![alt text](image-3.png)
 
 ## 3- Diagrama de Base de Datos
 
  - Modelo Entidade/relación
- ![alt text](<Modelo Entidad-relación.png>)
 
+![alt text](image-4.png)
 
  - Modelo relacional
 ![alt text](image-2.png)
