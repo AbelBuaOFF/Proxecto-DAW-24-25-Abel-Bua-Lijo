@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS el_tablon_digital;
+USE el_tablon_digital;
+
 CREATE TABLE Tipo_Anuncio (
     id INT PRIMARY KEY,
     nombre_tipo_anuncio VARCHAR(150)
@@ -49,18 +52,17 @@ CREATE TABLE Anuncio (
     id INT PRIMARY KEY,
     id_usuario INT,
     titulo VARCHAR(200),
-    descripcion TEXT,
+    descripcion VARCHAR(255),
+    contenido TEXT,
     id_tipo_anuncio INT,
     fecha_creacion DATE,
     fecha_modificacion DATE,
     id_localizacion INT,
-    id_categoria INT,
     imagen_url VARCHAR(255),
     borrado BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (id_usuario) REFERENCES Usuario(id),
     FOREIGN KEY (id_tipo_anuncio) REFERENCES Tipo_Anuncio(id),
-    FOREIGN KEY (id_localizacion) REFERENCES Localizacion(id),
-    FOREIGN KEY (id_categoria) REFERENCES Categorias(id)
+    FOREIGN KEY (id_localizacion) REFERENCES Localizacion(id)
 );
 
 CREATE TABLE Anuncio_Categorias (
@@ -69,4 +71,17 @@ CREATE TABLE Anuncio_Categorias (
     PRIMARY KEY (id_anuncio, id_categoria),
     FOREIGN KEY (id_anuncio) REFERENCES Anuncio(id),
     FOREIGN KEY (id_categoria) REFERENCES Categorias(id)
+);
+
+CREATE TABLE Rol (
+    id INT PRIMARY KEY,
+    nombre_rol VARCHAR(50) UNIQUE
+);
+
+CREATE TABLE Usuario_Rol (
+    id_usuario INT,
+    id_rol INT,
+    PRIMARY KEY (id_usuario),
+    FOREIGN KEY (id_usuario) REFERENCES Usuario(id),
+    FOREIGN KEY (id_rol) REFERENCES Rol(id)
 );
