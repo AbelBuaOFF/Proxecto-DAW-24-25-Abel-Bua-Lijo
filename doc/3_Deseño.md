@@ -23,7 +23,7 @@
 
 
  - Modelo relacional
- ![alt text](<img/Modelo relacional.png>)
+![alt text](image-2.png)
 
 
 
