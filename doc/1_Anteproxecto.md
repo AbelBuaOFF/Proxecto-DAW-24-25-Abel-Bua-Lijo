@@ -37,7 +37,7 @@ A web estaría desenvolvida empregando HTML, CSS e JavaScript no frontend, e o b
 
 O produto central é a propia páxina web que funciona como taboleiro de anuncios e avisos.
 
-O seu valor engadido reside en localizar a información local nun único sitio, chegando ao máximo número de persoas posible, facéndoa máis doada de utilizar para individuos e entidades.
+O seu valor engadido reside en dar visibilidade a entidades en empresas locais que teñan pouca o ninguna visibidade en redes podendo mellorar a sua dixitalizacion e visibilidade cara novos clientes. E permitindo que particulares poindan poñer anuncios e avisos propios nas suas localidades.
 
 Aporta valor engadido aos avisos destacados e á posibilidade de compartilos facilmente noutras redes.
 
@@ -58,13 +58,13 @@ Por estas estatísticas pode verse que as persoas teñen acceso á rede, en camb
 DAFO
 
 Fortalezas:
-- Apoio por parte de organizacións públicas que queren ofrecer avisos e anuncios propios nas suas zonas.
 - Capacidade de albergar diferentes tipos de información: avisos, comunicados ou anuncios.
-- Oportunidade de anunciarse para individuos e entidades.
+- Oportunidade de anunciarse para individuos, empresas e entidades pouco o nada dixitalizadas.
 
 Debilidades:
-- Depender dos usuarios e entidades para xerar contido.
+- Depender dos usuarios, empresas e entidades para xerar contido.
 - Necesidade de moderación.
+- Competencias con canais de informacion xa establecidos.
 
 Oportunidades:
 - Posibilidade de monetización mediante anuncios de empresas.
@@ -73,6 +73,7 @@ Oportunidades:
 Ameazas:
 - Dificultade de xerar ingresos a corto prazo.
 - Competencia con redes sociais.
+- Dificultade de que organismos publicos poidan en utilizar a plataforma.
 
 
 ### 2.3- Segmento de clientes
@@ -81,17 +82,17 @@ Segmentos:
   - 1 Usuarios: 
       - Rasgos: Persoas de calquera idade que teñan interese en coñecer os avisos, anuncios e eventos que sucedan na súa zona.
       - Necesidades: Ter acceso rápido e cómodo á información, produtos e servizos na súa zona.
-      - Cuantificar: Sobre o 60% das persoas que residen nesa zona.
+      - Cuantificar: Estimando o 60% das persoas que residen nesa zona.
   
   - 2 Negocios:
       - Rasgos: Pequenos negocios e organizacións locais que queren promocionar os seus produtos e servizos.
       - Necesidades: Poder ter un espazo para anunciar os seus productos.
-      - Cuantificar: Sobre o 30% de empresas locais que necesitan publicitarse.
+      - Cuantificar: Estimando o 30% de empresas locais que necesitan publicitarse.
 
-  - 3 Entidades Publicas:
-      - Rasgos: Institucións públicas, organizacións locais ou asociacións de veciños que necesiten publicar anuncios e alertas importantes.
+  - 3 Entidades Locais:
+      - Rasgos: Institucións, organizacións locais ou asociacións de veciños que necesiten publicar anuncios e alertas importantes.
       - Necesidades: Una plataforma para poder difundir os seus comunicados de maneria rapida.
-      - Cuantificar: Sobre o 10% de entidades que necesiten proporcionar informacion a os usuarios.
+      - Cuantificar: Estimando o 10% de entidades que necesiten proporcionar informacion a os usuarios.
 
 Os clientes son os usuarios que publican contido, podendo ser persoas físicas ou entidades tanto públicas como privadas.
 Os usuarios son todas as persoas que acceden á páxina para ver os contidos.
@@ -121,61 +122,33 @@ Os usuarios son todas as persoas que acceden á páxina para ver os contidos.
 
 > _EXPLICACIÓN_: **Apartado fundamental.**
 
-> - En que se diferencia fronte os competidores.
+ O proxecto centrase en facilitar a dixitalizacion e mellorar a presencia ne redes de empresas e entidades locais que non dispoñan de paxinas webs propias poidan ter maior visibilidade online.
 
- - Diferencias:
-      - As diferencias sobre Milanuncios, Wallapop e Chollometro e que non so se centra na compra-venda, sino tamen en avisos e comunicados oficiais importantes.
-      - As diferencias sobre os Grupos de Redes Sociais, non dependemos de algoritmos de visionamento a demais organizamos o contido para
-      que sexa mais reconocible e visible.
-
-  - Que melloras terá fronte os competidores.
-    Melloras:
-    - Organizacion de informacion por categorias.
-    - Acceso libre a informacion sen necesidade de rexistro.
-    - Centrada na proximidade, aumetar a visibilidade do entrono cercano a os usuarios.
-
-  - Que valor aporta ao mercado.
-    - Mellora a comunicación Local, aumentando a visibilidade de informacion relevante cercana.
-    - Conecta a persoas con entidades publicas ou privadas.
-    - Visibilidade de negocios pequenos que no dispoñen de dixitalización.
-
-  - ¿Porqué mercarán/contratarán este producto/servizo/idea fronte o resto?
-
-    - Porque resolve o problema: de non ter canais de comuncicacións claros ,directos e organizados con entidades locais.
-    - Porque ofrece maior visibilidade a negocios pequenos que as redes sociais e os sistemas tradicionais.
-    - Porque Centraliza a informacion nun so espazo que a dia de hoxe esta disperso en carteis.
+ Tamen para que usuarios particulares poindan dar visibilidade sobre anuncios e avisos nas suas localidades.
 
 ### 2.6- Forma xurídica
 
  - Forma Xuridica:
-   A Sociedade Limitada SL, permite comenzar cun capital inicial baixo, Maior seguridade legal ao limitar a responsabilidade do
-   capital aportado e permitindo a participacion de varios socios que aporten capital.
+    Autonomo,esta forma no require un capital minimo nin custos elevados de constitucion. 
+    A tributacion e solo sobre os ingresos.
+    A posibilidade de cambiar nun futuro de forma xuridica.
+
 
 ### 2.7- Investimentos
 
  Investimentos
 
-  - Empleados (1):
-    Salario Bruto: 16000€ anual
-    Seguridade Social 30%: 4800€ anual
-    Total: 20800€
-
-
  - Conceptos:
     -  Dominio WEB (anual) : 15€
     -  Aloxamento WEB (1 ano) : 120€
-    -  Desenvolvemento WEB : 2000€
-    -  Equipos informaticos (PC, pantalla, etc) : 1200€
+    -  Equipos informaticos (PC,etc) : 1200€
     -  Software e licencias (Licencias, Programas ,IDE) : 300€
     -  Mobiliario (Mesa, sillas,etc.) : 300€
-    -  Alugueiro de Oficina (6 meses) : 2400€ (400€/mes)  
-    -  Gastos legais e constitucións (SL) : 400€
+    -  Alugueiro de Oficina (6 meses) : 4.200€(700€/mes)  
     -  Suministro electico y agua (6 meses) 150€ (25€/mes)
     -  Suministro electico y agua (6 meses) 150€ (25€/mes)
-    -  Empleados: 20800€ anual.
-    - TOTAL estimado : 26685 €
-
-
+    -  Seguridad Social Autonomo(3600€ anuais)
+    - TOTAL estimado : 9885€ 
 
 #### 2.7.1- Custos
 
@@ -184,20 +157,16 @@ Os usuarios son todas as persoas que acceden á páxina para ver os contidos.
  - Custos fixos 
     - Dominio WEB (anual) : 15€
     - Aloxamento WEB (1 ano) : 120€
-    - Desenvolvemento WEB : 2000€
-    - Equipos informaticos (PC, pantalla, etc) : 1200€
+    - Equipos informaticos (PC, etc) : 1200€
     - Mobiliario (Mesa, sillas,etc.) : 300€
-    - Gastos legais e constitucións (SL) : 400€
 
  - Custos Variables
     - Software e licencias (Licencias, Programas ,IDE) : 300€
-    - Alugueiro de Oficina (6 meses) : 2400€ (400€/mes) 
+    - Alugueiro de Oficina (6 meses) : 4200 € (700€/mes) 
     - Suministro electico y agua (6 meses) 150€ (25€/mes)
 
 - Computando impostos e custos sociais.
-   - Imposto sobre Sociedades: 25 % del beneficio neto.
-   - IVA: 21%
-   - Seguridad Social 30-40% do salario bruto por traballador.
+   - Seguridad Social Autonomo(3600€ anuais)
 
 #### 2.7.2- Ingresos
 
@@ -251,19 +220,18 @@ Os usuarios son todas as persoas que acceden á páxina para ver os contidos.
 
 #### 2.8.2 - Viabilidade económica
 
-  - Custos Totais: 26685€
+  - Custos Totais: 9885€
   - Ingresos Totais: 1620€
   - Reultado economico: 
-    - Déficit 25065€
+    - Déficit 8265€
         
 
 #### 2.8.3- Conclusión
 
- - É viable a medio prazo, se contamos con financiamiento inicial e con axudas publicas. Se preeve un deficit de 25000€.
+ - É viable a medio prazo, se contamos con financiamiento inicial e con axudas publicas. Se preeve un deficit de 8265€.
 
   - As perdas poden cubrirse vía financiamento:
     - Fontes de Financiamento:
-      - Subvencion para contratacion de persoal Novo por parte do SEPE.
       - Axudas ao emprendemento, como la Ayuda emprende Joven que puede ofrecer 3000€.
 
   - Conclusiones:
