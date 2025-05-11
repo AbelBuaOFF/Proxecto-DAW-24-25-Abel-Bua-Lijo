@@ -1,22 +1,18 @@
 
 const $d = document,
     $buscador = $d.querySelector("#buscador"),
-    $categoria = $d.querySelector(".categorias"),
-    $localizacion = $d.querySelector(".localizacion"),
+    $categorias = $d.querySelectorAll(".categorias"),
+    $localizaciones = $d.querySelectorAll(".localizacion"),
     $secionAnuncios = $d.querySelector(".section-anuncios"),
     $btnAdd = $d.querySelector(".publicar-anuncio")
     
 const categorias = [
-    { id: 1, nombre: "Tecnologia" },
-    { id: 2, nombre: "Coches" },
-    { id: 3, nombre: "Motos" },
-    { id: 4, nombre: "Inmuebles" },
-    { id: 5, nombre: "Ropa" },
-    { id: 6, nombre: "Electrodomesticos" },
-    { id: 7, nombre: "Juguetes" },
-    { id: 8, nombre: "Deportes" },
-    { id: 9, nombre: "Hogar" },
-    { id: 10, nombre: "Otros" }
+    { id: 1, nombre: "Venta" },
+    { id: 2, nombre: "Anuncio" },
+    { id: 3, nombre: "Aviso" },
+    { id: 4, nombre: "Evento" },
+    { id: 6, nombre: "Otros" }
+
 ]
 const localizaciones = [
     { id: 1, nombre: "Madrid" },
@@ -55,13 +51,18 @@ const anuncios=[
 ]
 
 function renderCategorias(categorias) {
-    $categoria.innerHTML = '<option value="">Seleccionar Categoria</option>'
-    $categoria.innerHTML += categorias.map(categoria => `<option value="${categoria.id}">${categoria.nombre}</option>`).join("")
+    $categorias.forEach(categoria => {
+        categoria.innerHTML = '<option value="">Seleccionar Categoria</option>'
+        categoria.innerHTML += categorias.map(categoria => `<option value="${categoria.id}">${categoria.nombre}</option>`).join("")
+    })
 }
 function renderLocalizaciones(localizaciones) {
-    $localizacion.innerHTML = '<option value="">Seleccionar Localizacion</option>'
-    $localizacion.innerHTML += localizaciones.map(localizacion => `<option value="${localizacion.id}">${localizacion.nombre}</option>`).join("")
+    $localizaciones.forEach(localizacion => {
+        localizacion.innerHTML = '<option value="">Seleccionar Localizacion</option>'
+        localizacion.innerHTML += localizaciones.map(localizacion => `<option value="${localizacion.id}">${localizacion.nombre}</option>`).join("")
+    })
 }
+
 
 function renderAnuncios(anuncios){
     renderCategorias(categorias)

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ElTablonDigital</title>
     <link rel="stylesheet" href="./assets/styles/styles.css">
+    <link rel="stylesheet" href="./assets/styles/login-registro.css">
     <link rel="stylesheet" href="./assets/fontsawesome/css/all.min.css">
     <script src="./assets/scripts/scritp.js" defer></script>
 
@@ -17,71 +18,63 @@
         </ul>
         <nav class="navegador">
             <ul class="nav-menu">
-                <li><p class="btn-sesion btn-login btn">Iniciar Sesion</p></li>
-                <li><p class="btn-sesion btn-registro btn">Registrarse</p></li>
+                <li><a class="btn-sesion btn-login btn" href="./login.html">Iniciar Sesion</a></li>
+                <li><a class="btn-sesion btn-registro btn" href="./registro.html">Registrarse</a></li>
             </ul>
         </nav>
         <p class="hamburguesa-menu"><i class="fas fa-bars"></i></p>
     </header>
     <main class="main">
-        <section  class="buscador">
-            <h2 class="h2">Buscador de anuncios.</h2>
-            <form action="" method="get">
-                <input type="text" name="buscador" id="buscador" placeholder="Buscar Auncio...">
-                <select name="buscador-categorias" id="buscador-categorias" class="categorias">
-                    <option value="">Seleccionar Categoria</option>
-                </select>
-                <select name="buscador-localizacion" id="buscador-localizacion" class="localizacion">
-                    <option value="">Seleccionar Localizacion</option>
-                </select>
-                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i>
-                </button>
+        <section>
+        <ul class="section-tipo-form fila-form">
+                    <p>Tipo de Usuario:</p>
+                    <label for="radio"> Usuario</label>
+                    <input type="radio" name="tipo" id="tipo-usuario" value="usuario" required>
+                    <label for="radio"> Empresa</label>
+                    <input type="radio" name="tipo" id="tipo-usuario" value="empresa" required>
+                </ul>
+        </section>
+        <section class="section-login usuario"> 
+            <form action="./home.html" method="get" class="form-login">
+                <h2 class="h2">Registrarse</h2>
+                <ul class="fila-form">
+                    <label for="nombre-usuario"> Nombre de Usuario:</label>
+                    <input type="text" placeholder="Nombre..." name="nombre-usuario" id="nombre-usuario" required>
+                </ul>
+                <ul class="fila-form">
+                    <label for="email"> Correo Electronico:</label>
+                    <input type="email" placeholder="Correo Electronico..." name="email" id="email" required>
+                </ul>
+                <ul class="fila-form">
+                    <label for="password"> Contraseña:</label>
+                    <input type="password" placeholder="Contraseña..." name="password" id="password" required>
+                </ul>
+                <ul class="grupo-btn">
+                    <a href="./index.html" class="btn-volver btn">Volver</a>
+                    <button type="submit" class="btn">Iniciar Sesion</button>
+                </ul>
             </form>
-        </section >
-        <section class="section-anuncios">
-            <article class="anuncio">
-                <h3 class="anuncio-titulo">Titulo</h3>
-                <img class="anuncio-img" src="" alt="Imagen del anuncio">
-                <p class="anuncio-texto">Descripcion: Texto del anuncio.</p>
-                <a class="anuncio-bnt">Ver mas...</a>
-            </article>
-            <article class="anuncio">
-                <h3 class="anuncio-titulo">Titulo</h3>
-                <img class="anuncio-img" src="" alt="Imagen del anuncio">
-                <p class="anuncio-texto">Descripcion: Texto del anuncio.</p>
-                <a class="anuncio-bnt">Ver mas...</a>
-            </article>
-            <article class="anuncio">
-                <h3 class="anuncio-titulo">Titulo</h3>
-                <img class="anuncio-img" src="" alt="Imagen del anuncio">
-                <p class="anuncio-texto">Descripcion: Texto del anuncio.</p>
-                <a class="anuncio-bnt">Ver mas...</a>
-            </article>
-
-            <article class="anuncio">
-                <h3 class="anuncio-titulo">Titulo</h3>
-                <img class="anuncio-img" src="" alt="Imagen del anuncio">
-                <p class="anuncio-texto">Descripcion: Texto del anuncio.</p>
-                <a class="anuncio-bnt">Ver mas...</a>
-            </article>
-            <article class="anuncio">
-                <h3 class="anuncio-titulo">Titulo</h3>
-                <img class="anuncio-img" src="" alt="Imagen del anuncio">
-                <p class="anuncio-texto">Descripcion: Texto del anuncio.</p>
-                <a class="anuncio-bnt">Ver mas...</a>
-            </article>
-            <article class="anuncio">
-                <h3 class="anuncio-titulo">Titulo</h3>
-                <img class="anuncio-img" src="" alt="Imagen del anuncio">
-                <p class="anuncio-texto">Descripcion: Texto del anuncio.</p>
-                <a class="anuncio-bnt">Ver mas...</a>
-            </article>
-            <article class="anuncio">
-                <h3 class="anuncio-titulo">Titulo</h3>
-                <img class="anuncio-img" src="" alt="Imagen del anuncio">
-                <p class="anuncio-texto">Descripcion: Texto del anuncio.</p>
-                <a class="anuncio-bnt">Ver mas...</a>
-            </article>
+        </section>
+                <section class="section-login empresa"> 
+            <form action="./home.html" method="get" class="form-login">
+                <h2 class="h2">Registrarse</h2>
+                <ul class="fila-form">
+                    <label for="nombre-usuario"> Nombre de Usuario:</label>
+                    <input type="text" placeholder="Nombre..." name="nombre-usuario" id="nombre-usuario" required>
+                </ul>
+                <ul class="fila-form">
+                    <label for="email"> Correo Electronico:</label>
+                    <input type="email" placeholder="Correo Electronico..." name="email" id="email" required>
+                </ul>
+                <ul class="fila-form">
+                    <label for="password"> Contraseña:</label>
+                    <input type="password" placeholder="Contraseña..." name="password" id="password" required>
+                </ul>
+                <ul class="grupo-btn">
+                    <a href="./index.html" class="btn-volver btn">Volver</a>
+                    <button type="submit" class="btn">Iniciar Sesion</button>
+                </ul>
+            </form>
         </section>
     </main>
     <footer class="footer">
