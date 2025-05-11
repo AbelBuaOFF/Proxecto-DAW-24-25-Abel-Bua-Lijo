@@ -51,7 +51,6 @@ CREATE TABLE Anuncio (
     titulo VARCHAR(200),
     descripcion TEXT,
     id_tipo_anuncio INT,
-    fecha_publicacion DATE,
     fecha_creacion DATE,
     fecha_modificacion DATE,
     id_localizacion INT,
