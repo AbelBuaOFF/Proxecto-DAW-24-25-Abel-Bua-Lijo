@@ -10,7 +10,7 @@
 
 ## 1- Diagrama da arquitectura
 
-![alt text](image.png)
+![alt text](image-5.png)
 
 ## 2- Casos de uso
 
@@ -20,7 +20,7 @@
 
  - Modelo Entidade/relación
 
-![alt text](image-4.png)
+![alt text](image-6.png)
 
  - Modelo relacional
 ![alt text](image-2.png)
