@@ -16,9 +16,9 @@ CREATE TABLE Provincia (
     nombre_provincia VARCHAR(200)
 );
 
-CREATE TABLE Localizacion (
+CREATE TABLE Localidades (
     id INT PRIMARY KEY,
-    nome_localizacion VARCHAR(250),
+    nome_localidades VARCHAR(250),
     id_provincia INT,
     codigo_postal BIGINT,
     FOREIGN KEY (id_provincia) REFERENCES Provincia(id)
