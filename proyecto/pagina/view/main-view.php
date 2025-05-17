@@ -10,7 +10,9 @@
 
 </head>
 <body>
-
+    <?php 
+    include("header.php"); 
+    ?>
     <main class="main">
         <section  class="buscador">
             <h2 class="h2">Buscador de anuncios.</h2>
@@ -72,5 +74,8 @@
             </article>
         </section>
     </main>
+    <?php 
+    include("footer.php"); 
+    ?>
 </body>
 </html>

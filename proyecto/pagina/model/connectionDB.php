@@ -1,5 +1,5 @@
 <?php
-define("dsn","mysql:host=mariadb;dbname=tienda");
+define("dsn","mysql:host=mariadb;dbname=el_tablon_digital");
 define("user","root");
 define("pass","bitnami");
 
