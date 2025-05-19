@@ -1,5 +1,6 @@
 <?php
-include_once('conexionDB.php');
+var_dump(PATH_MODEL);
+include_once(PATH_MODEL.'connectionDB.php');
 class Anuncio{
     private int $id;
     private $titulo;
@@ -185,17 +186,18 @@ class Anuncio{
 }
 
 class AnuncioModel{
-    private $pdo;
 
-    public function __construct()
-    {
-        $this->pdo = ConnectionDB::get();
-    }
-
-    public function getAnuncios(){
-        $sql = "SELECT * FROM anuncio";
-        $stmt = $this->pdo->prepare($sql);
+    public static function getAnuncios(){
+        $pdo = ConnectionDB::get();
+        $sql = "SELECT * FROM Anuncio";
+        $stmt = $pdo->prepare($sql);
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_CLASS, 'Anuncio');
+        $anuncios = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            array_push($anuncios, $row);
+        }
+        return $anuncios;
     }
+
+
 }

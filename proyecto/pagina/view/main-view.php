@@ -12,6 +12,7 @@
 <body>
     <?php 
     include("header.php"); 
+    print_r($data['anuncios'])
     ?>
     <main class="main">
         <section  class="buscador">

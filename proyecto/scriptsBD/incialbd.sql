@@ -57,12 +57,12 @@ CREATE TABLE Anuncio (
     id_tipo_anuncio INT,
     fecha_creacion DATE,
     fecha_modificacion DATE,
-    id_localizacion INT,
+    id_localidad INT,
     imagen_url VARCHAR(255),
     borrado BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (id_usuario) REFERENCES Usuario(id),
     FOREIGN KEY (id_tipo_anuncio) REFERENCES Tipo_Anuncio(id),
-    FOREIGN KEY (id_localizacion) REFERENCES Localizacion(id)
+    FOREIGN KEY (id_localidad) REFERENCES Localidades(id)
 );
 
 CREATE TABLE Anuncio_Categorias (

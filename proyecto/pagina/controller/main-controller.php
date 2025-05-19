@@ -8,7 +8,10 @@ class MainController extends Controller{
     }
 
     public function index(){
-        $this->vista->show('main');
+        $vista= new View;
+        $data=null;
+        $data['anuncios']=AnuncioModel::getAnuncios();
+        $vista->show("main",$data);
 
     }
 }
