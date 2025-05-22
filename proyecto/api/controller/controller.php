@@ -1,8 +1,9 @@
 <?php
-
 define("CONTROLLER_ANUNCIO", "anuncio");
 define("CONTROLLER_USUARIO", "usuario");
 define("CONTROLLER_CATEGORIA", "categoria");
+
+include_once (PATH_CONTROLLER."anuncio-controller.php");
 
 class controllerException extends Exception{
     function __construct()

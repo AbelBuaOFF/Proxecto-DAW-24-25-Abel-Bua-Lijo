@@ -1,7 +1,7 @@
 <?php
 
 include_once ('controller.php');
-include_once (PATH_MODEL."AnuncioModel.php");
+include_once (PATH_MODEL."anuncio-model.php");
 
 class AnuncioController extends controller{
     
@@ -14,9 +14,10 @@ class AnuncioController extends controller{
     public function getAll()
     {
         $model = new AnuncioModel();
-        return $model->getAll();
-    }
+        $result = $model->getAll();
     
+        echo json_encode($result, JSON_PRETTY_PRINT);
+    }
     public function delete($id)
     {
         $model = new AnuncioModel();

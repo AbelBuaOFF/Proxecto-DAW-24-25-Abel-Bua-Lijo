@@ -6,7 +6,7 @@ define("pass","bitnami");
 class Model{
     private static $pdo;
 
-    public static function get(){
+    public static function getConnection(){
         if(!isset(self::$pdo)){
             try {
                 self::$pdo = new PDO(dsn, user, pass);

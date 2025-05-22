@@ -7,7 +7,7 @@ include_once (PATH_CONTROLLER."controller.php");
 $metodo = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI'];
 $uri = explode("/", $uri);
-$endpoot = $uri[2];
+$endpoint = $uri[3];
 $id=null;
 
 /*
@@ -29,8 +29,15 @@ function getIds(array $uri):array{
  */
 
  try{
-    $controller = new Controller();
+    $controller = Controller::getController($endpoint);
 
- }catch (Throwable $th){
-       Controller::sendNotFound("Error en la peticion");
+    if ($id !== null) {
+        # code...
+    }else{
+        $controller->getAll();
+    }
+
+ }catch (ControllerException $th){
+       Controller::sendNotFound("Error en la peticion :".$th->getMessage());
+       die();
     }
