@@ -7,12 +7,9 @@ class Anuncio extends ModelObject{
     public $descripcion;
     public $contenido;
     public $id_tipo_anuncio;
-    public $fecha_creacion;
-    public $fecha_modificacion;
     public $id_usuario;
     public $id_localidad;
     public $imagen_url;
-    public $borrado;
 
     public function __construct(
         $id,
@@ -20,24 +17,18 @@ class Anuncio extends ModelObject{
         $descripcion,
         $contenido,
         $id_tipo_anuncio,
-        $fecha_creacion,
-        $fecha_modificacion,
         $id_usuario,
         $id_localidad,
-        $imagen_url,
-        $borrado = false
+        $imagen_url
     ) {
         $this->id = $id;
         $this->titulo = $titulo;
         $this->descripcion = $descripcion;
         $this->contenido = $contenido;
         $this->id_tipo_anuncio = $id_tipo_anuncio;
-        $this->fecha_creacion = $fecha_creacion;
-        $this->fecha_modificacion = $fecha_modificacion;
         $this->id_usuario = $id_usuario;
         $this->id_localidad = $id_localidad;
         $this->imagen_url = $imagen_url;
-        $this->borrado = $borrado;
     }
 
     public static function fromJson($json): ModelObject {
@@ -48,12 +39,9 @@ class Anuncio extends ModelObject{
             $data->descripcion ?? null,
             $data->contenido ?? null,
             $data->id_tipo_anuncio ?? null,
-            $data->fecha_creacion ?? null,
-            $data->fecha_modificacion ?? null,
             $data->id_usuario ?? null,
             $data->id_localidad ?? null,
             $data->imagen_url ?? null,
-            $data->borrado ?? false
         );
     }
 
@@ -66,7 +54,7 @@ class Anuncio extends ModelObject{
 class AnuncioModel extends Model{
     public function getAll(){
 
-        $sql = "SELECT * FROM Anuncio";
+        $sql = "SELECT * FROM Anuncio WHERE borrado = false";
         $pdo = Model::getConnection();
         $resultado = [];
         try {
@@ -79,12 +67,9 @@ class AnuncioModel extends Model{
                     $row['descripcion'],
                     $row['contenido'],
                     $row['id_tipo_anuncio'],
-                    $row['fecha_creacion'],
-                    $row['fecha_modificacion'],
                     $row['id_usuario'],
                     $row['id_localidad'],
                     $row['imagen_url'],
-                    $row['borrado']
                 );
                 array_push($resultado, $anuncio);
             }
@@ -99,23 +84,128 @@ class AnuncioModel extends Model{
     }
 
     public function get($id){
-        $resultado = null;
 
+        $sql = "SELECT * FROM Anuncio WHERE id = :id";
+        $pdo = Model::getConnection();
+        $resultado = null;
+        echo "hola";
+        try {
+            
+            $statement = $pdo->prepare($sql);
+            $statement->bindParam(':id', $id,PDO::PARAM_INT);
+            $statement->execute();
+            echo $statement->rowCount();
+            if ($row=$statement->fetch()) {
+                $resultado = new Anuncio(
+                    $row['id'],
+                    $row['titulo'],
+                    $row['descripcion'],
+                    $row['contenido'],
+                    $row['id_tipo_anuncio'],
+                    $row['id_usuario'],
+                    $row['id_localidad'],
+                    $row['imagen_url']
+                );
+            }
+        } catch (\Throwable $th) {
+            error_log("Error en->get($id) Anuncio".$th->getMessage());
+            error_log($th->getMessage());
+        }finally{
+            $statement = null;
+            $pdo = null;
+        }
         return $resultado;
     }
     public function delete($id){
+
+        $sql = "UPDATE anuncio SET borrado = true WHERE id=:id";
+        $pdo = Model::getConnection();
         $resultado = null;
+
+    try{
+        $statement = $pdo->prepare($sql);
+        $statement->bindParam(':id', $id, PDO::PARAM_INT); 
+        $resultado = $statement->execute();
+        $resultado = $statement->rowCount() == 1;
+
+    } catch (\Throwable $th) {
+        error_log("Error en->get($id) Anuncio");
+        error_log($th->getMessage());
+    }finally{
+        $statement = null;
+        $pdo = null;
+    }
         return $resultado;
     }
 
     public function update($id, $object){
+        $sql = "UPDATE anuncio SET 
+        titulo=:titulo,
+        descripcion=:descripcion,
+        contenido=:contenido,
+        fecha_modificacion=:fecha_modificacion,
+        imagen_url=:imagen_url
+        WHERE id=:id";
+        
+        $pdo = Model::getConnection();
         $resultado = null;
+        $fecha = (new DateTime())->format('Y-m-d H:i:s');
 
+
+    try{
+        $statement = $pdo->prepare($sql);
+        $statement->bindParam(':id', $id, PDO::PARAM_INT); 
+        $statement->bindValue(':titulo', $object->titulo, PDO::PARAM_STR);
+        $statement->bindValue(':descripcion', $object->descripcion, PDO::PARAM_STR);
+        $statement->bindValue(':contenido', $object->contenido, PDO::PARAM_STR);
+        $statement->bindValue(':fecha_modificacion', $fecha, PDO::PARAM_STR);
+        $statement->bindValue(':imagen_url', $object->imagen_url, PDO::PARAM_STR);
+
+        $resultado = $statement->execute();
+        $resultado = $statement->rowCount() == 1;
+
+    } catch (\Throwable $th) {
+        error_log("Error en->update($id,$object) Anuncio");
+        error_log($th->getMessage());
+    }finally{
+        $statement = null;
+        $pdo = null;
+    }
         return $resultado;
     }
 
     public function insert($object){
+
+        $sql = "INSERT INTO anuncio (titulo, descripcion, contenido, id_tipo_anuncio, fecha_creacion, fecha_modificacion, id_usuario, id_localidad, imagen_url) 
+        values (:titulo, :descripcion, :contenido, :id_tipo_anuncio, :fecha_creacion, :fecha_modificacion, :id_usuario, :id_localidad, :imagen_url)";
+
+        $pdo = Model::getConnection();
+
+        $fecha = (new DateTime())->format('Y-m-d H:i:s');
         $resultado = null;
+
+        try {
+            $statement = $pdo->prepare($sql);
+
+            $statement->bindValue(':titulo', $object->titulo, PDO::PARAM_STR);
+            $statement->bindValue(':descripcion', $object->descripcion, PDO::PARAM_STR);
+            $statement->bindValue(':contenido', $object->contenido, PDO::PARAM_STR);
+            $statement->bindValue(':id_tipo_anuncio', $object->id_tipo_anuncio, PDO::PARAM_INT);
+            $statement->bindValue(':fecha_creacion', $fecha , PDO::PARAM_STR);
+            $statement->bindValue(':fecha_modificacion', $fecha,PDO::PARAM_STR);
+            $statement->bindValue(':id_usuario', $object->id_usuario, PDO::PARAM_INT);
+            $statement->bindValue(':id_localidad', $object->id_localidad, PDO::PARAM_INT);
+            $statement->bindValue(':imagen_url', $object->imagen_url, PDO::PARAM_STR);
+
+            $resultado = $statement->execute();
+            $resultado = $statement->rowCount() == 1;
+        } catch (\Throwable $th) {
+            error_log("Error en->insert($object) Anuncio");
+            error_log($th->getMessage());
+        }finally{
+            $statement = null;
+            $pdo = null;
+        }
 
         return $resultado;
     }

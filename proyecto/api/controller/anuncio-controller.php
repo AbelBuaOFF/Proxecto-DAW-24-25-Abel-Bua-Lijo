@@ -9,7 +9,9 @@ class AnuncioController extends controller{
     public function get($id)
     {
         $model = new AnuncioModel();
-        $anuncio = $model->get($id);
+        $result = $model->get($id);
+
+        echo json_encode($result, JSON_PRETTY_PRINT);
     }
     public function getAll()
     {
@@ -21,16 +23,20 @@ class AnuncioController extends controller{
     public function delete($id)
     {
         $model = new AnuncioModel();
-        return $model->delete($id);
+        $result = $model->delete($id);
+        echo json_encode($result, JSON_PRETTY_PRINT);
     }
     public function update($id, $object)
     {
         $model = new AnuncioModel();
-        return $model->update($id, $object);
+        $result = $model->update($id, $object);
+        echo json_encode($result, JSON_PRETTY_PRINT);
+
     }
     public function insert($object)
     {
         $model = new AnuncioModel();
-        return $model->insert($object);
+        $result = $model->insert($object);
+        echo json_encode($result, JSON_PRETTY_PRINT);
     }
 }
