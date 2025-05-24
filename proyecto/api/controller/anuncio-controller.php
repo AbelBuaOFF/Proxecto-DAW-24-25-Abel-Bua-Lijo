@@ -29,14 +29,32 @@ class AnuncioController extends controller{
     public function update($id, $object)
     {
         $model = new AnuncioModel();
-        $result = $model->update($id, $object);
-        echo json_encode($result, JSON_PRETTY_PRINT);
+        var_dump($object);
+        $result = Anuncio::fromJson($object);
+        var_dump($result);
+        if($model->update($id,$result)) {
+            echo json_encode([
+                "status" => "success",
+                "message" => "Anuncio Actualizado correctamente."
+            ], JSON_PRETTY_PRINT);
+        }else {
+            Controller::sendNotFound("Error al insertar el anuncio.");
+            die();
+        }
 
     }
     public function insert($object)
     {
         $model = new AnuncioModel();
-        $result = $model->insert($object);
-        echo json_encode($result, JSON_PRETTY_PRINT);
+        $result = Anuncio::fromJson($object);
+        if ($model->insert($result)) {
+            echo json_encode([
+                "status" => "success",
+                "message" => "Anuncio insertado correctamente."
+            ], JSON_PRETTY_PRINT);
+        }else {
+            Controller::sendNotFound("Error al insertar el anuncio.");
+            die();
+        }
     }
 }
