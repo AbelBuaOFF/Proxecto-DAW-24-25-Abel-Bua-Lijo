@@ -11,7 +11,7 @@ class Anuncio extends ModelObject{
     public $id_localidad;
     public $imagen_url;
 
-    public function __construct($id,$titulo,$descripcion,$contenido,$id_tipo_anuncio,$id_usuario,$id_localidad,$imagen_url){
+    public function __construct($id = null,$titulo = null,$descripcion = null,$contenido = null,$id_tipo_anuncio = null,$id_usuario = null,$id_localidad = null,$imagen_url = null){
         $this->titulo = $titulo;
         $this->descripcion = $descripcion;
         $this->contenido = $contenido;
@@ -24,8 +24,6 @@ class Anuncio extends ModelObject{
 
     public static function fromJson($json): ModelObject {
         $data = json_decode($json);
-        echo "data=json_decode()".var_dump($data);
-        
         return new Anuncio(
             $data->id ?? null,
             $data->titulo ?? null,
@@ -34,7 +32,8 @@ class Anuncio extends ModelObject{
             $data->id_tipo_anuncio ?? null,
             $data->id_usuario ?? null,
             $data->id_localidad ?? null,
-            $data->imagen_url ?? null,
+            $data->imagen_url ?? null
+            
         );
     }
 
@@ -127,7 +126,7 @@ class AnuncioModel extends Model{
             return $resultado;
     }
 
-    public function update($id, $object){
+    public function update($id, $object):bool{
         $sql = "UPDATE Anuncio SET 
                 titulo=:titulo,
                 descripcion=:descripcion,
@@ -137,7 +136,7 @@ class AnuncioModel extends Model{
                 WHERE id=:id";
         
         $pdo = Model::getConnection();
-        $resultado = null;
+        $resultado= false;
         $fecha = (new DateTime())->format('Y-m-d H:i:s');
         try{
             $statement = $pdo->prepare($sql);
@@ -151,6 +150,8 @@ class AnuncioModel extends Model{
             $resultado = $statement->execute();
             $resultado = $statement->rowCount() == 1;
 
+            $resultado= true;
+
         } catch (\Throwable $th) {
             error_log("Error en->update($id,".$object->toJson().") Anuncio");
             error_log($th->getMessage());
@@ -161,7 +162,7 @@ class AnuncioModel extends Model{
             return $resultado;
     }
 
-    public function insert($object){
+    public function insert($object):bool{
 
         $sql = "INSERT INTO Anuncio (titulo, descripcion, contenido, id_tipo_anuncio, fecha_creacion, fecha_modificacion, id_usuario, id_localidad, imagen_url) 
         values (:titulo, :descripcion, :contenido, :id_tipo_anuncio, :fecha_creacion, :fecha_modificacion, :id_usuario, :id_localidad, :imagen_url)";
@@ -169,7 +170,7 @@ class AnuncioModel extends Model{
         $pdo = Model::getConnection();
 
         $fecha = (new DateTime())->format('Y-m-d H:i:s');
-        $resultado = null;
+        $resultado= false;
 
         try {
             $statement = $pdo->prepare($sql);
@@ -185,6 +186,8 @@ class AnuncioModel extends Model{
 
             $resultado = $statement->execute();
             $resultado = $statement->rowCount() == 1;
+
+            $resultado= true;
         } catch (\Throwable $th) {
             error_log("Error en->insert(".$object->toJson()." Anuncio");
             error_log($th->getMessage());

@@ -1,6 +1,6 @@
 <?php
 include_once("controller.php");
-class MainController extends Controller{
+class MainController extends PageController{
 
     public function __construct()
     {
@@ -9,9 +9,7 @@ class MainController extends Controller{
 
     public function index(){
         $vista= new View;
-        $data=null;
-        $data['anuncios']=AnuncioModel::getAnuncios();
-        $vista->show("main",$data);
-
+        $vista->show("main");
     }
+    
 }

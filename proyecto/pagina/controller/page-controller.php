@@ -1,7 +1,7 @@
 <?php
 include_once(PATH_VIEW."/view.php");
 
-class Controller{
+abstract class PageController{
     protected View $vista;
 
     public function __construct()

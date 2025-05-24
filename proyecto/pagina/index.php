@@ -1,7 +1,6 @@
 <?php
-include_once($_SERVER["DOCUMENT_ROOT"]."/pagina/globals.php");
+include_once("globals.php");
 include_once(PATH_CONTROLLER."/main-controller.php");
-include_once(PATH_CONTROLLER."/anuncio-controller.php");
 $controller = "MainController";
 $action = "index";
 if(isset($_REQUEST['controller']) && $_REQUEST['action']){
