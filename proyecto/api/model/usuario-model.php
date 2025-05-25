@@ -8,7 +8,6 @@ class Usuario extends ModelObject{
     public $password;
     public $id_rol;
 
-
     public function __construct($id = null, $nombre_usuario = null, $email = null, $password = null, $id_rol = null){
         
         $this->nombre_usuario = $nombre_usuario;

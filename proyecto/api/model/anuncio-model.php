@@ -7,34 +7,56 @@ class Anuncio extends ModelObject{
     public $descripcion;
     public $contenido;
     public $id_tipo_anuncio;
+    public $id_categoria;
     public $id_usuario;
     public $id_localidad;
     public $imagen_url;
 
-    public function __construct($id = null,$titulo = null,$descripcion = null,$contenido = null,$id_tipo_anuncio = null,$id_usuario = null,$id_localidad = null,$imagen_url = null){
+    public function __construct($id = null,$titulo = null,$descripcion = null,$contenido = null,$id_tipo_anuncio = null,$id_categoria=null, $id_usuario = null,$id_localidad = null,$imagen_url = null){
         $this->titulo = $titulo;
         $this->descripcion = $descripcion;
         $this->contenido = $contenido;
         $this->id_tipo_anuncio = $id_tipo_anuncio;
+        $this->id_categoria = $id_categoria;
         $this->id_usuario = $id_usuario;
         $this->id_localidad = $id_localidad;
         $this->imagen_url = $imagen_url;
         $this->id = $id;
     }
 
+
     public static function fromJson($json): ModelObject {
-        $data = json_decode($json);
-        return new Anuncio(
-            $data->id ?? null,
-            $data->titulo ?? null,
-            $data->descripcion ?? null,
-            $data->contenido ?? null,
-            $data->id_tipo_anuncio ?? null,
-            $data->id_usuario ?? null,
-            $data->id_localidad ?? null,
-            $data->imagen_url ?? null
+
+        if (is_string($json)) {
+            $data = json_decode($json);
+
+            return new Anuncio(
+                $data->id ?? null,
+                $data->titulo ?? null,
+                $data->descripcion ?? null,
+                $data->contenido ?? null,
+                $data->id_tipo_anuncio ?? null,
+                $data->id_categoria ?? null,
+                $data->id_usuario ?? null,
+                $data->id_localidad ?? null,
+                $data->imagen_url ?? null
+            );
             
-        );
+        }else{
+            $data = $json;
+
+            return new Anuncio(
+                $data['id'] ?? null,
+                $data['titulo'] ?? null,
+                $data['descripcion'] ?? null,
+                $data['contenido'] ?? null,
+                $data['id_tipo_anuncio'] ?? null,
+                $data['id_categoria'] ?? null,
+                $data['id_usuario'] ?? null,
+                $data['id_localidad'] ?? null,
+                $data['imagen_url'] ?? null
+            );
+        }
     }
 
     public function toJson():String{
@@ -50,7 +72,6 @@ class AnuncioModel extends Model{
         $resultado = [];
         try {
             $statement = $pdo->query($sql);
-            $resultado = array();
             foreach ($statement as $row) {
                 $anuncio = new Anuncio(
                     $row['id'],
@@ -58,6 +79,7 @@ class AnuncioModel extends Model{
                     $row['descripcion'],
                     $row['contenido'],
                     $row['id_tipo_anuncio'],
+                    $row['id_categoria'],
                     $row['id_usuario'],
                     $row['id_localidad'],
                     $row['imagen_url'],
@@ -91,6 +113,7 @@ class AnuncioModel extends Model{
                     $row['descripcion'],
                     $row['contenido'],
                     $row['id_tipo_anuncio'],
+                    $row['id_categoria'],
                     $row['id_usuario'],
                     $row['id_localidad'],
                     $row['imagen_url']
@@ -164,8 +187,10 @@ class AnuncioModel extends Model{
 
     public function insert($object):bool{
 
-        $sql = "INSERT INTO Anuncio (titulo, descripcion, contenido, id_tipo_anuncio, fecha_creacion, fecha_modificacion, id_usuario, id_localidad, imagen_url) 
-        values (:titulo, :descripcion, :contenido, :id_tipo_anuncio, :fecha_creacion, :fecha_modificacion, :id_usuario, :id_localidad, :imagen_url)";
+        var_dump($object);
+
+        $sql = "INSERT INTO Anuncio (titulo, descripcion, contenido, id_tipo_anuncio, id_categoria, fecha_creacion, fecha_modificacion, id_usuario, id_localidad, imagen_url) 
+        values (:titulo, :descripcion, :contenido, :id_tipo_anuncio, :id_categoria,:fecha_creacion, :fecha_modificacion, :id_usuario, :id_localidad, :imagen_url)";
 
         $pdo = Model::getConnection();
 
@@ -178,6 +203,7 @@ class AnuncioModel extends Model{
             $statement->bindValue(':descripcion', $object->descripcion, PDO::PARAM_STR);
             $statement->bindValue(':contenido', $object->contenido, PDO::PARAM_STR);
             $statement->bindValue(':id_tipo_anuncio', $object->id_tipo_anuncio, PDO::PARAM_INT);
+            $statement->bindValue(':id_categoria', $object->id_categoria, PDO::PARAM_INT);
             $statement->bindValue(':fecha_creacion', $fecha , PDO::PARAM_STR);
             $statement->bindValue(':fecha_modificacion', $fecha,PDO::PARAM_STR);
             $statement->bindValue(':id_usuario', $object->id_usuario, PDO::PARAM_INT);
@@ -199,5 +225,70 @@ class AnuncioModel extends Model{
         return $resultado;
     }
 
-    
+    public function getByUser($id_usuario){
+
+        $sql = "SELECT * FROM Anuncio WHERE id_usuario = :id_usuario";
+        $pdo = Model::getConnection();
+        $resultado = [];
+        try {
+            $statement = $pdo->prepare($sql);
+            $statement->bindParam(':id_usuario', $id_usuario,PDO::PARAM_INT);
+            $statement->execute();
+            foreach ($statement as $row) {
+                $anuncio = new Anuncio(
+                    $row['id'],
+                    $row['titulo'],
+                    $row['descripcion'],
+                    $row['contenido'],
+                    $row['id_tipo_anuncio'],
+                    $row['id_categoria'],
+                    $row['id_usuario'],
+                    $row['id_localidad'],
+                    $row['imagen_url'],
+                );
+                array_push($resultado, $anuncio);
+            }
+        } catch (\Throwable $th) {
+            error_log("Error en->getByUser($id_usuario) Anuncio".$th->getMessage());
+            error_log($th->getMessage());
+        }finally{
+            $statement = null;
+            $pdo = null;
+        }
+        return $resultado;
+    }
+
+    public function getByCategoria($id_categoria){
+
+        $sql = "SELECT * FROM Anuncio WHERE id_categoria = :id_categoria";
+        $pdo = Model::getConnection();
+        $resultado = [];
+        try {
+            $statement = $pdo->prepare($sql);
+            $statement->bindParam(':id_categoria', $id_categoria,PDO::PARAM_INT);
+            $statement->execute();
+            foreach ($statement as $row) {
+                $anuncio = new Anuncio(
+                    $row['id'],
+                    $row['titulo'],
+                    $row['descripcion'],
+                    $row['contenido'],
+                    $row['id_tipo_anuncio'],
+                    $row['id_categoria'],
+                    $row['id_usuario'],
+                    $row['id_localidad'],
+                    $row['imagen_url'],
+                );
+                array_push($resultado, $anuncio);
+            }
+        } catch (\Throwable $th) {
+            error_log("Error en->getByCategoria($id_categoria) Anuncio".$th->getMessage());
+            error_log($th->getMessage());
+        }finally{
+            $statement = null;
+            $pdo = null;
+        }
+        return $resultado;
+    }
+
 }

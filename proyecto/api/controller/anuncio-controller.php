@@ -29,9 +29,7 @@ class AnuncioController extends controller{
     public function update($id, $object)
     {
         $model = new AnuncioModel();
-        var_dump($object);
         $result = Anuncio::fromJson($object);
-        var_dump($result);
         if($model->update($id,$result)) {
             echo json_encode([
                 "status" => "success",
@@ -56,5 +54,21 @@ class AnuncioController extends controller{
             Controller::sendNotFound("Error al insertar el anuncio.");
             die();
         }
+    }
+
+    public function getByUser($id_usuario)
+    {
+        $model = new AnuncioModel();
+        $result = $model->getByUser($id_usuario);
+    
+        echo json_encode($result, JSON_PRETTY_PRINT);
+    }
+
+    public function getByCategoria($id_usuario)
+    {
+        $model = new AnuncioModel();
+        $result = $model->getByCategoria($id_usuario);
+    
+        echo json_encode($result, JSON_PRETTY_PRINT);
     }
 }
