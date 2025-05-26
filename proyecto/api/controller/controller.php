@@ -4,6 +4,7 @@ define("CONTROLLER_USUARIO", "usuario");
 define("CONTROLLER_CATEGORIA", "categoria");
 
 include_once (PATH_CONTROLLER."anuncio-controller.php");
+include_once (PATH_CONTROLLER."usuario-controller.php");
 
 class controllerException extends Exception{
     function __construct()
@@ -29,15 +30,11 @@ class controllerException extends Exception{
             case 'anuncio':
                 $controller = new AnuncioController();
                 break;
-            /*
+            
             case 'usuario':
                 $controller = new UsuarioController();
                 break;
 
-            case 'categoria':
-                $controller = new CategoriaController();
-                break;
-            */
             default:
                 throw new controllerException();        
         }

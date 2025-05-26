@@ -27,7 +27,7 @@ CREATE TABLE Localidades (
     nome_localidades VARCHAR(250),
     id_provincia INT,
     codigo_postal BIGINT,
-    FOREIGN KEY (id_provincia) REFERENCES Provincia(id) ON DELETE RESTRICT ON UPDATE CASCADE;  
+    FOREIGN KEY (id_provincia) REFERENCES Provincia(id) ON DELETE RESTRICT ON UPDATE CASCADE 
 );
 
 CREATE TABLE Usuario (
@@ -37,7 +37,9 @@ CREATE TABLE Usuario (
     passw VARCHAR(250) NOT NULL,
     borrado BOOLEAN DEFAULT FALSE,
     id_rol INT DEFAULT 2,
-    FOREIGN KEY (id_rol) REFERENCES Rol(id) ON DELETE RESTRICT ON UPDATE CASCADE;  
+    fecha_creacion DATETIME  NOT NULL DEFAULT CURRENT_TIMESTAMP, 
+    fecha_modificacion DATETIME  NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_rol) REFERENCES Rol(id) ON DELETE RESTRICT ON UPDATE CASCADE  
 );
 
 CREATE TABLE Particular (
@@ -88,9 +90,9 @@ INSERT INTO Rol (id, nombre_rol) VALUES
 (2, 'Usuario');
 
 -- Insertar Usuarios con roles asignados
-INSERT INTO Usuario (nombre_usuario, email, password, fecha_creacion, fecha_modificacion, borrado, id_rol) VALUES
-('carlos_acoruna', 'carlos.acoruna@example.com', 'hashedpassword1', '2025-05-01', '2025-05-01', FALSE, 1),
-('ana_vigo', 'ana.vigo@example.com', 'hashedpassword2', '2025-05-02', '2025-05-02', FALSE, 2);
+INSERT INTO Usuario (nombre_usuario, email, passw) VALUES
+('carlos_acoruna', 'carlos.acoruna@example.com', 'hashedpassword1'),
+('ana_vigo', 'ana.vigo@example.com', 'hashedpassword2');
 
 -- Insertar Particulares (usuario 1)
 INSERT INTO Particular (id) VALUES

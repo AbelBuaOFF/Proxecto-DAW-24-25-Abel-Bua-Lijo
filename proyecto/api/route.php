@@ -44,6 +44,7 @@ function extractFuntion($json) {
 
  try{
     $controller = Controller::getController($endpoint);
+    
     if (!$controller) {
         die("No se pudo cargar el controlador para el endpoint: $endpoint");
     }
@@ -55,15 +56,17 @@ function extractFuntion($json) {
             $id = $resultado['id'];
             $objeto =$resultado['objeto'];
 
+            var_dump($controller);
             var_dump($funtion);
-            var_dump($id);
-            var_dump($objeto);
 
             try {
                 if ($objeto !== null && $id !== null) {
                     $controller->$funtion($id,$objeto);
+
+                    
                 }elseif($objeto !== null ){
                     $controller->$funtion($objeto);
+
                 }elseif($id !== null){
                     $controller->$funtion($id);
                 }else{
@@ -74,9 +77,6 @@ function extractFuntion($json) {
                 Controller::sendNotFound("Error en la peticion: " . $th->getMessage());
                 die();
             }
-
-
-           
 
  }catch (ControllerException $th){
        Controller::sendNotFound("Error en la peticion :".$th->getMessage());
