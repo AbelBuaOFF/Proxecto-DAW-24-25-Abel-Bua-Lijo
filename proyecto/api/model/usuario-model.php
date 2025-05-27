@@ -100,7 +100,6 @@ class UsuarioModel extends Model{
         return $resultado;
     }
 
-    /*LOGIN*/
     public function login($objeto){
         $sql = "SELECT id, nombre_usuario ,email, id_rol FROM Usuario 
         WHERE nombre_usuario=:usuario AND passw=:passw AND borrado = 0";
@@ -175,16 +174,18 @@ class UsuarioModel extends Model{
         return $resultado;
     }
 
-    public function changePassword($id, $password):bool{
+    public function changePassword($id, $objeto):bool{
         $resultado= false;
 
         $sql = "UPDATE Usuario SET passw = :passw WHERE id = :id";
         $pdo = Model::getConnection();
 
+        $hash = hash('sha256', $objeto['passw']);
+
         try {
             $statement = $pdo->prepare($sql);
             $statement->bindValue(':id', $id, PDO::PARAM_INT);
-            $statement->bindValue(':passw', hash('sha256', $password, PDO::PARAM_STR));
+            $statement->bindValue(':passw',$hash , PDO::PARAM_STR);
 
             $resultado = $statement->execute();
             $resultado= true;
