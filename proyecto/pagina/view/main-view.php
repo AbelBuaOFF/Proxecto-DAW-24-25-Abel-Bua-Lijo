@@ -6,13 +6,20 @@
     <title>ElTablonDigital</title>
     <link rel="stylesheet" href="./assets/styles/styles.css">
     <link rel="stylesheet" href="./assets/fontsawesome/css/all.min.css">
+    <script>
+
+         const anuncios = <?php echo json_encode($data['anuncios'], JSON_UNESCAPED_UNICODE); ?>;
+  
+         console.log(anuncios);
+    </script>
     <script src="./assets/scripts/scritp.js" defer></script>
 
 </head>
 <body>
     <?php 
     include("header.php"); 
-    print_r($data['anuncios'])
+    
+    var_dump($data['anuncios']);
     ?>
     <main class="main">
         <section  class="buscador">

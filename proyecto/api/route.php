@@ -20,12 +20,11 @@ function extractFuntion($json) {
         $objeto = null;
         $id = null;
 
-        if (isset($resultado['objeto'])) {
-            $objeto = $resultado['objeto'];
-            var_dump($objeto);
+        if (isset($resultado['data']) && $resultado['data'] !== null) {
+            $objeto = $resultado['data'];
         }
 
-        if (isset($resultado['id'])) {
+        if (isset($resultado['id'])&& $resultado['id'] !== null) {
             $id = $resultado['id'];
         }
 
@@ -55,9 +54,6 @@ function extractFuntion($json) {
             $funtion = $resultado['function'];
             $id = $resultado['id'];
             $objeto =$resultado['objeto'];
-
-            var_dump($controller);
-            var_dump($funtion);
 
             try {
                 if ($objeto !== null && $id !== null) {

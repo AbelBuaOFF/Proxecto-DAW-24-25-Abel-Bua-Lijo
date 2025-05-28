@@ -26,7 +26,8 @@ const localizaciones = [
     { id: 9, nombre: "Murcia" },
     { id: 10, nombre: "Zaragoza" }
 ]
-const anuncios=[
+/*
+ anuncios= [
     anuncio={
         id: 1,
         titulo: "Anuncio 1",
@@ -48,7 +49,7 @@ const anuncios=[
         texto: "Texto del anuncio 1 Texto del anuncio 1 Texto del anuncio 1 Texto del anuncio 1 Texto del anuncio 1",
         img : "./assets/img/logo.png"
     }
-]
+] */
 
 function renderCategorias(categorias) {
     $categorias.forEach(categoria => {
