@@ -1,33 +1,33 @@
 <?php
 
 include_once ('controller.php');
-include_once (PATH_MODEL."anuncio-model.php");
+include_once (PATH_MODEL."categoria-model.php");
 
-class AnuncioController extends controller{
+class CategoriaController extends controller{
     
     public function get($id)
     {
-        $model = new AnuncioModel();
+        $model = new CategoriaModel();
         $result = $model->get($id);
 
         echo json_encode($result, JSON_PRETTY_PRINT);
     }
     public function getAll()
     {
-        $model = new AnuncioModel();
+        $model = new CategoriaModel();
         $result = $model->getAll();
     
         echo json_encode($result, JSON_PRETTY_PRINT);
     }
     public function delete($id)
     {
-        $model = new AnuncioModel();
+        $model = new CategoriaModel();
         $result = $model->delete($id);
         echo json_encode($result, JSON_PRETTY_PRINT);
     }
     public function update($id, $object)
     {
-        $model = new AnuncioModel();
+        $model = new CategoriaModel();
         $result = Anuncio::fromJson($object);
         if($model->update($id,$result)) {
             echo json_encode([
@@ -42,8 +42,8 @@ class AnuncioController extends controller{
     }
     public function insert($object)
     {
-        $model = new AnuncioModel();
-        $result = Anuncio::fromJson($object);
+        $model = new CategoriaModel();
+        $result = Categoria::fromJson($object);
         if ($model->insert($result)) {
             echo json_encode([
                 "status" => "success",
@@ -55,19 +55,4 @@ class AnuncioController extends controller{
         }
     }
 
-    public function getByUser($id_usuario)
-    {
-        $model = new AnuncioModel();
-        $result = $model->getByUser($id_usuario);
-    
-        echo json_encode($result, JSON_PRETTY_PRINT);
-    }
-
-    public function getByCategoria($id_usuario)
-    {
-        $model = new AnuncioModel();
-        $result = $model->getByCategoria($id_usuario);
-    
-        echo json_encode($result, JSON_PRETTY_PRINT);
-    }
 }

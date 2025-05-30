@@ -6,6 +6,8 @@ define("CONTROLLER_CATEGORIA", "categoria");
 include_once (PATH_CONTROLLER."anuncio-controller.php");
 include_once (PATH_CONTROLLER."usuario-controller.php");
 include_once (PATH_CONTROLLER."token-controller.php");
+include_once (PATH_CONTROLLER."categoria-controller.php");
+include_once (PATH_CONTROLLER."localidad-controller.php");
 
 class controllerException extends Exception{
     function __construct()
@@ -38,6 +40,14 @@ class controllerException extends Exception{
 
             case 'token':
                 $controller = new TokenAuthController();
+                break;
+
+            case 'categoria':
+                $controller = new CategoriaController();
+                break;
+
+            case 'localidad':
+                $controller = new LocalidadController();
                 break;
 
             default:

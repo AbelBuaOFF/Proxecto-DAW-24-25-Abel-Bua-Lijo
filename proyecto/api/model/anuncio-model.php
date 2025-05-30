@@ -187,7 +187,6 @@ class AnuncioModel extends Model{
 
     public function insert($object):bool{
 
-
         $sql = "INSERT INTO Anuncio (titulo, descripcion, contenido, id_tipo_anuncio, id_categoria, fecha_creacion, fecha_modificacion, id_usuario, id_localidad, imagen_url) 
         values (:titulo, :descripcion, :contenido, :id_tipo_anuncio, :id_categoria,:fecha_creacion, :fecha_modificacion, :id_usuario, :id_localidad, :imagen_url)";
 

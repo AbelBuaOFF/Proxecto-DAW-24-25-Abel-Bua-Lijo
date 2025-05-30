@@ -1,6 +1,7 @@
 <?php
+
 include_once("page-controller.php");
-include_once(PATH_LIB."solicitud-class.php");
+include_once(PATH_MODEL."solicitud-model.php");
 class MainController extends PageController{
 
     public function __construct()
@@ -11,9 +12,32 @@ class MainController extends PageController{
     public function index(){
         $vista= new View;
         $data = [];
-        $solicitud = new Solicitud("anuncio","getAll");
-        $data['anuncios'] = MainController::enviarSolicitud($solicitud) ?? [];
+        $solicitud = new Solicitud("categoria","getAll");
+        $model = new SolicitudModel();
+        $data['categorias'] = $model->enviarSolicitud($solicitud) ?? [];
+        
+        $solicitud = new Solicitud("localidad","getAll");
+        $model = new SolicitudModel();
+
+        $data['localidades'] = $model->enviarSolicitud($solicitud) ?? [];
         $vista->show("main",$data);
     }
+
+    public function login(){
+        $vista = new View;
+        $vista->show("login");
+    }
+    public function registro(){
+        $vista = new View;
+        $vista->show("registro");
+    }
     
+    public function getAnuncios(){
+        $data = [];
+        $solicitud = new Solicitud("anuncio","getAll");
+        $model = new SolicitudModel();
+        $data['anuncios'] = $model->enviarSolicitud($solicitud) ?? [];
+        
+        echo json_encode($data['anuncios']);
+    }
 }

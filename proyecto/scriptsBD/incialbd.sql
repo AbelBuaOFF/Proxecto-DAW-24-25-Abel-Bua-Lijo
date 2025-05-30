@@ -12,7 +12,7 @@ CREATE TABLE Tipo_Anuncio (
     nombre_tipo_anuncio VARCHAR(150)
 );
 
-CREATE TABLE Categorias (
+CREATE TABLE Categoria (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nombre_categoria VARCHAR(150)
 );
@@ -22,9 +22,9 @@ CREATE TABLE Provincia (
     nombre_provincia VARCHAR(200)
 );
 
-CREATE TABLE Localidades (
+CREATE TABLE Localidad (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    nome_localidades VARCHAR(250),
+    nombre_localidad VARCHAR(250),
     id_provincia INT,
     codigo_postal BIGINT,
     FOREIGN KEY (id_provincia) REFERENCES Provincia(id) ON DELETE RESTRICT ON UPDATE CASCADE 
@@ -68,8 +68,8 @@ CREATE TABLE Anuncio (
     imagen_url VARCHAR(255),
     FOREIGN KEY (id_usuario) REFERENCES Usuario(id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (id_tipo_anuncio) REFERENCES Tipo_Anuncio(id) ON DELETE SET NULL ON UPDATE CASCADE,
-    FOREIGN KEY (id_categoria) REFERENCES Categorias(id) ON DELETE SET NULL ON UPDATE CASCADE,
-    FOREIGN KEY (id_localidad) REFERENCES Localidades(id) ON DELETE RESTRICT ON UPDATE CASCADE
+    FOREIGN KEY (id_categoria) REFERENCES Categoria(id) ON DELETE SET NULL ON UPDATE CASCADE,
+    FOREIGN KEY (id_localidad) REFERENCES Localidad(id) ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 CREATE TABLE AuthToken (
@@ -109,20 +109,20 @@ INSERT INTO Tipo_Anuncio (id, nombre_tipo_anuncio) VALUES
 (3, 'Alquiler');
 
 -- Insertar Categorías
-INSERT INTO Categorias (id, nombre_categoria) VALUES
+INSERT INTO Categoria (id, nombre_categoria) VALUES
 (1, 'Vehículos'),
 (2, 'Electrónica'),
 (3, 'Inmuebles');
 
--- Insertar Provincias de Galicia
+-- Insertar Provincias
 INSERT INTO Provincia (id, nombre_provincia) VALUES
 (1, 'A Coruña'),
 (2, 'Lugo'),
 (3, 'Ourense'),
 (4, 'Pontevedra');
 
--- Insertar Localidades de Galicia
-INSERT INTO Localidades (id, nome_localidades, id_provincia, codigo_postal) VALUES
+-- Insertar Localidades
+INSERT INTO Localidad (id, nombre_localidad, id_provincia, codigo_postal) VALUES
 (1, 'A Coruña', 1, 15001),
 (2, 'Santiago de Compostela', 1, 15701),
 (3, 'Lugo', 2, 27001),
