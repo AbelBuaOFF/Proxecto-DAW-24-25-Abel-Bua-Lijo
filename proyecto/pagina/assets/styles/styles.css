@@ -100,6 +100,11 @@
     flex-direction: column;
     justify-content: space-between;
  }
+
+ main .section-anuncios .anuncio{
+      max-width: 500px;
+ }
+
  main .buscador{
     width: 90%;
  }
@@ -161,8 +166,35 @@ main .section-publicar{
     justify-content: space-between;
  } 
 
+main #modal{
+   padding: 1rem;
+   background-color: var(--color-fondo-anuncio);
+   width: 700px;
 
 
+}
+main #modal article{
+   padding: 1rem;
+   background-color: var(--color-fondo-anuncio);
+   width: 600px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+
+}
+
+main #modal article figure{
+   padding: 1rem;
+   max-width: 300px;
+   display: flex;
+}
+
+main #modal article figure img{
+   height: 100%;
+   width: 100%;
+   object-fit: cover;
+}
  /*=============================================
  =            Footer            =
  =============================================*/

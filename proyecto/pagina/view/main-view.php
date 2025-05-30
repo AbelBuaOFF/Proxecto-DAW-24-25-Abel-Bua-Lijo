@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ElTablonDigital</title>
     <link rel="stylesheet" href="./assets/styles/styles.css">
     <link rel="stylesheet" href="./assets/fontsawesome/css/all.min.css">
+
+    <script>
+        <?php
+        $host = $_SERVER['HTTP_HOST'];
+        $script = $_SERVER['SCRIPT_NAME'];
+        ?>
+        const baseUrl = "http://<?php echo $host . $script; ?>";
+    </script>
     <script src="./assets/scripts/scritp.js" defer></script>
 </head>
+
 <body>
-    <?php 
-    include("header.php"); 
+    <?php
+    include("header.php");
     ?>
     <main class="main">
-        <section  class="buscador">
+        <section class="buscador">
             <h2 class="h2">Buscador de anuncios.</h2>
             <form action="" method="get">
                 <input type="text" name="buscador" id="buscador" placeholder="Buscar Auncio...">
@@ -37,55 +47,26 @@
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i>
                 </button>
             </form>
-        </section >
-        <section class="section-anuncios">
-            <article class="anuncio">
-                <h3 class="anuncio-titulo">Titulo</h3>
-                <img class="anuncio-img" src="" alt="Imagen del anuncio">
-                <p class="anuncio-texto">Descripcion: Texto del anuncio.</p>
-                <a class="anuncio-bnt">Ver mas...</a>
-            </article>
-            <article class="anuncio">
-                <h3 class="anuncio-titulo">Titulo</h3>
-                <img class="anuncio-img" src="" alt="Imagen del anuncio">
-                <p class="anuncio-texto">Descripcion: Texto del anuncio.</p>
-                <a class="anuncio-bnt">Ver mas...</a>
-            </article>
-            <article class="anuncio">
-                <h3 class="anuncio-titulo">Titulo</h3>
-                <img class="anuncio-img" src="" alt="Imagen del anuncio">
-                <p class="anuncio-texto">Descripcion: Texto del anuncio.</p>
-                <a class="anuncio-bnt">Ver mas...</a>
-            </article>
-
-            <article class="anuncio">
-                <h3 class="anuncio-titulo">Titulo</h3>
-                <img class="anuncio-img" src="" alt="Imagen del anuncio">
-                <p class="anuncio-texto">Descripcion: Texto del anuncio.</p>
-                <a class="anuncio-bnt">Ver mas...</a>
-            </article>
-            <article class="anuncio">
-                <h3 class="anuncio-titulo">Titulo</h3>
-                <img class="anuncio-img" src="" alt="Imagen del anuncio">
-                <p class="anuncio-texto">Descripcion: Texto del anuncio.</p>
-                <a class="anuncio-bnt">Ver mas...</a>
-            </article>
-            <article class="anuncio">
-                <h3 class="anuncio-titulo">Titulo</h3>
-                <img class="anuncio-img" src="" alt="Imagen del anuncio">
-                <p class="anuncio-texto">Descripcion: Texto del anuncio.</p>
-                <a class="anuncio-bnt">Ver mas...</a>
-            </article>
-            <article class="anuncio">
-                <h3 class="anuncio-titulo">Titulo</h3>
-                <img class="anuncio-img" src="" alt="Imagen del anuncio">
-                <p class="anuncio-texto">Descripcion: Texto del anuncio.</p>
-                <a class="anuncio-bnt">Ver mas...</a>
-            </article>
         </section>
+        <section class="section-anuncios">
+        </section>
+            <dialog id="modal">
+                <article class="elemento-modal">
+                <h3 class="anuncio-titulo">Titulo</h3>
+                <p class="descripcion"></p>
+                <p class="contenido"></p>
+                <figure>
+                    <img class="anuncio-img" src="" alt="">
+                </figure>
+
+                <button onclick="window.modal.close();">Cerrar</button>
+                </article>
+            </dialog>
     </main>
-    <?php 
-    include("footer.php"); 
-    ?>
-</body>
+    <
+        <?php
+        include("footer.php");
+        ?>
+        </body>
+
 </html>
