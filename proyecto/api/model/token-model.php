@@ -33,9 +33,7 @@ class AuthToken extends ModelObject{
 }
 class AuthTokenModel extends Model{
 
-    public function generateToken($objeto){
-
-        $id_usuario=$objeto['id_usuario'];
+    public function generateToken($id_usuario){
 
         //Generar Token
         $bytes = random_bytes(16);
@@ -101,18 +99,14 @@ class AuthTokenModel extends Model{
         return $resultado;
     }
 
-    public function borrarToken($objeto):bool{
+    public function borrarToken($id_usuario):bool{
 
-
-        var_dump($objeto);
-        $token=$objeto['token'];
-
-        $sql = "DELETE FROM AuthToken where token = :token";
+        $sql = "DELETE FROM AuthToken where id_usuario = :id_usuario";
         $pdo = Model::getConnection();
         $resultado = false;
         try {
             $statement = $pdo->prepare($sql);
-            $statement->bindValue(':token', $token);
+            $statement->bindValue(':id_usuario', $id_usuario);
             $statement->execute();
             $resultado = $statement->rowCount() == 1;
         } catch (\Throwable $th) {

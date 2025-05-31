@@ -48,9 +48,7 @@ function extractFuntion($json) {
         die("No se pudo cargar el controlador para el endpoint: $endpoint");
     }
             $json = file_get_contents('php://input');
-
             $resultado = extractFuntion($json);
-
             $funtion = $resultado['function'];
             $id = $resultado['id'];
             $objeto =$resultado['objeto'];
@@ -59,7 +57,6 @@ function extractFuntion($json) {
                 if ($objeto !== null && $id !== null) {
                     $controller->$funtion($id,$objeto);
 
-                    
                 }elseif($objeto !== null ){
                     $controller->$funtion($objeto);
 

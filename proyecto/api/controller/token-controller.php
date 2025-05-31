@@ -12,15 +12,17 @@ class TokenAuthController extends controller{
         echo json_encode($result, JSON_PRETTY_PRINT);
 	}
 
-    public function generateToken($id_usuario) {
+    public static function generateToken($id_usuario) {
+
+        TokenAuthController::borrarToken($id_usuario);
 
         $model = new AuthTokenModel();
         $result =$model->generateToken($id_usuario);
-    
-        echo json_encode($result, JSON_PRETTY_PRINT);
+
+        return $result;
 	}
 
-    public function borrarToken($id_usuario) {
+    public static function borrarToken($id_usuario) {
         $model = new AuthTokenModel();
         $result = $model->borrarToken($id_usuario);
     

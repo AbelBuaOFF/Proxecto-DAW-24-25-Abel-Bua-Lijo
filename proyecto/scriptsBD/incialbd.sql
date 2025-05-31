@@ -37,21 +37,12 @@ CREATE TABLE Usuario (
     passw VARCHAR(250) NOT NULL,
     borrado BOOLEAN DEFAULT FALSE,
     id_rol INT DEFAULT 2,
+    tipo_usuario ENUM('particular', 'empresa') DEFAULT 'particular',
+    nombre_comercial VARCHAR(100),
+    url_web VARCHAR(100),
     fecha_creacion DATETIME  NOT NULL DEFAULT CURRENT_TIMESTAMP, 
     fecha_modificacion DATETIME  NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (id_rol) REFERENCES Rol(id) ON DELETE RESTRICT ON UPDATE CASCADE  
-);
-
-CREATE TABLE Particular (
-    id INT PRIMARY KEY,
-    FOREIGN KEY (id) REFERENCES Usuario(id) ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-CREATE TABLE Empresa (
-    id INT PRIMARY KEY,
-    nombre_comercial VARCHAR(100),
-    url_web VARCHAR(100),
-    FOREIGN KEY (id) REFERENCES Usuario(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE Anuncio (
@@ -89,18 +80,14 @@ INSERT INTO Rol (id, nombre_rol) VALUES
 (1, 'Admin'),
 (2, 'Usuario');
 
--- Insertar Usuarios con roles asignados
-INSERT INTO Usuario (nombre_usuario, email, passw) VALUES
-('carlos_acoruna', 'carlos.acoruna@example.com', 'hashedpassword1'),
-('ana_vigo', 'ana.vigo@example.com', 'hashedpassword2');
+-- Insertar Usuarios
+-- Insertar usuario particular
+INSERT INTO Usuario (nombre_usuario, email, passw, tipo_usuario)
+VALUES ('carlos_acoruna', 'carlos.acoruna@example.com', 'hashedpassword1', 'particular');
 
--- Insertar Particulares (usuario 1)
-INSERT INTO Particular (id) VALUES
-(1);
-
--- Insertar Empresas (usuario 2)
-INSERT INTO Empresa (id, nombre_comercial, url_web) VALUES
-(2, 'Servicios Vigo SL', 'https://serviciosvigo.gal');
+-- Insertar usuario empresa
+INSERT INTO Usuario (nombre_usuario, email, passw, tipo_usuario, nombre_comercial, url_web)
+VALUES ('ana_vigo', 'ana.vigo@example.com', 'hashedpassword2', 'empresa', 'Servicios Vigo SL', 'https://serviciosvigo.gal');
 
 -- Insertar Tipos de Anuncio
 INSERT INTO Tipo_Anuncio (id, nombre_tipo_anuncio) VALUES

@@ -8,6 +8,7 @@ const $d = document,
     $modal = $d.querySelector("#modal")
   
     
+    
     const url = baseUrl + "?controller=MainController&action=getAnuncios"
 
     const anuncios = []
@@ -38,15 +39,11 @@ const $d = document,
             fExito: (json) => {
                 anuncios.splice(0, anuncios.length, ...json);
                 renderAnuncios(anuncios);
-                
-
             },
             fError: (error) => console.log(error),
           });
 
       }
-
-
 
 function renderAnuncios(anuncios){
     $secionAnuncios.innerHTML= anuncios.map(anuncio => 

@@ -2,6 +2,7 @@
 
 include_once ('controller.php');
 include_once (PATH_MODEL."usuario-model.php");
+include_once (PATH_CONTROLLER."token-controller.php");
 
 
 class UsuarioController extends controller{
@@ -45,8 +46,26 @@ class UsuarioController extends controller{
 
     public function login($objecto) {
         $model = new UsuarioModel();
-        $result = $model->login($objecto);
-        echo json_encode($result, JSON_PRETTY_PRINT);
+        $usuario =$model->login($objecto);
+        var_dump($usuario);
+        if ($usuario) {
+            $token = TokenAuthController::generateToken($usuario["id"]);
+            var_dump("null:".$token);
+            $result = [
+                "status" => "success",
+                "message" => "Usuario logueado correctamente.",
+                "token" => $token
+            ];
+            echo json_encode($result, JSON_PRETTY_PRINT);
+        }else {
+            $result = [
+                "status" => "error",
+                "message" => "Error al loguear el usuario."
+            ];
+            echo json_encode($result, JSON_PRETTY_PRINT);
+        }
+
+
     }
 
 

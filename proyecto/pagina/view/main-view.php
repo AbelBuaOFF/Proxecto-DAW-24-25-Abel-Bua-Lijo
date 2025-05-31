@@ -13,6 +13,7 @@
         $host = $_SERVER['HTTP_HOST'];
         $script = $_SERVER['SCRIPT_NAME'];
         ?>
+        
         const baseUrl = "http://<?php echo $host . $script; ?>";
     </script>
     <script src="./assets/scripts/scritp.js" defer></script>
@@ -63,7 +64,6 @@
                 </article>
             </dialog>
     </main>
-    <
         <?php
         include("footer.php");
         ?>
