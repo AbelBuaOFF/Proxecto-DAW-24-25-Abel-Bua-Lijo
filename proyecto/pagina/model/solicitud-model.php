@@ -106,8 +106,17 @@ class SolicitudModel{
         $controller = $solicitud->getController();
         $url = "http://apache:8080/api/route.php/".$controller;
 
-        $data_json = json_encode($solicitud);
+        $send= new stdClass();
 
+        $send->function = $solicitud->getFunction();
+        if ($solicitud->getId() != null) {
+            $send->id = $solicitud->getId();
+        } 
+
+        if ($solicitud->getData() != null) {
+            $send->data = $solicitud->getData();
+        }
+        $data_json = json_encode($send);
         try {
 
             $curl = curl_init($url);
@@ -126,11 +135,11 @@ class SolicitudModel{
                 $resultado = $response;
             }
         } catch (\Throwable $th) {
-            //throw $th;
+            error_log("Error al enviar la solicitud: " . $th->getMessage());
         }finally{
             curl_close($curl);
         }
-        return json_decode($resultado);
+        return json_decode($response, true);
     }
 
 }

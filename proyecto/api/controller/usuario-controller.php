@@ -47,13 +47,12 @@ class UsuarioController extends controller{
     public function login($objecto) {
         $model = new UsuarioModel();
         $usuario =$model->login($objecto);
-        var_dump($usuario);
         if ($usuario) {
             $token = TokenAuthController::generateToken($usuario["id"]);
-            var_dump("null:".$token);
             $result = [
                 "status" => "success",
                 "message" => "Usuario logueado correctamente.",
+                "id_usuario" => $usuario["id"],
                 "token" => $token
             ];
             echo json_encode($result, JSON_PRETTY_PRINT);
@@ -64,8 +63,6 @@ class UsuarioController extends controller{
             ];
             echo json_encode($result, JSON_PRETTY_PRINT);
         }
-
-
     }
 
 

@@ -25,27 +25,35 @@ class UserController extends PageController{
         $data['usuario'] = $model->enviarSolicitud($solicitud) ?? [];
          
         $vista->show("home",$data);
-
     }
 
     public static function userLogin(){
         $vista = new View;
-        if (isset($_POST['nombre_usuario']) && isset($_POST['passw'])) {
+        if (isset($_POST['nombre_usuario']) && isset($_POST['password'])) {
         
-        $data = [
-            "nombre_usuario" => $_POST['nombre_usuario'],
-            "passw" => $_POST['passw']
-        ];
+        $data = new stdClass();
+            $data->nombre_usuario = $_POST['nombre_usuario'];
+            $data->passw = $_POST['password'];
 
-        $solicitud = new Solicitud("usuario","login", $data);
+        $solicitud = new Solicitud("usuario","login",null, $data);
+        $model = new SolicitudModel();
+        $data = $model->enviarSolicitud($solicitud);
+        if (isset($data["status"]) && $data["status"] == "success") {
 
-        
+            session_start();
 
-        MainController::index();
-    }else{
-        $data = ["error"];
+            $_SESSION['token'] = $data["token"];
+            $_SESSION['id_usuario'] = $data["id_usuario"];
+
+            header("Location: /pagina/index.php?controller=UserController&action=home");
+
+        }
         $vista->show("login",$data);
-    }
+
+        }else{
+            $respuesta = ["error"];
+            $vista->show("login",$respuesta);
+        }
     
     }
 

@@ -6,9 +6,7 @@ const $d = document,
     $secionAnuncios = $d.querySelector(".section-anuncios"),
     $btnAdd = $d.querySelector(".publicar-anuncio"),
     $modal = $d.querySelector("#modal")
-  
-    
-    
+
     const url = baseUrl + "?controller=MainController&action=getAnuncios"
 
     const anuncios = []
@@ -19,7 +17,7 @@ const $d = document,
         fetch(url,{
           method:method || 'GET',
           headers:{
-            "Content-type":"applications/json;charset=utf-8"
+            "Content-type":"application/json;charset=utf-8"
           },
           body:JSON.stringify(data)
         })
@@ -61,7 +59,7 @@ function renderAnuncios(anuncios){
 
     }
 
-function rederModal(id) {
+function renderModal(id) {
 
     anuncio = anuncios.find(anuncio => anuncio.id == id);
 
@@ -90,7 +88,7 @@ $d.addEventListener("DOMContentLoaded", ev => {
 $secionAnuncios.addEventListener("click", ev => {   
     if (ev.target.classList.contains("btn-modal")) {
         const id = ev.target.dataset.id;
-        rederModal(id);
+        renderModal(id);
         $modal.showModal();
     }
 }) 

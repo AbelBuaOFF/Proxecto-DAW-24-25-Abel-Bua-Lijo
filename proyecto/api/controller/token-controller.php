@@ -18,7 +18,6 @@ class TokenAuthController extends controller{
 
         $model = new AuthTokenModel();
         $result =$model->generateToken($id_usuario);
-
         return $result;
 	}
 
@@ -26,7 +25,6 @@ class TokenAuthController extends controller{
         $model = new AuthTokenModel();
         $result = $model->borrarToken($id_usuario);
     
-        echo json_encode($result, JSON_PRETTY_PRINT);
 	}
 
     public function getAll() {

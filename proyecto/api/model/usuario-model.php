@@ -169,7 +169,6 @@ class UsuarioModel extends Model{
             }
 
             $resultado = $statement->execute();
-            $resultado= true;
         } catch (\PDOException $th) {
             error_log("Error en->addUser() UsuarioModel ".$th->getMessage());
 
