@@ -6,7 +6,7 @@ class Solicitud{
     public ?int $id;
     public ?stdClass $data;
 
-    public function __construct($controller, $function, $id = null, $data= null)
+    public function __construct($controller, $function, $id=null, $data=null)
     {
         $this->controller = $controller;
         $this->function = $function;
@@ -139,7 +139,7 @@ class SolicitudModel{
         }finally{
             curl_close($curl);
         }
-        return json_decode($response, true);
+        return json_decode($resultado, true);
     }
 
 }

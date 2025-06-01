@@ -13,10 +13,9 @@
         $host = $_SERVER['HTTP_HOST'];
         $script = $_SERVER['SCRIPT_NAME'];
         ?>
-        
         const baseUrl = "http://<?php echo $host . $script; ?>";
     </script>
-    <script src="./assets/scripts/scritp.js" defer></script>
+    <script src="./assets/scripts/main-scritp.js" defer></script>
 </head>
 
 <body>
@@ -32,7 +31,7 @@
                     <option value="">Seleccionar Categoria</option>
                     <?php
                     foreach ($data["categorias"] as $categoria) {
-                        echo "<option value='{$categoria->id}'>{$categoria->nombre_categoria}</option>";
+                        echo "<option value='{$categoria["id"]}'>{$categoria["nombre_categoria"]}</option>";
                     }
                     ?>
                 </select>
@@ -40,7 +39,7 @@
                     <option value="">Seleccionar Localizacion</option>
                     <?php
                     foreach ($data["localidades"] as $localidad) {
-                        echo "<option value='{$localidad->id}'>{$localidad->nombre_localidad}</option>";
+                        echo "<option value='{$localidad["id"]}'>{$localidad["nombre_localidad"]}</option>";
                     }
                     ?>
 

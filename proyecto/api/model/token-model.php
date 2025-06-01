@@ -67,27 +67,21 @@ class AuthTokenModel extends Model{
     /*
         Recupera un token por id usuario.
     */
-    public function getToken($objeto){
-
-
-        $id_usuario=$objeto['id_usuario'];
-
-
-        $sql = "SELECT id, token, fecha_expiracion FROM AuthToken Where id_usuario=:id_usuario AND activo = 1";
+    public function getToken($id_usuario){
+        $sql = "SELECT id,id_usuario, token, fecha_expiracion FROM AuthToken Where id_usuario=:id_usuario";
         $pdo = Model::getConnection();
         $resultado = [];
         try {
             $statement = $pdo->prepare($sql);
             $statement->bindValue(':id_usuario', $id_usuario, PDO::PARAM_INT);
             $statement->execute();
-            foreach ($statement as $row) {
-                $anuncio = new AuthToken(
+            if ($row=$statement->fetch()) {
+                $resultado = new AuthToken(
                     $row['id_usuario'] ?? null,
                     $row['token'] ?? null,
                     $row['fecha_expiracion'] ?? null,
                     $row['id'] ?? null
                 );
-                array_push($resultado, $anuncio);
             }
         } catch (\Throwable $th) {
             error_log("Error en->get(".$id_usuario.") AuthToken");

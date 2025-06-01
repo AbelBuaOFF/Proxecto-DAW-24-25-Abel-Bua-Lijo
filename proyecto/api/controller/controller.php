@@ -8,6 +8,7 @@ include_once (PATH_CONTROLLER."usuario-controller.php");
 include_once (PATH_CONTROLLER."token-controller.php");
 include_once (PATH_CONTROLLER."categoria-controller.php");
 include_once (PATH_CONTROLLER."localidad-controller.php");
+include_once (PATH_CONTROLLER."tipo-anuncio-controller.php");
 
 class controllerException extends Exception{
     function __construct()
@@ -49,6 +50,10 @@ class controllerException extends Exception{
             case 'localidad':
                 $controller = new LocalidadController();
                 break;
+
+            case 'tipoanuncio':
+                    $controller = new TipoAnuncioController();
+                    break;
 
             default:
                 throw new controllerException();        

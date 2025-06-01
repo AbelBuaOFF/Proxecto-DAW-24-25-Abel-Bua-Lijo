@@ -1,3 +1,10 @@
+<?php
+            if (!isset($_SESSION['id_usuario'])&&  isset($_SESSION['token'])){
+                header("Location: ?controller=MainController&action=index");
+            }
+            $host = $_SERVER['HTTP_HOST'];
+            $script = $_SERVER['SCRIPT_NAME'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,18 +14,9 @@
     <link rel="stylesheet" href="./assets/styles/styles.css">
     <link rel="stylesheet" href="./assets/fontsawesome/css/all.min.css">
     <script>
-        <?php
-        session_start();
-        if (!isset($_SESSION['id_usuario'])){
-            header("Location: ?controller=MainController&action=index");
-        }
-        $host = $_SERVER['HTTP_HOST'];
-        $script = $_SERVER['SCRIPT_NAME'];
-        $id_usuario = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
-        ?>
         const baseUrl = "http://<?php echo $host . $script; ?>";
     </script>
-    <script src="./assets/scripts/scritp.js" defer></script>
+    <script src="./assets/scripts/home-scritp.js" defer></script>
 </head>
 <body>
 <?php

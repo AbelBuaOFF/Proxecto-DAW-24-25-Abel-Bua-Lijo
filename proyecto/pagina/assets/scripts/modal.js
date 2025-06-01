@@ -7,8 +7,7 @@ const $d = document,
     $btnAdd = $d.querySelector(".publicar-anuncio"),
     $modal = $d.querySelector("#modal")
 
-    const url = baseUrl + "?controller=MainController&action=getAnuncios"
-
+    const url = baseUrl + "?controller="+controller+"&action="+action
     const anuncios = []
 
     function ajax(options) {  
@@ -75,12 +74,10 @@ function renderModal(id) {
                         <button onclick="window.modal.close();">Cerrar</button>
         </article>
                 `
-    console.log(anuncio);
-
-    
 }
 
 $d.addEventListener("DOMContentLoaded", ev => {
+    console.log(url);
     getAnuncios()
   const $bntModal = $d.querySelectorAll(".btn-modal")
 })

@@ -14,11 +14,11 @@ class MainController extends PageController{
         $data = [];
         $solicitud = new Solicitud("categoria","getAll");
         $model = new SolicitudModel();
-        $data['categorias'] = $model->enviarSolicitud($solicitud) ?? [];
+        $data['categorias'] = $model->enviarSolicitud($solicitud);
         
         $solicitud = new Solicitud("localidad","getAll");
         $model = new SolicitudModel();
-        $data['localidades'] = $model->enviarSolicitud($solicitud) ?? [];
+        $data['localidades'] = $model->enviarSolicitud($solicitud);
 
         $vista->show("main",$data);
     }

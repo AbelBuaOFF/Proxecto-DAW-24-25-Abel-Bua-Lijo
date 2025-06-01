@@ -105,7 +105,6 @@ class AnuncioModel extends Model{
             $statement = $pdo->prepare($sql);
             $statement->bindParam(':id', $id,PDO::PARAM_INT);
             $statement->execute();
-            echo $statement->rowCount();
             if ($row=$statement->fetch()) {
                 $resultado = new Anuncio(
                     $row['id'],
@@ -223,7 +222,8 @@ class AnuncioModel extends Model{
         return $resultado;
     }
 
-    public function getByUser($id_usuario){
+    public function getByUser($objeto){
+        $id_usuario = $objeto["id_usuario"];;
 
         $sql = "SELECT * FROM Anuncio WHERE id_usuario = :id_usuario";
         $pdo = Model::getConnection();

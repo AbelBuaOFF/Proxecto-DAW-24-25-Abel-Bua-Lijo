@@ -5,10 +5,24 @@ include_once (PATH_MODEL."token-model.php");
 
 class TokenAuthController extends controller{
 
-    public function get($id) {
+    public function get($objeto) {
+        $id = $objeto['id_usuario'];
         $model = new AuthTokenModel();
         $result = $model->getToken($id);
-    
+        if (!$result) {
+            $result = [
+                "status" => "error",
+                "message" => "Token no encontrado."
+            ];
+        }else{
+            $result = [
+                "status" => "success",
+                "message" => "Token encontrado.",
+                "id_usuario" => $result->id_usuario,
+                "token" => $result->token,
+                "fecha_expiracion" => $result->fecha_expiracion
+            ];
+        }
         echo json_encode($result, JSON_PRETTY_PRINT);
 	}
 
