@@ -18,8 +18,15 @@ main .section-login form{
     gap: 2rem;
 }
 
-main .section-login form .fila-form{
+main .section-login form .fila-form{ 
     display: flex;
     gap: 1rem;
     justify-content: space-between;
+
+}
+fieldset {
+    border: none;
+    padding: 0;
+
+
 }

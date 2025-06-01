@@ -8,7 +8,9 @@
         <nav class="navegador">
             <ul class="nav-menu">
                 <?php
-                session_start();
+                        if (session_status() === PHP_SESSION_NONE) {
+                            session_start();
+                        }
                 if (isset($_SESSION['id_usuario']) &&  isset($_SESSION['token'])) {
                     echo '<li><a href="?controller=UserController&action=publicarAnuncio" class="publicar-anuncio">Publicar Anuncio</a></li>';
                     echo '<li><a href="?controller=UserController&action=home">Panel de Usuario</a></li>';

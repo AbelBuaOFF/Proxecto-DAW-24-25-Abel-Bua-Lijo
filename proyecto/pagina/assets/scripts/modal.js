@@ -1,4 +1,4 @@
-
+//TODO
 const $d = document,
     $buscador = $d.querySelector("#buscador"),
     $categorias = $d.querySelectorAll(".categorias"),

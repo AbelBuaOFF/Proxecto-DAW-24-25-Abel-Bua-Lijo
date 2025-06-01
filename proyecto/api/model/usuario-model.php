@@ -6,52 +6,38 @@ class Usuario extends ModelObject{
     public $nombre_usuario;
     public $email;
     public $password;
-    public $id_rol;
     public $tipo_usuario;       
     public $nombre_comercial;   
-    public $url_web;            
+    public $url_web;
+    public $id_rol;            
 
-    public function __construct($id = null, $nombre_usuario = null, $email = null,
-    $password = null, $id_rol = null, $tipo_usuario = null, 
-    $nombre_comercial = null, $url_web = null) {
+    public function __construct($nombre_usuario = null, $email = null, $password = null,$tipo_usuario = null, 
+                                $nombre_comercial = null, $url_web = null, $id_rol = null,$id = null) {
         
         $this->nombre_usuario = $nombre_usuario;
         $this->email = $email;
-        $this->id_rol = $id_rol;
         $this->password = $password;
-        $this->id = $id;
         $this->tipo_usuario = $tipo_usuario;
         $this->nombre_comercial = $nombre_comercial;
         $this->url_web = $url_web;
+        $this->id_rol = $id_rol;
+        $this->id = $id;
     }
 
     public static function fromJson($json): ModelObject {
 
-        if (is_string($json)) {
-            $data = json_decode($json);
-            return new Usuario(
-                $data->id ?? null,
-                $data->nombre_usuario ?? null,
-                $data->email ?? null,
-                $data->password ?? null,
-                $data->id_rol ?? null,
-                $data->tipo_usuario ?? null,
-                $data->nombre_comercial ?? null,
-                $data->url_web ?? null
-            );
-        }else{
             $data = $json;
+            var_dump($data);
             return new Usuario(
-                $data['id']?? null,
                 $data['nombre_usuario'] ?? null,
                 $data['email'] ?? null,
                 $data['password'] ?? null,
-                $data['id_rol'] ?? null,
                 $data['tipo_usuario'] ?? null,
                 $data['nombre_comercial'] ?? null,
-                $data['url_web'] ?? null
+                $data['url_web'] ?? null,
+                $data['id_rol'] ?? null,
+                $data['id']?? null
             );
-        }   
     }
 
     public function toJson():String{
@@ -145,12 +131,11 @@ class UsuarioModel extends Model{
 
     public function addUser($usuario): bool{
         $resultado= false;
-        $sql = "INSERT INTO Usuario (nombre_usuario, email, passw";
-
+        var_dump($usuario);
         if ($usuario->tipo_usuario == "empresa") {
-            $sql = $sql. ", id_rol, tipo_usuario, nombre_comercial, url_web) "."VALUES (:nombre_usuario, :email, :passw, 2, :tipo_usuario, :nombre_comercial, :url_web)";
+            $sql = " INSERT INTO Usuario (nombre_usuario, email, passw ,tipo_usuario, nombre_comercial, url_web) VALUES (:nombre_usuario, :email, :passw , :tipo_usuario, :nombre_comercial, :url_web)";
         }else{
-            $sql = $sql. ") VALUES (:nombre_usuario, :email, :passw)";
+            $sql = "INSERT INTO Usuario (nombre_usuario, email, passw ) VALUES (:nombre_usuario, :email, :passw)";
         }
 
         $pdo = Model::getConnection();

@@ -21,7 +21,7 @@
     ?>
     <main class="main">
     <section class="section-login">
-            <form action="?controller=UserController&action=userLogin" method="post" class="form-login">
+            <form action="?controller=UserController&action=sendAnuncio" method="post" class="form-login">
 
                 <h2 class="h2">Publicar un Nuevo Anuncio.</h2>
                 
@@ -71,7 +71,6 @@
                     <label for="imagen">Imagen:</label>
                     <input type="file" id="imagen" name="imagen" accept="image/*">
                 </ul>
-            
                 <ul class="grupo-btn">
                     <a href="?controller=MainController&action=index" class="btn-volver btn">Volver</a>
                     <button type="submit" class="btn">Guardar</button>

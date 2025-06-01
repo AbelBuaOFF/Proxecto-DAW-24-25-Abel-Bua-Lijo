@@ -25,15 +25,21 @@ class UsuarioController extends controller{
     public function addUser($object) {
 
         $model = new UsuarioModel();
-        $result = Usuario::fromJson($object);
-        if ($model->addUser($result)) {
-            echo json_encode([
-                "status" => "success",
-                "message" => "Usuario insertado correctamente."
-            ], JSON_PRETTY_PRINT);
-        }else {
+        try{
+            $result = Usuario::fromJson($object);
+            if ($model->addUser($result)) {
+                echo json_encode([
+                    "status" => "success",
+                    "message" => "Usuario insertado correctamente."
+                ], JSON_PRETTY_PRINT);
+        }
+        }catch (Throwable $th) {
             Controller::sendNotFound("Error al insertar un Usuario.");
-            die();
+            error_log($th->getMessage());
+            echo json_encode([
+                "status" => "error",
+                "message" => "Error al insertar un Usuario."
+            ], JSON_PRETTY_PRINT);
         } 
     }
 

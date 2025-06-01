@@ -139,6 +139,7 @@ class SolicitudModel{
         }finally{
             curl_close($curl);
         }
+       
         return json_decode($resultado, true);
     }
 
