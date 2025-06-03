@@ -138,8 +138,8 @@ class SolicitudModel{
             error_log("Error al enviar la solicitud: " . $th->getMessage());
         }finally{
             curl_close($curl);
+           // error_log("Solicitud recibida: " . $resultado);
         }
-       
         return json_decode($resultado, true);
     }
 

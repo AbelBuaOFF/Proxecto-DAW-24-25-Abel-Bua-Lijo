@@ -81,7 +81,6 @@ class CategoriaModel extends Model{
             $statement = $pdo->prepare($sql);
             $statement->bindParam(':id', $id,PDO::PARAM_INT);
             $statement->execute();
-            echo $statement->rowCount();
             if ($row=$statement->fetch()) {
                 $resultado = new Categoria(
                     $row['id'],

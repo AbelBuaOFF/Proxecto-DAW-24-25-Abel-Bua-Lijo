@@ -21,7 +21,7 @@
     ?>
     <main class="main">
     <section class="section-login">
-            <form action="?controller=UserController&action=sendAnuncio" method="post" class="form-login">
+            <form action="?controller=AnuncioController&action=sendAnuncio" method="post" class="form-login">
 
                 <h2 class="h2">Publicar un Nuevo Anuncio.</h2>
                 

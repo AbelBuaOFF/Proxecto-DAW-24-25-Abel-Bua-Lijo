@@ -27,6 +27,18 @@
         <h3>Todos tus anuncios estan aqui</h3>
         <section class="section-anuncios">
         </section>
+        <dialog id="modal">
+                <article class="elemento-modal">
+                <h3 class="anuncio-titulo">Titulo</h3>
+                <p class="descripcion"></p>
+                <p class="contenido"></p>
+                <figure>
+                    <img class="anuncio-img" src="" alt="">
+                </figure>
+
+                <button onclick="window.modal.close();">Cerrar</button>
+                </article>
+            </dialog>
     </main>
     <?php
         include("footer.php");

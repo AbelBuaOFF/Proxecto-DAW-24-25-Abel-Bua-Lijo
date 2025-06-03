@@ -7,8 +7,7 @@ const $d = document,
     $btnAdd = $d.querySelector(".publicar-anuncio"),
     $modal = $d.querySelector("#modal")
 
-
-    const url = baseUrl + "?controller=UserController&action=getAnunciosByUser"
+    const url = baseUrl + "?controller=AnuncioController&action=getAnunciosByUser"
     const anuncios = []
 
     function ajax(options) {  
@@ -55,8 +54,6 @@ function renderAnuncios(anuncios){
             </article>`
         ).join("")
   
-        
-
     }
 
 function renderModal(id) {
@@ -71,7 +68,8 @@ function renderModal(id) {
                         <figure>
                             <img class="anuncio-img" src="${anuncio.imagen_url}" alt="${anuncio.titulo}">
                         </figure>
-
+                        hola
+                        <a href="?controller=AnuncioController&action=anuncioPage&id=${anuncio.id}" >Ir a Pagina...</a>
                         <button onclick="window.modal.close();">Cerrar</button>
         </article>
                 `

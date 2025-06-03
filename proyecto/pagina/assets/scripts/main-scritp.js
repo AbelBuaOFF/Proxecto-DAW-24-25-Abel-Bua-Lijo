@@ -68,7 +68,8 @@ function renderModal(id) {
                         <figure>
                             <img class="anuncio-img" src="${anuncio.imagen_url}" alt="${anuncio.titulo}">
                         </figure>
-
+                        hola
+                        <a href="?controller=AnuncioController&action=anuncioPage&id=${anuncio.id}" >Ir a Pagina...</a>
                         <button onclick="window.modal.close();">Cerrar</button>
         </article>
                 `

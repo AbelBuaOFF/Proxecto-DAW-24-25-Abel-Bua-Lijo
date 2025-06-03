@@ -77,23 +77,25 @@ class UsuarioModel extends Model{
     }
 
     public function get($id){
-        $sql = "SELECT nombre_usuario, email, id_rol,tipo_usuario,nombre_comercial,url_web  FROM Usuario Where id=:id AND borrado = 0";
+        $sql = "SELECT nombre_usuario, email, id_rol,tipo_usuario,nombre_comercial,url_web  FROM Usuario Where id=:id";
         $pdo = Model::getConnection();
-        $resultado = [];
+        $resultado = null;
         try {
-            $statement = $pdo->query($sql);
-            foreach ($statement as $row) {
-                $anuncio = new Usuario(
-                    null,
+            $statement = $pdo->prepare($sql);
+            $statement->bindValue(':id', $id, PDO::PARAM_INT);
+            $statement->execute();
+
+
+            if ($row=$statement->fetch()) {
+                $resultado = new Usuario(
                     $row['nombre_usuario'] ?? null,
                     $row['email'] ?? null,
                     null,
-                    $row['id_rol'] ?? null,
                     $row['tipo_usuario'] ?? null,
                     $row['nombre_comercial'] ?? null,
-                    $row['url_web'] ?? null
+                    $row['url_web'] ?? null,
+                    $row['id_rol'] ?? null,
                 );
-                array_push($resultado, $anuncio);
             }
         } catch (\Throwable $th) {
             error_log("Error en->get(".$id.") Usuarios");

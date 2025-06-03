@@ -121,13 +121,13 @@ class LocalidadModel extends Model{
         try {
             $statement = $pdo->query($sql);
             foreach ($statement as $row) {
-                $anuncio = new Localidad(
+                $localidad = new Localidad(
                     $row['id'],
                     $row['nombre_localidad'],
                     $row['id_provincia'],
                     $row['codigo_postal']
                 );
-                array_push($resultado, $anuncio);
+                array_push($resultado, $localidad);
             }
         } catch (\Throwable $th) {
             error_log("Error en->getAll() Localidad");
@@ -142,19 +142,18 @@ class LocalidadModel extends Model{
     public function get($id){
         $sql = "SELECT * FROM Localidad Where id=:id";
         $pdo = Model::getConnection();
-        $resultado = [];
+        $resultado = null;
         try {
             $statement = $pdo->prepare($sql);
             $statement->bindParam(':id', $id, PDO::PARAM_INT);
             $statement->execute();
-            foreach ($statement as $row) {
-                $anuncio = new Localidad(
+            if ($row=$statement->fetch()) {
+                $resultado = new Localidad(
                     $row['id'],
                     $row['nombre_localidad'],
                     $row['id_provincia'],
                     $row['codigo_postal']
                 );
-                array_push($resultado, $anuncio);
             }
         } catch (\Throwable $th) {
             error_log("Error en->get($id) Localidad");

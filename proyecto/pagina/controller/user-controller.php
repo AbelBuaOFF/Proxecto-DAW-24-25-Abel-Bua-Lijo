@@ -26,6 +26,17 @@ class UserController extends PageController{
         $vista->show("home",$data);
     }
 
+    public function userPage($id_usuario){
+        $vista = new View;
+        $data = [];
+
+        $solicitud = new Solicitud("usuario","get",$id_usuario, null);
+        $model = new SolicitudModel();
+        $data["usuario"]=  (object)  $model->enviarSolicitud($solicitud);
+
+        $vista->show("user", $data);
+    }
+
     public static function addUser(){
         $vista = new View;
 
@@ -54,8 +65,7 @@ class UserController extends PageController{
         }else{
             $error = ["error" => "Error al registrar usuario"];
             $vista->show("registro",$error);
-        }
-        
+        }  
         
     }
 
@@ -86,19 +96,6 @@ class UserController extends PageController{
     
     }
 
-    public static function getAnunciosByUser(){
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
-        $data = new stdClass();
-            $data->id_usuario = $_SESSION['id_usuario'];
-        $solicitud = new Solicitud("anuncio","getByUser",null,$data);
-        $model = new SolicitudModel();
-        $resultado['anuncios'] = $model->enviarSolicitud($solicitud) ?? [];
-        
-        echo json_encode($resultado['anuncios']);
-    }
-
     public static function Logout(){
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
@@ -121,55 +118,5 @@ class UserController extends PageController{
         return $resultado;
     }
 
-    public static function publicarAnuncio(){
-
-        $vista = new View;
-        $data = [];
-        $solicitud = new Solicitud("categoria","getAll");
-        $model = new SolicitudModel();
-        $data['categorias'] = $model->enviarSolicitud($solicitud);
-        
-        $solicitud = new Solicitud("localidad","getAll");
-        $model = new SolicitudModel();
-        $data['localidades'] = $model->enviarSolicitud($solicitud);
-
-        $solicitud = new Solicitud("tipoanuncio","getAll");
-        $model = new SolicitudModel();
-        $data['tipos_anuncio'] = $model->enviarSolicitud($solicitud);
-        $vista->show("publicar", $data);
-        
-    }
-
-    public static function sendAnuncio(){
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
-        $vista = new View;
-        if (isset($_POST['titulo']) && isset($_POST['descripcion'])&& isset($_POST['contenido'])) {
-            $data = new stdClass();
-                $data->titulo = $_POST['titulo'];
-                $data->descripcion = $_POST['descripcion'];
-                $data->contenido = $_POST['contenido'];
-                $data->id_tipo_anuncio = $_POST['id_tipo_anuncio'];
-                $data->id_categoria = $_POST['id_categoria'];
-                $data->id_localidad = $_POST['id_localidad'];
-                $data->id_usuario = $_SESSION['id_usuario'];
-                $data->imagen = "img/piso_vigo.jpg";  //TODO
-            
-            $solicitud = new Solicitud("anuncio","insert",null, $data);
-            $model = new SolicitudModel();
-            $data = $model->enviarSolicitud($solicitud);
-            if (isset($data["status"]) && $data["status"] == "success") {
-
-               header("Location: /pagina/index.php?controller=UserController&action=home");
-                
-            }
-            $vista->show("publicar",$data);
-    
-            }else{
-                $respuesta = ["error"];
-                $vista->show("login",$respuesta);
-            } 
-    }
-
 }
+
