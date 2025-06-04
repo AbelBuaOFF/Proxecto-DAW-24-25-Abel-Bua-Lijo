@@ -13,7 +13,7 @@
         ?>
         const baseUrl = "http://<?php echo $host . $script; ?>";
     </script>
-    <script src="./assets/scripts/main-scritp.js" defer></script>
+    <script src="../pagina/src/scripts/main-script.js" defer></script>
 </head>
 
 <body>

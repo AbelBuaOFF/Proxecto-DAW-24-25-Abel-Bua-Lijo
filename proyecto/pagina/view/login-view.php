@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ElTablonDigital</title>
     <link rel="stylesheet" href="./src/styles/styles.css">
-    <link rel="stylesheet" href="./src/styles/login-registro.css">
     <link rel="stylesheet" href="./assets/fontsawesome/css/all.min.css">
 </head>
 <body>

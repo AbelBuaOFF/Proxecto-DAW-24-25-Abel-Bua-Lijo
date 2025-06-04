@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ElTablonDigital</title>
     <link rel="stylesheet" href="./src/styles/styles.css">
-    <link rel="stylesheet" href="./src/styles/login-registro.css">
     <link rel="stylesheet" href="./assets/fontsawesome/css/all.min.css">
-    <script src="./assets/scripts/registro-script.js" defer></script>
+    <script src="../pagina/src/scripts/registro-script.js" defer></script>
 </head>
 <body>
 <?php 

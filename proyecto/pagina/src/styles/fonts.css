@@ -2,5 +2,5 @@
     font-family: 'Jersey25';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/Jersey25-Regular.ttf') format('truetype');
+    src: url('../../assets/fonts/Jersey25-Regular.ttf') format('truetype');
 }

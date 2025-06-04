@@ -1,4 +1,3 @@
-
 const $d = document,
     $buscador = $d.querySelector("#buscador"),
     $categorias = $d.querySelectorAll(".categorias"),
@@ -7,7 +6,7 @@ const $d = document,
     $btnAdd = $d.querySelector(".publicar-anuncio"),
     $modal = $d.querySelector("#modal")
 
-    const url = baseUrl + "?controller=MainController&action=getAnuncios"
+    const url = baseUrl + "?controller=AnuncioController&action=getAnunciosByUser"
     const anuncios = []
 
     function ajax(options) {  
@@ -30,7 +29,6 @@ const $d = document,
       }
 
       function getAnuncios(){
-
         ajax({
             url: url,
             fExito: (json) => {
@@ -39,27 +37,32 @@ const $d = document,
             },
             fError: (error) => console.log(error),
           });
-
       }
 
-function renderAnuncios(anuncios){
-    $secionAnuncios.innerHTML= anuncios.map(anuncio => 
-        `<article class="anuncio" id="${anuncio.id}">
-                <h3 class="anuncio-titulo">${anuncio.titulo}</h3>
-                <figure>
-                    <img class="anuncio-img" src="${anuncio.imagen_url}" alt="${anuncio.titulo}">
-                </figure>
-                <p class="anuncio-texto">Descripcion: ${anuncio.descripcion}</p>
-                <button class="btn-modal" data-id=${anuncio.id} onclick="window.modal.showModal();">Ver mas...</button>
-            </article>`
-        ).join("")
-  
-    }
+      function renderAnuncios(anuncios){
+        if (anuncios.length === 0) {
+            $secionAnuncios.innerHTML = 
+            `<article class="anuncio-add">
+                <a href="?controller=AnuncioController&action=publicarAnuncio" class="publicar-anuncio"><i class="fa fa-plus" aria-hidden="true"></i> </a>
+                </article>`
+        }else{
+            $secionAnuncios.innerHTML= anuncios.map(anuncio => 
+                `<article class="anuncio">
+                        <h3 class="anuncio-titulo">${anuncio.titulo}</h3>
+                        <figure>
+                            <img class="anuncio-img" src="${anuncio.imagen_url}" alt="${anuncio.titulo}" onerror="${imgDefault}">
+                        </figure>
+                        <p class="anuncio-texto">Descripcion: ${anuncio.descripcion}</p>
+                        <button class="btn-modal" data-id=${anuncio.id} onclick="window.modal.showModal();">Ver mas...</button>
+                    </article>`
+                ).join("")
+            }
+        }
+        console.log(anuncios)
 
 function renderModal(id) {
 
     anuncio = anuncios.find(anuncio => anuncio.id == id);
-
     $modal.innerHTML = `
         <article class="elemento-modal">
                         <h3 class="anuncio-titulo">${anuncio.titulo}</h3>
@@ -71,12 +74,11 @@ function renderModal(id) {
                         hola
                         <a href="?controller=AnuncioController&action=anuncioPage&id=${anuncio.id}" >Ir a Pagina...</a>
                         <button onclick="window.modal.close();">Cerrar</button>
-        </article>
-                `
+        </article>`
+        
 }
 
 $d.addEventListener("DOMContentLoaded", ev => {
-    console.log(url);
     getAnuncios()
   const $bntModal = $d.querySelectorAll(".btn-modal")
 })

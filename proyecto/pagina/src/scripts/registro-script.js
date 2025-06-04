@@ -2,9 +2,6 @@ const $d = document,
     $selector = $d.querySelector(".section-tipo-form"),
     $empresa = $d.querySelector(".empresa")
     
-
-
-
 console.log($selector);
 console.log($empresa);
 

@@ -1,5 +1,6 @@
 <?php
-    if (!isset($_SESSION['id_usuario'])&&  isset($_SESSION['token'])){
+
+    if (!isset($_SESSION['id_usuario']) ||  !isset($_SESSION['token'])){
             header("Location: ?controller=MainController&action=index");
     }
             $host = $_SERVER['HTTP_HOST'];
@@ -16,7 +17,7 @@
     <script>
         const baseUrl = "http://<?php echo $host . $script; ?>";
     </script>
-    <script src="./assets/scripts/home-scritp.js" defer></script>
+    <script src="../pagina/src/scripts/home-script.js" defer></script>
 </head>
 <body>
 <?php
