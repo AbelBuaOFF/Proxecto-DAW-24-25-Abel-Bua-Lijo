@@ -6,7 +6,8 @@
     --color-bnt: #BBD8A3;
     --color-btn-hover: #6F826A;
     --color-fondo-anuncio: #F0F1C5;
-    --color-borde-anuncio: #babd77;;
+    --color-borde-anuncio: #babd77;
+    --color-fondo-btn-rojo: #FF6265;
 
     --fuente-principal: 'Jersey25', sans-serif;
 }
@@ -43,9 +44,15 @@ main{
     color: var(--color-texto);
 }
 
-h1,h2,h3,h4,h5,h6{
+h1{
     font-family: var(--fuente-principal);
 
+}
+
+h2{
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-texto);
 }
 
 a{
@@ -72,5 +79,20 @@ img{
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.off{
+    display: none !important;
+}
+* .link{
+    color: blue;
+    text-decoration: underline;
+}
+
+.btn-close{
+    background-color: var(--color-fondo-btn-rojo) !important;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
  /*=====  End of Generales  ======*/

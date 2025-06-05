@@ -40,23 +40,23 @@ const $d = document,
       }
 
       function renderAnuncios(anuncios){
-        if (anuncios.length === 0) {
+        
             $secionAnuncios.innerHTML = 
-            `<article class="anuncio-add">
+            `<article class="anuncio anuncio-add">
                 <a href="?controller=AnuncioController&action=publicarAnuncio" class="publicar-anuncio"><i class="fa fa-plus" aria-hidden="true"></i> </a>
                 </article>`
-        }else{
-            $secionAnuncios.innerHTML= anuncios.map(anuncio => 
+        
+            $secionAnuncios.innerHTML+= anuncios.map(anuncio => 
                 `<article class="anuncio">
                         <h3 class="anuncio-titulo">${anuncio.titulo}</h3>
                         <figure>
-                            <img class="anuncio-img" src="${anuncio.imagen_url}" alt="${anuncio.titulo}" onerror="${imgDefault}">
+                            <img class="anuncio-img" src="${anuncio.imagen_url}" alt="${anuncio.titulo}">
                         </figure>
                         <p class="anuncio-texto">Descripcion: ${anuncio.descripcion}</p>
                         <button class="btn-modal" data-id=${anuncio.id} onclick="window.modal.showModal();">Ver mas...</button>
                     </article>`
                 ).join("")
-            }
+            
         }
         console.log(anuncios)
 
@@ -71,16 +71,15 @@ function renderModal(id) {
                         <figure>
                             <img class="anuncio-img" src="${anuncio.imagen_url}" alt="${anuncio.titulo}">
                         </figure>
-                        hola
                         <a href="?controller=AnuncioController&action=anuncioPage&id=${anuncio.id}" >Ir a Pagina...</a>
-                        <button onclick="window.modal.close();">Cerrar</button>
+                        <a class="modalCerrar" onclick="window.modal.close();"><i class="fas fa-window-close"></i></a>
         </article>`
         
 }
 
 $d.addEventListener("DOMContentLoaded", ev => {
     getAnuncios()
-  const $bntModal = $d.querySelectorAll(".btn-modal")
+    const $bntModal = $d.querySelectorAll(".btn-modal")
 })
 
 $secionAnuncios.addEventListener("click", ev => {   

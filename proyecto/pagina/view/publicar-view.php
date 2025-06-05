@@ -1,7 +1,5 @@
 <?php
-            if (!isset($_SESSION['id_usuario'])&&  isset($_SESSION['token'])){
-                header("Location: ?controller=MainController&action=index");
-            }
+           
             $host = $_SERVER['HTTP_HOST'];
             $script = $_SERVER['SCRIPT_NAME'];
 ?>
@@ -17,6 +15,9 @@
 <body>
 <?php
     include("header.php");
+    if (!isset($_SESSION['id_usuario']) ||  !isset($_SESSION['token'])){
+        header("Location: ?controller=MainController&action=index");
+     }
     ?>
     <main class="main">
     <section class="section-login">

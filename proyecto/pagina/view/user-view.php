@@ -18,8 +18,8 @@
             <p><?php echo $data["usuario"]->nombre_usuario ?></p>
             <p>Email: <?php echo $data["usuario"]->email ?></p>
             <?php if ($data["usuario"]->tipo_usuario == "empresa") { 
-                echo '<p>Nombre Comercial: $data["usuario"]->nombre_comercial ?></p>';
-                echo '<p>URL Web: <a href="$data["usuario"]->url_web">  $data["usuario"]->url_web ?></a></p>';
+                echo '<p>Nombre Comercial:'. $data["usuario"]->nombre_comercial.'</p>';
+                echo '<p>URL Web: <span class="link">'.  $data["usuario"]->url_web .'</span></p>';
             } ?>
             </article>
         </section>

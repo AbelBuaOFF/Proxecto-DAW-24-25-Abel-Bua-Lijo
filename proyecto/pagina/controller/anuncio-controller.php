@@ -88,7 +88,11 @@ class AnuncioController extends PageController{
                 $data->id_categoria = $_POST['id_categoria'];
                 $data->id_localidad = $_POST['id_localidad'];
                 $data->id_usuario = $_SESSION['id_usuario'];
-                $data->imagen = "img/piso_vigo.jpg";  //TODO
+                if (isset($_POST['imagen'])) {
+                    $data->imagen = $_POST['imagen'];  
+                }else{
+                    $data->imagen = "/pagina//uploads/anuncio/anuncio_default.jpg";  
+                }
             
             $solicitud = new Solicitud("anuncio","insert",null, $data);
             $model = new SolicitudModel();

@@ -1,13 +1,10 @@
 <?php
-
-    if (!isset($_SESSION['id_usuario']) ||  !isset($_SESSION['token'])){
-            header("Location: ?controller=MainController&action=index");
-    }
+            include_once("../globals.php");
             $host = $_SERVER['HTTP_HOST'];
             $script = $_SERVER['SCRIPT_NAME'];
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,6 +19,10 @@
 <body>
 <?php
     include("header.php");
+    if (!isset($_SESSION['id_usuario']) ||  !isset($_SESSION['token'])){
+        header("Location: ?controller=MainController&action=index");
+        var_dump(PATH_SRC);
+    }
     ?>
     <main class="main">
         <h2>HOME</h2>
@@ -36,7 +37,6 @@
                 <figure>
                     <img class="anuncio-img" src="" alt="">
                 </figure>
-
                 <button onclick="window.modal.close();">Cerrar</button>
                 </article>
             </dialog>
