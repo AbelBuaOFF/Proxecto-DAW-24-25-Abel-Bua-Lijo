@@ -234,7 +234,7 @@ main .anuncio-card figure{
    justify-content: center;
 }
 
-main .anuncio-card .anuncio-links{
+.anuncio-links{
 
    display: flex;
    flex-direction: row;
@@ -244,7 +244,7 @@ main .anuncio-card .anuncio-links{
 
 }
 
-main .anuncio-card .anuncio-links li{
+.anuncio-links li{
    list-style: none;
    font-size: 1.2rem;
 }

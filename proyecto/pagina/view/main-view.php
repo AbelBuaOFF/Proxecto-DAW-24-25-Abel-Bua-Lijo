@@ -40,7 +40,6 @@
                         echo "<option value='{$localidad["id"]}'>{$localidad["nombre_localidad"]}</option>";
                     }
                     ?>
-
                 </select>
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i>
                 </button>

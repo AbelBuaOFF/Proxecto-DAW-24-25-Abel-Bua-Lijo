@@ -52,7 +52,8 @@ function renderAnuncios(anuncios){
                         <img class="anuncio-img" src="${anuncio.imagen_url}" alt="${anuncio.titulo}">
                     </figure>
                     <p class="anuncio-texto">Descripcion: ${anuncio.descripcion}</p>
-                    <button class="btn-modal" data-id=${anuncio.id} onclick="window.modal.showModal();">Ver mas...</button>
+                    <a href="?controller=AnuncioController&action=anuncioPage&id=${anuncio.id}"><i class="fas fa-arrow-right"></i></a>
+                    <button class="btn-modal" data-id=${anuncio.id} onclick="window.modal.showModal()"><i class="fa fa-eye"></i> Ver mas...</button>
                 </article>`
             ).join("")
         }
@@ -69,7 +70,7 @@ function renderModal(id) {
                     <img class="anuncio-img" src="${anuncio.imagen_url}" alt="${anuncio.titulo}">
                 </figure>
                     <a href="?controller=AnuncioController&action=anuncioPage&id=${anuncio.id}">
-                           <span class="link">Ir a Pagina...</span>
+                           <span class="link"><i class="fas fa-arrow-right"></i> Ir a Pagina...</span>
                     </a>
                 <a class="modalCerrar" onclick="window.modal.close();"><i class="fas fa-window-close"></i></a>
         </article>`

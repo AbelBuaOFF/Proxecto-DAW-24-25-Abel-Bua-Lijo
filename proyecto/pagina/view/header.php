@@ -1,3 +1,4 @@
+<link rel="icon" href="assets/img/logo.png" type="image/x-icon">
 <script src="../pagina/src/scripts/header-script.js" defer></script>
     <header class="header">
         <ul class="logo-menu">

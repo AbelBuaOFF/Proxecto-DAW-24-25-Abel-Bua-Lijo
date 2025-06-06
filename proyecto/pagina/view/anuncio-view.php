@@ -30,7 +30,7 @@
                             echo "<li> Localidad:".$data["localidad"]->nombre_localidad."</li>";
                         }?>
                         <li>Publicado por: <a href="?controller=UserController&action=userPage&id=<?php echo $data["anuncio"]->id_usuario?>">
-                            <span class="link" ><?php echo $data["usuario"]->nombre_usuario?><span></a></li>
+                        <span class="link" ><?php echo $data["usuario"]->nombre_usuario?><span></a></li>
                     </ul>
         </article>
     </main>
