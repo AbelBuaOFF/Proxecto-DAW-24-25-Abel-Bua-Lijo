@@ -1,6 +1,7 @@
 console.log("Header script loaded");
-const $menuMovil=$d.querySelector(".menu-hamburguesa"),
-      $btn = $d.querySelector(".menu-hamburguesa-btn")
+
+const $menuMovil=document.querySelector(".menu-hamburguesa"),
+      $btn = document.querySelector(".menu-hamburguesa-btn")
 
     $btn.addEventListener("click", ev => {
         if ($menuMovil.classList.contains("off")){
