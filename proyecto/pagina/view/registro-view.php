@@ -13,14 +13,16 @@
     include("header.php"); 
     ?>
     <main class="main">
-    <?php
-    if (isset($data['error'])) {
-        echo '<p>'.$data['error'].'</p>';
-    }
-    ?>
+
         <section class="section-login usuario"> 
             <form action="?controller=UserController&action=addUser" method="post" class="form-login">
-            
+            <?php
+                if (isset($data['errors'])) {
+                    foreach ($data['errors'] as $error) {
+                        echo '<p class="error">'.$error.'</p>';
+                    }
+                }
+                ?>
                 <h2 class="h2">Registrarse</h2>
                 <ul class="section-tipo-form fila-form">
                     <p>Tipo de Usuario:</p>

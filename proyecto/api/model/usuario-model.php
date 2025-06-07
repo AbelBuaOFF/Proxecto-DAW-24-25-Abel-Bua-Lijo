@@ -25,9 +25,7 @@ class Usuario extends ModelObject{
     }
 
     public static function fromJson($json): ModelObject {
-
             $data = $json;
-            var_dump($data);
             return new Usuario(
                 $data['nombre_usuario'] ?? null,
                 $data['email'] ?? null,
@@ -39,7 +37,6 @@ class Usuario extends ModelObject{
                 $data['id']?? null
             );
     }
-
     public function toJson():String{
         return json_encode($this,JSON_PRETTY_PRINT);
     }
@@ -95,6 +92,7 @@ class UsuarioModel extends Model{
                     $row['nombre_comercial'] ?? null,
                     $row['url_web'] ?? null,
                     $row['id_rol'] ?? null,
+                    $id
                 );
             }
         } catch (\Throwable $th) {
@@ -112,53 +110,50 @@ class UsuarioModel extends Model{
         WHERE nombre_usuario=:usuario AND passw=:passw AND borrado = 0";
         $pdo = Model::getConnection();
         $hash = hash('sha256', $objeto['passw']);
-        $usuario = false;
-        
         try {
             $statement = $pdo->prepare($sql);
             $statement->bindValue(':usuario', $objeto["nombre_usuario"], PDO::PARAM_STR);
             $statement->bindValue(':passw', $hash , PDO::PARAM_STR);
             $statement->execute();
-            $usuario = $statement->fetch(PDO::FETCH_ASSOC);
+            $resultado=$statement->fetch();
         } catch (\PDOException $th) {
             error_log("Error en->login() UsuarioModel");
             error_log($th->getMessage());
+            $resultado = $th->getMessage();
         } finally {
             $statement = null;
             $pdo = null;
         }
-
-        return $usuario;
+        return $resultado;
     }
 
     public function addUser($usuario): bool{
         $resultado= false;
-        var_dump($usuario);
-        if ($usuario->tipo_usuario == "empresa") {
+        if ($usuario["tipo_usuario"] == "empresa") {
             $sql = " INSERT INTO Usuario (nombre_usuario, email, passw ,tipo_usuario, nombre_comercial, url_web) VALUES (:nombre_usuario, :email, :passw , :tipo_usuario, :nombre_comercial, :url_web)";
         }else{
             $sql = "INSERT INTO Usuario (nombre_usuario, email, passw ) VALUES (:nombre_usuario, :email, :passw)";
         }
 
         $pdo = Model::getConnection();
-        $hash = hash('sha256', $usuario->password);
+        $hash = hash('sha256', $usuario["password"]);
         
         try {
             $statement = $pdo->prepare($sql);
-            $statement->bindValue(':nombre_usuario', $usuario->nombre_usuario, PDO::PARAM_STR);
-            $statement->bindValue(':email', $usuario->email, PDO::PARAM_STR);
+            $statement->bindValue(':nombre_usuario', $usuario["nombre_usuario"], PDO::PARAM_STR);
+            $statement->bindValue(':email', $usuario["email"], PDO::PARAM_STR);
             $statement->bindValue(':passw', $hash, PDO::PARAM_STR);
 
-            if ($usuario->tipo_usuario == "empresa") {
-                $statement->bindValue(':tipo_usuario', $usuario->tipo_usuario, PDO::PARAM_STR);
-                $statement->bindValue(':nombre_comercial', $usuario->nombre_comercial, PDO::PARAM_STR);
-                $statement->bindValue(':url_web', $usuario->url_web, PDO::PARAM_STR);
+            if ($usuario["tipo_usuario"] == "empresa") {
+                $statement->bindValue(':tipo_usuario', $usuario["tipo_usuario"], PDO::PARAM_STR);
+                $statement->bindValue(':nombre_comercial', $usuario["tipo_usuario"], PDO::PARAM_STR);
+                $statement->bindValue(':url_web', $usuario["url_web"], PDO::PARAM_STR);
             }
-
             $resultado = $statement->execute();
+
         } catch (\PDOException $th) {
             error_log("Error en->addUser() UsuarioModel ".$th->getMessage());
-
+            $resultado = $th->getMessage();
         } finally {
             $statement = null;
             $pdo = null;
@@ -167,26 +162,20 @@ class UsuarioModel extends Model{
     }
 
     public function blockUser($id):bool{
-
         $resultado= false;
-
         $sql = "UPDATE Usuario SET borrado = 1 WHERE id = :id";
         $pdo = Model::getConnection();
-
         try {
             $statement = $pdo->prepare($sql);
             $statement->bindValue(':id', $id, PDO::PARAM_INT);
-
             $resultado = $statement->execute();
             $resultado= true;
         } catch (\PDOException $th) {
             error_log("Error en->blockUser($id) UsuarioModel");
             error_log($th->getMessage());
-
         } finally {
             $statement = null;
             $pdo = null;
-            
         }
         return $resultado;
     }
@@ -196,14 +185,11 @@ class UsuarioModel extends Model{
 
         $sql = "UPDATE Usuario SET passw = :passw WHERE id = :id";
         $pdo = Model::getConnection();
-
         $hash = hash('sha256', $objeto['passw']);
-
         try {
             $statement = $pdo->prepare($sql);
             $statement->bindValue(':id', $id, PDO::PARAM_INT);
             $statement->bindValue(':passw',$hash , PDO::PARAM_STR);
-
             $resultado = $statement->execute();
             $resultado= true;
         } catch (\PDOException $th) {
@@ -222,4 +208,45 @@ class UsuarioModel extends Model{
         //TODO
         return false;
     }
+
+    public function deleteUser() : bool {
+        //TODO
+        return false;
+    }
+
+    public static function getUserByNombre($nombre_usuario) {
+        $sql = "SELECT id FROM Usuario Where nombre_usuario = :nombre_usuario";
+        $pdo = Model::getConnection();
+        try {
+            $statement = $pdo->prepare($sql);
+            $statement->bindValue(':nombre_usuario', $nombre_usuario, PDO::PARAM_STR);
+            $statement->execute();
+            $resultado=$statement->rowCount()==1;
+        } catch (\PDOException $th) {
+            error_log("Error en->getUserByNombre() UsuarioModel");
+            error_log($th->getMessage());
+        } finally {
+            $statement = null;
+            $pdo = null;
+        }
+        return $resultado;
+    }
+    public static function getUserByEmail($email) {
+        $sql = "SELECT id FROM Usuario Where email = :email";
+        $pdo = Model::getConnection();
+        try {
+            $statement = $pdo->prepare($sql);
+            $statement->bindValue(':email', $email, PDO::PARAM_STR);
+            $statement->execute();
+            $resultado=$statement->rowCount()==1;
+        } catch (\PDOException $th) {
+            error_log("Error en->getUserByEmail() UsuarioModel");
+            error_log($th->getMessage());
+        } finally {
+            $statement = null;
+            $pdo = null;
+        }
+        return $resultado;
+    }
+
 }

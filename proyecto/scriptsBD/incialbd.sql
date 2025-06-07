@@ -40,23 +40,23 @@ CREATE TABLE Usuario (
     tipo_usuario ENUM('particular', 'empresa') DEFAULT 'particular',
     nombre_comercial VARCHAR(100),
     url_web VARCHAR(100),
-    fecha_creacion DATETIME  NOT NULL DEFAULT CURRENT_TIMESTAMP, 
-    fecha_modificacion DATETIME  NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    fecha_creacion TIMESTAMP  NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    fecha_modificacion TIMESTAMP  NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (id_rol) REFERENCES Rol(id) ON DELETE RESTRICT ON UPDATE CASCADE  
 );
 
 CREATE TABLE Anuncio (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    id_usuario INT,
-    titulo VARCHAR(200),
-    descripcion VARCHAR(255),
+    id_usuario INT NOT NULL,
+    titulo VARCHAR(200) NOT NULL,
+    descripcion VARCHAR(255) NOT NULL,
     contenido TEXT,
     id_tipo_anuncio INT,
     id_categoria INT,
-    fecha_creacion DATE,
-    fecha_modificacion DATE,
+    fecha_creacion TIMESTAMP  NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    fecha_modificacion TIMESTAMP  NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     id_localidad INT,
-    imagen_url VARCHAR(255),
+    imagen_url VARCHAR(255) DEFAULT '/pagina/uploads/anuncio/anuncio_default.jpg',
     FOREIGN KEY (id_usuario) REFERENCES Usuario(id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (id_tipo_anuncio) REFERENCES Tipo_Anuncio(id) ON DELETE SET NULL ON UPDATE CASCADE,
     FOREIGN KEY (id_categoria) REFERENCES Categoria(id) ON DELETE SET NULL ON UPDATE CASCADE,
@@ -67,7 +67,7 @@ CREATE TABLE AuthToken (
     id INT PRIMARY KEY AUTO_INCREMENT,
     id_usuario INT NOT NULL,
     token VARCHAR(255) NOT NULL UNIQUE,
-    fecha_creacion DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    fecha_creacion TIMESTAMP  NOT NULL DEFAULT CURRENT_TIMESTAMP,
     fecha_expiracion DATETIME NOT NULL,
     activo BOOLEAN DEFAULT TRUE,
     FOREIGN KEY (id_usuario) REFERENCES Usuario(id) ON DELETE CASCADE ON UPDATE CASCADE
@@ -76,9 +76,43 @@ CREATE TABLE AuthToken (
 /*    Datos Ejemplo      */
 
 -- Insertar Roles
-INSERT INTO Rol (id, nombre_rol) VALUES
-(1, 'Admin'),
-(2, 'Usuario');
+INSERT INTO Rol (nombre_rol) VALUES
+('Admin'),
+('Usuario');
+
+-- Insertar Tipos de Anuncio
+INSERT INTO Tipo_Anuncio (nombre_tipo_anuncio) VALUES
+('Anuncio'),
+('Aviso'),
+('Información'),
+('Evento');
+
+-- Insertar Categorías
+INSERT INTO Categoria (nombre_categoria) VALUES
+('Vehículos'),
+('Inmuebles'),
+('Empleo'),
+('Servicios'),
+('Fiestas'),
+('Local');
+
+-- Insertar Provincias
+INSERT INTO Provincia (nombre_provincia) VALUES
+('A Coruña'),
+('Lugo'),
+('Ourense'),
+('Pontevedra');
+
+-- Insertar Localidades
+INSERT INTO Localidad (nombre_localidad, id_provincia, codigo_postal) VALUES
+('A Coruña', 1, 15001),
+('Santiago de Compostela', 1, 15701),
+('Lugo', 2, 27001),
+('Monforte de Lemos', 2, 27400),
+('Ourense', 3, 32001),
+('Verín', 3, 32600),
+('Pontevedra', 4, 36001),
+('Vigo', 4, 36200);
 
 -- Insertar Usuarios
 -- Insertar usuario particular
@@ -89,37 +123,8 @@ VALUES ('carlos_acoruna', 'carlos.acoruna@example.com', 'hashedpassword1', 'part
 INSERT INTO Usuario (nombre_usuario, email, passw, tipo_usuario, nombre_comercial, url_web)
 VALUES ('ana_vigo', 'ana.vigo@example.com', 'hashedpassword2', 'empresa', 'Servicios Vigo SL', 'https://serviciosvigo.gal');
 
--- Insertar Tipos de Anuncio
-INSERT INTO Tipo_Anuncio (id, nombre_tipo_anuncio) VALUES
-(1, 'Venta'),
-(2, 'Compra'),
-(3, 'Alquiler');
-
--- Insertar Categorías
-INSERT INTO Categoria (id, nombre_categoria) VALUES
-(1, 'Vehículos'),
-(2, 'Electrónica'),
-(3, 'Inmuebles');
-
--- Insertar Provincias
-INSERT INTO Provincia (id, nombre_provincia) VALUES
-(1, 'A Coruña'),
-(2, 'Lugo'),
-(3, 'Ourense'),
-(4, 'Pontevedra');
-
--- Insertar Localidades
-INSERT INTO Localidad (id, nombre_localidad, id_provincia, codigo_postal) VALUES
-(1, 'A Coruña', 1, 15001),
-(2, 'Santiago de Compostela', 1, 15701),
-(3, 'Lugo', 2, 27001),
-(4, 'Monforte de Lemos', 2, 27400),
-(5, 'Ourense', 3, 32001),
-(6, 'Verín', 3, 32600),
-(7, 'Pontevedra', 4, 36001),
-(8, 'Vigo', 4, 36200);
 
 -- Insertar Anuncios
-INSERT INTO Anuncio (id_usuario, titulo, descripcion, contenido, id_tipo_anuncio, id_categoria, fecha_creacion, fecha_modificacion, id_localidad, imagen_url) VALUES
-(1, 'Venta de furgoneta en A Coruña', 'Furgoneta en buen estado, lista para trabajar', 'Furgoneta Ford Transit 2018, 80.000 km, ITV al día', 1, 1, '2025-05-20', '2025-05-20', 1, 'img/furgoneta.jpg'),
-(2, 'Busco piso en Vigo', 'Piso céntrico y bien comunicado', 'Busco piso de 3 habitaciones en Vigo, zona centro', 2, 3, '2025-05-21', '2025-05-21', 8, 'img/piso_vigo.jpg');
+INSERT INTO Anuncio (id_usuario, titulo, descripcion, contenido, id_tipo_anuncio, id_categoria, fecha_creacion, fecha_modificacion, id_localidad) VALUES
+(1, 'Venta de furgoneta en A Coruña', 'Furgoneta en buen estado, lista para trabajar', 'Furgoneta Ford Transit 2018, 80.000 km, ITV al día', 1, 1, '2025-05-20', '2025-05-20', 1),
+(2, 'Busco piso en Vigo', 'Piso céntrico y bien comunicado', 'Busco piso de 3 habitaciones en Vigo, zona centro', 2, 3, '2025-05-21', '2025-05-21', 8);

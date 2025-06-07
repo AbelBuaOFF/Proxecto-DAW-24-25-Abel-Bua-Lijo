@@ -157,7 +157,7 @@ class AnuncioController extends PageController{
         
         $vista = new View;
         if (isset($_POST['id_anuncio']) && isset($_POST['titulo']) && isset($_POST['descripcion'])&& isset($_POST['contenido'])) {
-            $anuncio_id = $_POST['id_anuncio'];
+            $anuncio_id = (int) $_POST['id_anuncio'];
             $data = new stdClass();
                 $data->titulo = $_POST['titulo'];
                 $data->descripcion = $_POST['descripcion'];

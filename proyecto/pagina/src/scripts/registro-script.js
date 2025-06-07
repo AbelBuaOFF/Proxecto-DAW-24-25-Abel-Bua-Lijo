@@ -8,8 +8,9 @@ console.log($empresa);
 
 function renderFormEmpresa() {
 
-    $empresa.innerHTML = `<fieldset class="empresa .off">
-                    <legend>Datos de la Empresa</legend>
+    $empresa.innerHTML = `
+            <fieldset class="empresa .off">
+                <p>Datos de la Empresa</p>
                 <ul class="fila-form">
                     <label for="nombre-comercial"> Nombre  Comercial:</label>
                     <input type="text" placeholder="Nombre..." name="nombre-comercial" id="nombre-comercial" required>

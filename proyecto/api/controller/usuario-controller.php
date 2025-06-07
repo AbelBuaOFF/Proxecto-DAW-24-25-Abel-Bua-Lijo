@@ -1,9 +1,7 @@
 <?php
-
 include_once ('controller.php');
 include_once (PATH_MODEL."usuario-model.php");
 include_once (PATH_CONTROLLER."token-controller.php");
-
 
 class UsuarioController extends controller{
 
@@ -25,22 +23,32 @@ class UsuarioController extends controller{
     public function addUser($object) {
 
         $model = new UsuarioModel();
-        try{
-            $result = Usuario::fromJson($object);
-            if ($model->addUser($result)) {
-                echo json_encode([
+        $error=[];
+        UsuarioModel::getUserByNombre($object["nombre_usuario"]) ? $error[] = "El nombre de usuario ya existe." : null;
+        UsuarioModel::getUserByEmail($object["email"]) ? $error[] = "El email ya existe." : null;
+
+        if (count($error) == 0) {
+            $insercion = $model->addUser($object);
+            if ($insercion) {
+                $result = [
                     "status" => "success",
-                    "message" => "Usuario insertado correctamente."
-                ], JSON_PRETTY_PRINT);
-        }
-        }catch (Throwable $th) {
-            Controller::sendNotFound("Error al insertar un Usuario.");
-            error_log($th->getMessage());
-            echo json_encode([
+                    "message" => "Usuario insertado correctamente.",
+                ];
+            }else {
+                $result = [
+                    "status" => "error",
+                    "message" => "Error al insertar un Usuario.",
+                ];
+            }
+        }else{
+            $result = [
                 "status" => "error",
-                "message" => "Error al insertar un Usuario."
-            ], JSON_PRETTY_PRINT);
-        } 
+                "message" => "Error al insertar un Usuario.",
+                "errors" => $error
+            ];
+        }
+         
+        echo json_encode($result, JSON_PRETTY_PRINT);
     }
 
     public function blockUser($id) {
@@ -53,7 +61,7 @@ class UsuarioController extends controller{
     public function login($objecto) {
         $model = new UsuarioModel();
         $usuario =$model->login($objecto);
-        if ($usuario) {
+        if (isset($usuario["id"])) {
             $token = TokenAuthController::generateToken($usuario["id"]);
             $result = [
                 "status" => "success",
@@ -63,9 +71,15 @@ class UsuarioController extends controller{
             ];
             echo json_encode($result, JSON_PRETTY_PRINT);
         }else {
+            
+            if (UsuarioModel::getUserByNombre($objecto["nombre_usuario"])) {
+                $mensage = "Contraseña incorrecta.";
+            }else {
+                $mensage = "Usuario no encontrado.";
+            }
             $result = [
                 "status" => "error",
-                "message" => "Error al loguear el usuario."
+                "message" => "$mensage"
             ];
             echo json_encode($result, JSON_PRETTY_PRINT);
         }

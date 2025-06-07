@@ -52,7 +52,12 @@ h1{
 h2{
     font-size: 2rem;
     font-weight: 600;
-    color: var(--color-texto);
+    text-align: center;
+}
+h3{
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
 }
 
 a{
@@ -94,5 +99,9 @@ img{
     text-decoration: none;
     font-size: 1.2rem;
     font-weight: 600;
+}
+
+.btn-cerrar-sesion{
+    background-color: var(--color-fondo-btn-rojo) !important;
 }
  /*=====  End of Generales  ======*/

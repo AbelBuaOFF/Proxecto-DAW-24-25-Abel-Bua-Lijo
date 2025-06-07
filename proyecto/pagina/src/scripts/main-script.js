@@ -52,8 +52,14 @@ function renderAnuncios(anuncios){
                         <img class="anuncio-img" src="${anuncio.imagen_url}" alt="${anuncio.titulo}">
                     </figure>
                     <p class="anuncio-texto">Descripcion: ${anuncio.descripcion}</p>
-                    <a href="?controller=AnuncioController&action=anuncioPage&id=${anuncio.id}"><i class="fas fa-arrow-right"></i></a>
-                    <button class="btn-modal" data-id=${anuncio.id} onclick="window.modal.showModal()"><i class="fa fa-eye"></i> Ver mas...</button>
+                    <ul class="anuncio-btn">
+                        <li>
+                             <button class="btn-modal" data-id=${anuncio.id} onclick="window.modal.showModal()"><i class="fa fa-eye"></i> Ver mas...</button>
+                        </li>
+                        <li>
+                            <a href="?controller=AnuncioController&action=anuncioPage&id=${anuncio.id}"><i class="fas fa-arrow-right"></i></a>
+                        </li>
+                    </ul>
                 </article>`
             ).join("")
         }

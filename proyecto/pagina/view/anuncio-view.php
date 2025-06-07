@@ -12,7 +12,6 @@
     include("header.php");
     ?>
     <main class="main">
-        <h2>ANUNCIO</h2>
         <article class="anuncio-card">
             
                     <h3 class="anuncio-titulo"><?php echo $data["anuncio"]->titulo ?></h3>
@@ -33,6 +32,22 @@
                         <span class="link" ><?php echo $data["usuario"]->nombre_usuario?><span></a></li>
                     </ul>
         </article>
+        <?php
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        $id_user = $data["anuncio"]->id_usuario;
+        if (isset($_SESSION['id_usuario']) && $_SESSION['id_usuario'] == $id_user) {
+            $id = $data["anuncio"]->id;
+            echo "<aside class='panelTools'>";
+                echo "<p>Opciones</p>";
+                echo "<ul>";
+                    echo "<li><a href='?controller=AnuncioController&action=updateAnuncioPage&id=$id'><i class='fas fa-edit'></i> Modificar Anuncio</a></li>";
+                    echo "<li><a href='?controller=AnuncioController&action=deleteAnuncio&id=$id'><i class='fa fa-trash'></i> Eliminar Anuncio</a></li>";
+                echo "</ul>";
+            echo "</aside>"; 
+        }
+        ?>
     </main>
     <?php
         include("footer.php");
