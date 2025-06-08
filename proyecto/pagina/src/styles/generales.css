@@ -104,4 +104,8 @@ img{
 .btn-cerrar-sesion{
     background-color: var(--color-fondo-btn-rojo) !important;
 }
+
+.bold{
+    font-weight: 600 !important;
+}
  /*=====  End of Generales  ======*/

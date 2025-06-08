@@ -21,17 +21,19 @@
     ?>
     <main class="main">
     <section class="section-login">
-            <form action="?controller=AnuncioController&action=sendAnuncio" method="post" class="form-login">
-
+        <?php
+        if (isset($respuesta["error"])) {
+            echo "<p>class='error'>{$respuesta["error"]}</p>";
+        }
+        ?>
+            <form action="?controller=AnuncioController&action=sendAnuncio" method="post" class="form-login" enctype="multipart/form-data">
                 <h2 class="h2">Publicar un Nuevo Anuncio.</h2>
-                
+            
                     <label for="titulo">Titulo:</label>
                     <input type="text" placeholder="Se vende ..." name="titulo" id="titulo" required>
                 
-                
                     <label for="descripcion">Descripcion:</label>
                     <input type="text" placeholder="en buen estado..." name="descripcion" id="descripcion" required>
-                
                 
                     <label for="contenido">Contacto y Mas informacion:</label>
                     <textarea id="contenido" placeholder="informacion de contacto, y mas informacion.." name="contenido" rows="5" required></textarea>
@@ -67,8 +69,12 @@
                     </select>
                 </ul>
                 <ul class="fila-form">
-                    <label for="imagen">Imagen:</label>
-                    <input type="file" id="imagen" name="imagen" accept="image/*">
+                    <li>
+                        <label for="imagen">Imagen:</label>
+                    </li>
+                    <li>
+                        <input type="file" id="imagen" name="imagen" accept="image/*">
+                    </li>
                 </ul>
                 <ul class="grupo-btn">
                     <a href="?controller=MainController&action=index" class="btn-volver btn">Volver</a>

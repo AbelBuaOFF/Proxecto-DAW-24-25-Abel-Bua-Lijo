@@ -44,7 +44,7 @@ class Usuario extends ModelObject{
 class UsuarioModel extends Model{
 
     public function getAll() {
-        $sql = "SELECT id, nombre_usuario, email,id_rol,tipo_usuario,nombre_comercial,url_web  FROM Usuario Where borrado = 0";
+        $sql = "SELECT nombre_usuario, email, id_rol,tipo_usuario,nombre_comercial,url_web,id  FROM Usuario Where borrado = 0";
         $pdo = Model::getConnection();
         $resultado = [];
         
@@ -52,14 +52,14 @@ class UsuarioModel extends Model{
             $statement = $pdo->query($sql);
             foreach ($statement as $row) {
                 $anuncio = new Usuario(
-                    $row['id']?? null,
                     $row['nombre_usuario'] ?? null,
                     $row['email'] ?? null,
                     null,
-                    $row['id_rol'] ?? null,
                     $row['tipo_usuario'] ?? null,
                     $row['nombre_comercial'] ?? null,
-                    $row['url_web'] ?? null
+                    $row['url_web'] ?? null,
+                    $row['id_rol'] ?? null,
+                    $row['id'] ?? null
                 );
                 array_push($resultado, $anuncio);
             }
@@ -209,8 +209,21 @@ class UsuarioModel extends Model{
         return false;
     }
 
-    public function deleteUser() : bool {
-        //TODO
+    public function delete($id) : bool {
+        $sql = "DELETE FROM Usuario WHERE id = :id";
+        $pdo = Model::getConnection();
+        try {
+            $statement = $pdo->prepare($sql);
+            $statement->bindValue(':id', $id, PDO::PARAM_INT);
+            $resultado = $statement->execute();
+            return true;
+        } catch (\PDOException $th) {
+            error_log("Error en->deleteUser($id) UsuarioModel");
+            error_log($th->getMessage());
+        } finally {
+            $statement = null;
+            $pdo = null;
+        }
         return false;
     }
 

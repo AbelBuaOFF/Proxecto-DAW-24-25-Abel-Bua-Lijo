@@ -112,13 +112,25 @@ class AnuncioController extends PageController{
         
     }
 
-
     public static function sendAnuncio(){
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
         $vista = new View;
         if (isset($_POST['titulo']) && isset($_POST['descripcion'])&& isset($_POST['contenido'])) {
+
+            if (isset($_FILES['imagen'])) {
+                $rutaImg=AnuncioController::guardarImgAnuncio($_FILES['imagen'], $_POST['titulo']);
+
+                if($rutaImg==false){
+                    $respuesta = ["error"=>"Error al subir la imagen"];
+                }
+            
+            }else{
+                $rutaImg= "/pagina/uploads/anuncio/anuncio_default.jpg";  
+            }
+
+            
             $data = new stdClass();
                 $data->titulo = $_POST['titulo'];
                 $data->descripcion = $_POST['descripcion'];
@@ -127,11 +139,8 @@ class AnuncioController extends PageController{
                 $data->id_categoria = $_POST['id_categoria'];
                 $data->id_localidad = $_POST['id_localidad'];
                 $data->id_usuario = $_SESSION['id_usuario'];
-                if (isset($_POST['imagen'])) {
-                    $data->imagen = $_POST['imagen'];  
-                }else{
-                    $data->imagen = "/pagina/uploads/anuncio/anuncio_default.jpg";  
-                }
+                $data->imagen_url = $rutaImg;
+                
             
             $solicitud = new Solicitud("anuncio","insert",null, $data);
             $model = new SolicitudModel();
@@ -141,10 +150,21 @@ class AnuncioController extends PageController{
                header("Location: /pagina/index.php?controller=UserController&action=home");
                 
             }
-            $vista->show("publicar",$data);
+
+            $solicitud = new Solicitud("categoria","getAll");
+            $model = new SolicitudModel();
+            $data['categorias'] = $model->enviarSolicitud($solicitud);
+            
+            $solicitud = new Solicitud("localidad","getAll");
+            $model = new SolicitudModel();
+            $data['localidades'] = $model->enviarSolicitud($solicitud);
     
+            $solicitud = new Solicitud("tipoanuncio","getAll");
+            $model = new SolicitudModel();
+            $data['tipos_anuncio'] = $model->enviarSolicitud($solicitud);
+
             }else{
-                $respuesta = ["error"];
+                $respuesta = ["error"=>"Error al publicar"];
                 $vista->show("login",$respuesta);
             } 
     }
@@ -157,6 +177,18 @@ class AnuncioController extends PageController{
         
         $vista = new View;
         if (isset($_POST['id_anuncio']) && isset($_POST['titulo']) && isset($_POST['descripcion'])&& isset($_POST['contenido'])) {
+
+            if (isset($_FILES['imagen'])) {
+                $rutaImg=AnuncioController::guardarImgAnuncio($_FILES['imagen'], $_POST['titulo']);
+
+                if($rutaImg==false){
+                    $respuesta = ["error"=>"Error al subir la imagen"];
+                }
+            
+            }else{
+                $rutaImg= "/pagina/uploads/anuncio/anuncio_default.jpg";  
+            }
+
             $anuncio_id = (int) $_POST['id_anuncio'];
             $data = new stdClass();
                 $data->titulo = $_POST['titulo'];
@@ -165,22 +197,20 @@ class AnuncioController extends PageController{
                 $data->id_tipo_anuncio = $_POST['id_tipo_anuncio'];
                 $data->id_categoria = $_POST['id_categoria'];
                 $data->id_localidad = $_POST['id_localidad'];
-                if (isset($_POST['imagen'])) {
-                    $data->imagen = $_POST['imagen'];  
-                }else{
-                    $data->imagen = "/pagina/uploads/anuncio/anuncio_default.jpg";  
-                }
+                $data->imagen_url = $rutaImg;
             
             $solicitud = new Solicitud("anuncio","update",$anuncio_id, $data);
             $model = new SolicitudModel();
             $respuesta = $model->enviarSolicitud($solicitud);
             if (isset($respuesta["status"]) && $respuesta["status"] == "success") {
 
-               header("Location: /pagina/index.php?controller=UserController&action=home");
-                
+               header("Location: /pagina/index.php?controller=UserController&action=home");  
+               exit();
             }
-            $vista->show("update-anuncio",$respuesta);
-    
+
+            header("Location: /pagina/index.php?controller=AnuncioController&action=updateAnuncioPage&id=$anuncio_id");
+            exit();
+            
             }else{
                 $respuesta = ["error"];
                 $vista->show("login",$respuesta);
@@ -196,9 +226,23 @@ class AnuncioController extends PageController{
 
         $solicitud = new Solicitud("anuncio","delete",$anuncio_id,null);
         $model = new SolicitudModel();
-        $resultado = $model->enviarSolicitud($solicitud);
+        $model->enviarSolicitud($solicitud);
         
         $vista->show("home");
     }
 
+    public static function guardarImgAnuncio($img,$titulo){
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        $id_usuario = $_SESSION['id_usuario'];
+        $nombreImg = $id_usuario."_".$titulo.".jpg";
+        $ruta = PATH_UPLOADS."anuncio/".$nombreImg;
+
+        if(move_uploaded_file($img['tmp_name'], $ruta)){
+            return substr($ruta, 4); ;
+        }else{
+            return false;
+        }
+    }
 }

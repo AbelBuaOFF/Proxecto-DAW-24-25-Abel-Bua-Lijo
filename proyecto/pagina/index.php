@@ -1,5 +1,5 @@
 <?php
-include_once("globals.php");
+include_once __DIR__ . '/globals.php';
 include_once(PATH_CONTROLLER."/main-controller.php");
 include_once(PATH_CONTROLLER."/user-controller.php");
 include_once(PATH_CONTROLLER."/anuncio-controller.php");

@@ -121,5 +121,28 @@ class UserController extends PageController{
         $vista->show("update-usuario", $data);
     }
 
+
+    public static function changePassPage($id) {
+        $vista = new View;
+        $data = [];
+        $solicitud = new Solicitud("usuario","get",$id, null);
+        $model = new SolicitudModel();
+        $data["usuario"]=  (object)  $model->enviarSolicitud($solicitud);
+
+        $vista->show("update-usuario", $data);
+    }
+
+
+    public static function eliminarUsuario($id){
+
+        $data = [];
+        $solicitud = new Solicitud("usuario","get",$id, null);
+        $model = new SolicitudModel();
+        $data["usuario"]=  (object)  $model->enviarSolicitud($solicitud);
+
+        header("Location: /pagina/index.php?controller=MainController&action=index");
+
+    }
+
 }
 

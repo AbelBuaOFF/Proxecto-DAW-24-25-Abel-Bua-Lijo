@@ -21,7 +21,7 @@
     ?>
     <main class="main">
     <section class="section-login">
-            <form action="?controller=AnuncioController&action=updateAnuncio" method="post" class="form-login">
+            <form action="?controller=AnuncioController&action=updateAnuncio" method="post" class="form-login" enctype="multipart/form-data">
 
                 <h2 class="h2">Editar Anuncio</h2>
                     <input type="hidden" name="id_anuncio" value="<?php echo $data["anuncio"]->id ?>">

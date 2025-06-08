@@ -19,8 +19,8 @@
                     <img src="../pagina/uploads/usuarios/perfil_default.jpg" alt="">
                 </figure>
                 <ul class="usuario-data"> 
-                    <li><p><?php echo $data["usuario"]->nombre_usuario ?></p></li>
-                    <li><p>Email: <?php echo $data["usuario"]->email ?></p></li>    
+                    <li><p><span class="bold"><?php echo $data["usuario"]->nombre_usuario ?> </span></p></li>
+                    <li><p>Email: <a class="link" href="mailto:<?php echo $data["usuario"]->email ?>"><?php echo $data["usuario"]->email ?> </a></p></li>   
                 </ul>
             
             <?php if ($data["usuario"]->tipo_usuario == "empresa") { 
@@ -45,6 +45,7 @@
                 echo "<p>Opciones</p>";
                 echo "<ul>";
                     echo "<li><a href='?controller=UserController&action=updateUserPage&id=$id'><i class='fas fa-user-edit'></i> Modificar Usuario</a></li>";
+                    echo "<li><a href='?controller=UserController&action=changePassPage&id=$id'><i class='fas fa-user-edit'></i> Cambiar Contraseña</a></li>";
                     echo "<li><a href='?controller=UserController&action=deleteUser&id=$id'><i class='fa fa-user-times'></i> Eliminar Usuario</a></li>";
                 echo "</ul>";
             echo "</aside>";

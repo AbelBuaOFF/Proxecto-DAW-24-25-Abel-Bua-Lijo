@@ -49,6 +49,8 @@
 
 ![alt text](img/Despliegue.png)
 
+  - Se non funciona o subida de imaxes por permisos ,a carpeta de /uploads e os contidos teñen que pertencer a o usuario que executa o php, no meu caso e daemon.
+
 ### 1.2- Administración do sistema
 
  - Copias de seguridade do sistema.

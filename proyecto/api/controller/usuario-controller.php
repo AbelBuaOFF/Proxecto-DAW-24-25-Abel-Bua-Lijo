@@ -87,7 +87,10 @@ class UsuarioController extends controller{
 
 
 	public function delete($id) {
-        //TODO
+        $model = new UsuarioModel();
+        $result = $model->delete($id);
+    
+        echo json_encode($result, JSON_PRETTY_PRINT);
 	}
 
 	public function update($id, $data) {

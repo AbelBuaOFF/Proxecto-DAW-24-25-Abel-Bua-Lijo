@@ -23,6 +23,11 @@ class MainController extends PageController{
         $vista->show("main",$data);
     }
 
+    public static function normativa(){
+        $vista = new View;
+        $vista->show("normativa");
+    }
+
     public static function login(){
         $vista = new View;
         $vista->show("login");
