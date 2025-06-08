@@ -10,22 +10,20 @@
 
 ## 1- Diagrama da arquitectura
 
-![alt text](image-5.png)
+![alt text](img/Diagrama%20da%20arquitectura.png)
 
 ## 2- Casos de uso
 
-![alt text](image-3.png)
+![alt text](img/Casos%20de%20uso.png)
 
 ## 3- Diagrama de Base de Datos
 
  - Modelo Entidade/relación
 
-![alt text](image-6.png)
+![alt text](img/Modelo%20Entidad-relación.png)
 
  - Modelo relacional
-![alt text](image-2.png)
-
-
+![alt text](img/modeloRelacional.png)
 
 ## 4- Deseño de interface de usuarios
 

@@ -46,8 +46,6 @@ Email: abelbualijo.off@gmail.com
 
 ## Índice
 
-> *EXPLICACIÓN*: Simplemente indexa ordenadamente todo o tey proxecto.
-
 1. [Anteproyecto](doc/1_Anteproxecto.md)
 2. [Análise](doc/2_Analise.md)
 3. [Deseño](doc/3_Deseño.md)

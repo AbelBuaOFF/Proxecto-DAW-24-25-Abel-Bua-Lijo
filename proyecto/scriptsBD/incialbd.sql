@@ -115,16 +115,19 @@ INSERT INTO Localidad (nombre_localidad, id_provincia, codigo_postal) VALUES
 ('Vigo', 4, 36200);
 
 -- Insertar Usuarios
+-- administrador
+INSERT INTO Usuario (nombre_usuario, email, passw, id_rol)
+VALUES ('administrador','admin@mail.com','f2e53c927c66fe711e8e88ef9b37a8e3187f1652216b313fc8eb2513883dd360', 1);
 -- Insertar usuario particular
 INSERT INTO Usuario (nombre_usuario, email, passw, tipo_usuario)
-VALUES ('carlos_acoruna', 'carlos.acoruna@example.com', 'hashedpassword1', 'particular');
+VALUES ('particular', 'particular@mail.com', 'f2e53c927c66fe711e8e88ef9b37a8e3187f1652216b313fc8eb2513883dd360', 'particular');
 
 -- Insertar usuario empresa
 INSERT INTO Usuario (nombre_usuario, email, passw, tipo_usuario, nombre_comercial, url_web)
-VALUES ('ana_vigo', 'ana.vigo@example.com', 'hashedpassword2', 'empresa', 'Servicios Vigo SL', 'https://serviciosvigo.gal');
+VALUES ('empresa', 'empresa@mail.com', 'f2e53c927c66fe711e8e88ef9b37a8e3187f1652216b313fc8eb2513883dd360', 'empresa', 'Empresa prueba SL', 'empresa.com');
 
 
 -- Insertar Anuncios
-INSERT INTO Anuncio (id_usuario, titulo, descripcion, contenido, id_tipo_anuncio, id_categoria, fecha_creacion, fecha_modificacion, id_localidad) VALUES
-(1, 'Venta de furgoneta en A Coruña', 'Furgoneta en buen estado, lista para trabajar', 'Furgoneta Ford Transit 2018, 80.000 km, ITV al día', 1, 1, '2025-05-20', '2025-05-20', 1),
-(2, 'Busco piso en Vigo', 'Piso céntrico y bien comunicado', 'Busco piso de 3 habitaciones en Vigo, zona centro', 2, 3, '2025-05-21', '2025-05-21', 8);
+INSERT INTO Anuncio (id_usuario, titulo, descripcion, contenido, id_tipo_anuncio, id_categoria, id_localidad) VALUES
+(2, 'Venta de furgoneta en A Coruña', 'Furgoneta en buen estado, lista para trabajar', 'Furgoneta Ford Transit 2018, 80.000 km, ITV al día', 1, 1, 1),
+(2, 'Busco piso en Vigo', 'Piso céntrico y bien comunicado', 'Busco piso de 3 habitaciones en Vigo, zona centro', 2, 3, 8);

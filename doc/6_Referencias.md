@@ -10,6 +10,8 @@
 
 ## 1- Sitios web de documentación técnica
 
+Documentación de cURL php: https://www.php.net/manual/es/book.curl.php
+
 ## 2- Fontes de interes
  fuente header y footer: https://fonts.google.com/specimen/Jersey+25
 
