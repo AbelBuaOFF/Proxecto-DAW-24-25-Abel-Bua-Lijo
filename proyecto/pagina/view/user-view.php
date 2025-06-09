@@ -9,6 +9,7 @@
 </head>
     <?php
     include("header.php");
+    $id=0;
     ?>
     <main class="main">
     <h2>Pagina de Usuario:</h2>
@@ -45,12 +46,22 @@
                 echo "<p>Opciones</p>";
                 echo "<ul>";
                     echo "<li><a href='?controller=UserController&action=updateUserPage&id=$id'><i class='fas fa-user-edit'></i> Modificar Usuario</a></li>";
-                    echo "<li><a href='?controller=UserController&action=changePassPage&id=$id'><i class='fas fa-user-edit'></i> Cambiar Contraseña</a></li>";
-                    echo "<li><a href='?controller=UserController&action=deleteUser&id=$id'><i class='fa fa-user-times'></i> Eliminar Usuario</a></li>";
+                    echo "<li><a href='?controller=UserController&action=changePassPage'><i class='fas fa-user-edit'></i> Cambiar Contraseña</a></li>";
+                    echo "<li><a onclick="."window.modal.showModal()"."><i class='fa fa-user-times'></i> Eliminar Usuario</a></li>";
                 echo "</ul>";
             echo "</aside>";
         }
         ?>
+        <dialog id="modal" class="eliminar-modal">
+                <article class="elemento-modal">
+                    <p>¿Deseas eliminar cuenta?</p>
+                    <p><span class="italic">Se borraran todos los Anuncios Creados.</span></p>
+                    <ul class="lista-modal">
+                        <li><a onclick="window.modal.close()"><i class="fa-solid fa-x"></i> Cancelar</a></li>
+                        <li><a href="?controller=UserController&action=deleteUser&id=<?php echo $id ?>"><i class='fa fa-user-times'></i> Eliminar Usuario</a></li>
+                    </ul>
+                </article>
+        </dialog>
     </main>
     <?php
         include("footer.php");

@@ -38,7 +38,7 @@
                 </figure>
                 <button onclick="window.modal.close();">Cerrar</button>
                 </article>
-            </dialog>
+        </dialog>
     </main>
     <?php
         include("footer.php");

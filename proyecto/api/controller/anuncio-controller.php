@@ -70,4 +70,12 @@ class AnuncioController extends controller{
     
         echo json_encode($result, JSON_PRETTY_PRINT);
     }
+
+    public function deleteAllByUser($id_usuario)
+    {
+        $model = new AnuncioModel();
+        $result = $model->deleteAllByUser($id_usuario);
+    
+        echo json_encode($result, JSON_PRETTY_PRINT);
+    }
 }

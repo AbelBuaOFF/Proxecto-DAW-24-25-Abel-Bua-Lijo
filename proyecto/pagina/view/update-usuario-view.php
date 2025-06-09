@@ -6,7 +6,6 @@
     <title>ElTablonDigital</title>
     <link rel="stylesheet" href="./src/styles/styles.css">
     <link rel="stylesheet" href="./assets/fontsawesome/css/all.min.css">
-    <script src="../pagina/src/scripts/registro-script.js" defer></script>
 </head>
 <body>
 <?php 
@@ -17,16 +16,16 @@
     ?>
     <main class="main">
         <section class="section-login usuario"> 
-            <form action="?controller=UserController&action=addUser" method="post" class="form-login">
+            <form action="?controller=UserController&action=updateUser" method="post" class="form-login">
             <?php
-                if (isset($data['errors'])) {
-                    foreach ($data['errors'] as $error) {
+                if (isset($data['error'])) {
+                    foreach ($data['error'] as $error) {
                         echo '<p class="error">'.$error.'</p>';
                     }
                 }
                 ?>
                 <h2 class="h2">Modificar datos del Usuario:</h2>
-                <input type="hidden" name="id_usuario" value="<?php echo $data["usuario"]->id ?>">
+                <input type="hidden" name="tipo_usuario" value="<?php echo $data["usuario"]->tipo_usuario ?>">
                 <ul class="fila-form">
                     <label for="nombre-usuario"> Nombre de Usuario:</label>
                     <input type="text" placeholder="Nombre..." name="nombre_usuario" id="nombre_usuario" 
@@ -41,12 +40,12 @@
                     <?php if ($data["usuario"]->tipo_usuario == "empresa") { 
                         $nEmpresa = $data["usuario"]->nombre_comercial;
                         $urlWeb = $data["usuario"]->url_web;
-                            echo '<fieldset class="empresa off">';
+                            echo '<fieldset class="empresa">';
                                 echo '<p>Datos de la Empresa</p>';
                                 
                                 echo '<ul class="fila-form">';
-                                    echo '<label for="nombre-comercial"> Nombre Comercial:</label>';
-                                    echo '<input type="text" placeholder="Nombre..." name="nombre-comercial" id="nombre-comercial"
+                                    echo '<label for="nombre_comercial"> Nombre Comercial:</label>';
+                                    echo '<input type="text" placeholder="Nombre..." name="nombre_comercial" id="nombre_comercial"
                                     value='.$nEmpresa.' required>';
                                 echo '</ul>';
                                 
@@ -54,7 +53,7 @@
                                     echo '<label for="url_web"> Página Web:</label>';
                                     echo '<input type="text" placeholder="Nombre..." name="url_web" id="url_web"  value='.$urlWeb.'>';
                                 echo '</ul>';
-                                
+
                             echo '</fieldset>';
                     }?>                    
                 </ul>

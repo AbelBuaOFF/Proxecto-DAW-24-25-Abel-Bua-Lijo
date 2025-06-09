@@ -22,6 +22,7 @@
     ?>
     <main class="main">
         <section class="buscador">
+            <div>
             <h2 class="h2">Buscador de anuncios.</h2>
             <form action="" method="get">
                 <input type="text" name="buscador" id="buscador" placeholder="Buscar Auncio...">
@@ -44,6 +45,7 @@
                 <button type="submit"><i class="fa-solid fa-magnifying-glass"></i>
                 </button>
             </form>
+            </div>
         </section>
         <section class="section-anuncios">
         </section>

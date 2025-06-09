@@ -57,6 +57,7 @@ CREATE TABLE Anuncio (
     fecha_modificacion TIMESTAMP  NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     id_localidad INT,
     imagen_url VARCHAR(255) DEFAULT '/pagina/uploads/anuncio/anuncio_default.jpg',
+    borrado BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (id_usuario) REFERENCES Usuario(id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (id_tipo_anuncio) REFERENCES Tipo_Anuncio(id) ON DELETE SET NULL ON UPDATE CASCADE,
     FOREIGN KEY (id_categoria) REFERENCES Categoria(id) ON DELETE SET NULL ON UPDATE CASCADE,

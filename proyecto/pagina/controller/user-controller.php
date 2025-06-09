@@ -121,28 +121,64 @@ class UserController extends PageController{
         $vista->show("update-usuario", $data);
     }
 
+    public static function updateUser(){
+        $vista = new View;
 
-    public static function changePassPage($id) {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+            $id = $_SESSION['id_usuario'];
+        }
+
+        if (isset($_POST['nombre_usuario']) && isset($_POST['email'])&& isset($_POST['tipo_usuario'])) {
+            $objeto = new stdClass();
+                $objeto->id = $id;
+                $objeto->nombre_usuario = $_POST['nombre_usuario'];
+                $objeto->email = $_POST['email'];
+                $objeto->tipo_usuario = $_POST['tipo_usuario'];
+            if (isset($_POST['nombre_comercial']) && isset($_POST['url_web'])) {
+                $objeto->nombre_comercial = $_POST['nombre_comercial'];
+                $objeto->url_web = $_POST['url_web'];
+            }
+
+            $solicitud = new Solicitud("usuario","update",$id, $objeto);
+            $model = new SolicitudModel();
+
+            $data = $model->enviarSolicitud($solicitud);
+            if ($data["status"] == "success") {
+                header("Location: /pagina/index.php?controller=MainController&action=home");
+            }
+            $vista->show("registro",$data);
+        }else{
+            var_dump($_POST);
+            $data = [];
+            $solicitud = new Solicitud("usuario","get",$id, null);
+            $model = new SolicitudModel();
+            $data["usuario"]=  (object)  $model->enviarSolicitud($solicitud);
+
+            $data['error'] =  ["error" => "Error al actualizar usuario"];
+            $vista->show("update-usuario",$data);
+        }   
+    }
+
+    public static function changePassPage() {
         $vista = new View;
         $data = [];
-        $solicitud = new Solicitud("usuario","get",$id, null);
-        $model = new SolicitudModel();
-        $data["usuario"]=  (object)  $model->enviarSolicitud($solicitud);
 
-        $vista->show("update-usuario", $data);
+        $vista->show("change-passw", $data);
     }
 
 
-    public static function eliminarUsuario($id){
+    public static function deleteUser($id){
 
-        $data = [];
-        $solicitud = new Solicitud("usuario","get",$id, null);
+        $solicitud = new Solicitud("usuario","delete",$id, null);
         $model = new SolicitudModel();
-        $data["usuario"]=  (object)  $model->enviarSolicitud($solicitud);
-
+        $model->enviarSolicitud($solicitud);
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        session_unset(); 
+        session_destroy();
         header("Location: /pagina/index.php?controller=MainController&action=index");
-
     }
-
 }
 

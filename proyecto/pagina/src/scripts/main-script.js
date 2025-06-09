@@ -69,16 +69,22 @@ function renderModal(id) {
     anuncio = anuncios.find(anuncio => anuncio.id == id);
     $modal.innerHTML = `
         <article class="elemento-modal">
-                <h3 class="anuncio-titulo">${anuncio.titulo}</h3>
-                <p class="descripcion">${anuncio.descripcion}</p>
-                <p class="contenido">${anuncio.contenido}</p>
+        <h3 class="anuncio-titulo">${anuncio.titulo}</h3>
+            <div class="anuncio-content">
+                <div class="anuncio-texto">
+                    <p class="titulo"><span class="bold">${anuncio.titulo}</span></p>
+                    <p class="descripcion">${anuncio.descripcion}</p>
+                    <p class="contenido">${anuncio.contenido}</p>
+                        
+                </div>
                 <figure>
                     <img class="anuncio-img" src="${anuncio.imagen_url}" alt="${anuncio.titulo}">
                 </figure>
-                    <a href="?controller=AnuncioController&action=anuncioPage&id=${anuncio.id}">
-                           <span class="link"><i class="fas fa-arrow-right"></i> Ir a Pagina...</span>
-                    </a>
-                <a class="modalCerrar" onclick="window.modal.close();"><i class="fas fa-window-close"></i></a>
+            </div>
+            <a href="?controller=AnuncioController&action=anuncioPage&id=${anuncio.id}">
+                            <span class="link"><i class="fas fa-arrow-right"></i> Ir a Pagina...</span>
+                        </a>
+            <a class="modalCerrar" onclick="window.modal.close();"><i class="fas fa-window-close"></i></a>
         </article>`
 }
 

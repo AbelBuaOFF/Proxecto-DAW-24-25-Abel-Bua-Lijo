@@ -204,13 +204,40 @@ class UsuarioModel extends Model{
         return $resultado;
     }
 
-    public function updateUser() : bool {
-        //TODO
-        return false;
+    public function updateUser($id,$usuario) : bool {
+       
+        if ($usuario["tipo_usuario"] == "empresa") {
+            $sql = "UPDATE Usuario SET nombre_usuario = :nombre_usuario, email = :email,
+                nombre_comercial = :nombre_comercial, url_web = :url_web WHERE id = :id";
+        }else{
+            $sql = "UPDATE Usuario SET nombre_usuario = :nombre_usuario, email = :email WHERE id = :id";
+        }
+        $pdo = Model::getConnection();
+        $resultado = false;
+        try {
+            $statement = $pdo->prepare($sql);
+            $statement->bindValue(':id', $id, PDO::PARAM_INT);
+            $statement->bindValue(':nombre_usuario', $usuario["nombre_usuario"], PDO::PARAM_STR);
+            $statement->bindValue(':email', $usuario["email"], PDO::PARAM_STR);
+
+            if ($usuario["tipo_usuario"] == "empresa") {
+                $statement->bindValue(':nombre_comercial', $usuario["nombre_comercial"], PDO::PARAM_STR);
+                $statement->bindValue(':url_web', $usuario["url_web"], PDO::PARAM_STR);
+            }
+            $statement->execute();
+            $resultado = true;
+        } catch (\PDOException $th) {
+            error_log("Error en->updateUser($id) UsuarioModel");
+            error_log($th->getMessage());
+        } finally {
+            $statement = null;
+            $pdo = null;
+        }
+        return $resultado;
     }
 
     public function delete($id) : bool {
-        $sql = "DELETE FROM Usuario WHERE id = :id";
+        $sql = "DELETE FROM Usuario WHERE id = :id AND id_rol != 1";
         $pdo = Model::getConnection();
         try {
             $statement = $pdo->prepare($sql);

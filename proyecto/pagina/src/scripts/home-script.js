@@ -55,16 +55,16 @@ const $d = document,
                         <p class="anuncio-texto">Descripcion: ${anuncio.descripcion}</p>
                         <ul class="anuncio-links">
                             <li>
-                                <a href="?controller=AnuncioController&action=updateAnuncioPage&id=${anuncio.id}"><i class="fas fa-edit"></i></a>
+                                <a href="?controller=AnuncioController&action=updateAnuncioPage&id="${anuncio.id}"><i class="fas fa-edit"></i></a>
                             </li>
                             <li>
-                                <a href="?controller=AnuncioController&action=deleteAnuncio&id=${anuncio.id}"><i class="fa fa-trash"></i></a>
+                                <a href="?controller=AnuncioController&action=deleteAnuncio&id="${anuncio.id}"><i class="fa fa-trash"></i></a>
                             </li>
                             <li>
-                                <a href="?controller=AnuncioController&action=anuncioPage&id=${anuncio.id}"><i class="fas fa-arrow-right"></i></a>
+                                <a href="?controller=AnuncioController&action=anuncioPage&id="${anuncio.id}"><i class="fas fa-arrow-right"></i></a>
                             </li>
                         </ul>
-                        <button class="btn-modal" data-id=${anuncio.id} onclick="window.modal.showModal();">Ver mas...</button>
+                        <button class="btn-modal" data-id="${anuncio.id}" onclick="window.modal.showModal()">Ver mas...</button>
                     </article>`
                 ).join("")
             
@@ -76,24 +76,29 @@ function renderModal(id) {
     anuncio = anuncios.find(anuncio => anuncio.id == id);
     $modal.innerHTML = `
         <article class="elemento-modal">
-                        <h3 class="anuncio-titulo">${anuncio.titulo}</h3>
-                        <p class="descripcion">${anuncio.descripcion}</p>
-                        <p class="contenido">${anuncio.contenido}</p>
+                    <h3 class="anuncio-titulo">${anuncio.titulo}</h3>
+                    <div class="anuncio-content">
+                        <div class="anuncio-texto">
+                            <p class="titulo"><span class="bold">${anuncio.titulo}</span></p>
+                            <p class="descripcion">${anuncio.descripcion}</p>
+                            <p class="contenido">${anuncio.contenido}</p> 
+                        </div>
                         <figure>
                             <img class="anuncio-img" src="${anuncio.imagen_url}" alt="${anuncio.titulo}">
                         </figure>
-                          <ul class="anuncio-links">
-                            <li>
-                                <a href="?controller=AnuncioController&action=updateAnuncioPage&id=${anuncio.id}"><i class="fas fa-edit"> Editar Anuncio</i></a>
-                            </li>
-                            <li>
-                                <a href="?controller=AnuncioController&action=deleteAnuncio&id=${anuncio.id}"><i class="fa fa-trash"> Borrar Anuncio</i></a>
-                            </li>
-                            <li>
-                                <a href="?controller=AnuncioController&action=anuncioPage&id=${anuncio.id}"><i class="fas fa-arrow-right"> Ir al Anuncio</i></a>
-                            </li>
-                        </ul>
-                        <a class="modalCerrar" onclick="window.modal.close();"><i class="fas fa-window-close"></i></a>
+                    </div>
+                    <ul class="anuncio-links">
+                        <li>
+                            <a href="?controller=AnuncioController&action=updateAnuncioPage&id=${anuncio.id}"><i class="fas fa-edit"></i> Editar Anuncio</a>
+                        </li>
+                        <li>
+                            <a href="?controller=AnuncioController&action=deleteAnuncio&id=${anuncio.id}"><i class="fa fa-trash"></i> Borrar Anuncio</a>
+                        </li>
+                        <li>
+                            <a href="?controller=AnuncioController&action=anuncioPage&id=${anuncio.id}"><i class="fas fa-arrow-right"></i> Ir al Anuncio</a>
+                        </li>
+                    </ul>
+                    <a class="modalCerrar" onclick="window.modal.close();"><i class="fas fa-window-close"></i></a>
         </article>`
 }
 $d.addEventListener("DOMContentLoaded", ev => {

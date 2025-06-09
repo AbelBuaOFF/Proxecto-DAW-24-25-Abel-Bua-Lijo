@@ -67,7 +67,7 @@ class Anuncio extends ModelObject{
 class AnuncioModel extends Model{
     public function getAll(){
 
-        $sql = "SELECT * FROM Anuncio";
+        $sql = "SELECT * FROM Anuncio WHERE borrado = 0 ORDER BY fecha_creacion DESC";
         $pdo = Model::getConnection();
         $resultado = [];
         try {
@@ -98,7 +98,7 @@ class AnuncioModel extends Model{
 
     public function get($id){
 
-        $sql = "SELECT * FROM Anuncio WHERE id = :id";
+        $sql = "SELECT * FROM Anuncio WHERE id = :id AND borrado = 0";
         $pdo = Model::getConnection();
         $resultado = null;
         try {
@@ -225,7 +225,7 @@ class AnuncioModel extends Model{
     public function getByUser($objeto){
         $id_usuario = $objeto["id_usuario"];;
 
-        $sql = "SELECT * FROM Anuncio WHERE id_usuario = :id_usuario";
+        $sql = "SELECT * FROM Anuncio WHERE id_usuario = :id_usuario AND borrado = 0 ORDER BY fecha_creacion DESC";
         $pdo = Model::getConnection();
         $resultado = [];
         try {
@@ -258,7 +258,7 @@ class AnuncioModel extends Model{
 
     public function getByCategoria($id_categoria){
 
-        $sql = "SELECT * FROM Anuncio WHERE id_categoria = :id_categoria";
+        $sql = "SELECT * FROM Anuncio WHERE id_categoria = :id_categoria AND borrado = 0 ORDER BY fecha_creacion DESC";
         $pdo = Model::getConnection();
         $resultado = [];
         try {
@@ -287,6 +287,26 @@ class AnuncioModel extends Model{
             $pdo = null;
         }
         return $resultado;
+    }
+
+    public static function deleteAllByUser($id_usuario){
+        $sql = "DELETE FROM Anuncio WHERE id_usuario=:id_usuario";
+        $pdo = Model::getConnection();
+        $resultado = null;
+        try{
+            $statement = $pdo->prepare($sql);
+            $statement->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT); 
+            $resultado = $statement->execute();
+            $resultado = $statement->rowCount() >= 0;
+        } catch (\Throwable $th) {
+            error_log("Error en->deleteAllByUser($id_usuario) Anuncio");
+            error_log($th->getMessage());
+        }finally{
+            $statement = null;
+            $pdo = null;
+        }
+        return $resultado;
+
     }
 
 }

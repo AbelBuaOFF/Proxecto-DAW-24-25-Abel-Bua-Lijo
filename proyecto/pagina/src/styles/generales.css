@@ -78,6 +78,10 @@ a{
 figure{
     height: 100%;
     width: 100%;
+    background-color: white;
+    outline: 1px dotted var(--color-borde-anuncio);
+    align-content: center;
+    text-align: center;
 }
 
 img{
@@ -94,6 +98,15 @@ img{
     text-decoration: underline;
 }
 
+a{
+    cursor: pointer;
+
+}
+
+li{
+    list-style: none !important; 
+}
+
 .btn-close{
     background-color: var(--color-fondo-btn-rojo) !important;
     text-decoration: none;
@@ -107,5 +120,8 @@ img{
 
 .bold{
     font-weight: 600 !important;
+}
+.italic{
+    font-style: italic !important;
 }
  /*=====  End of Generales  ======*/

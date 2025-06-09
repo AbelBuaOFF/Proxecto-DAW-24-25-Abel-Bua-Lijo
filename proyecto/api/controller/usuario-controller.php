@@ -85,19 +85,43 @@ class UsuarioController extends controller{
         }
     }
 
-
 	public function delete($id) {
         $model = new UsuarioModel();
         $result = $model->delete($id);
-    
+        if ($result) {
+            $result = [
+                "status" => "success",
+                "message" => "Usuario eliminado correctamente."
+            ];
+            AnuncioModel::deleteAllByUser($id); 
+        } else {
+            $result = [
+                "status" => "error",
+                "message" => "Error al eliminar el usuario."
+            ];
+        }
         echo json_encode($result, JSON_PRETTY_PRINT);
 	}
 
 	public function update($id, $data) {
         //TODO
+        $model = new UsuarioModel();
+        $result = $model->updateUser($id, $data);
+        if ($result) {
+            $result = [
+                "status" => "success",
+                "message" => "Usuario actualizado correctamente."
+            ];
+        } else {
+            $result = [
+                "status" => "error",
+                "message" => "Error al actualizar el usuario."
+            ];
+        }
+        echo json_encode($result, JSON_PRETTY_PRINT);
 	}
 
 	public function insert($data) {
-        //TODO
+        //TODO es addUser
 	}
 }
