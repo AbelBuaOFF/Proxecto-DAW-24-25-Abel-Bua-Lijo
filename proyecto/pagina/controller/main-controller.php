@@ -33,7 +33,7 @@ class MainController extends PageController{
         $data = [];
 
         if (isset($_GET['error']) && $_GET['error'] == 1) {
-            $data['error'] = "Tu sesión ha expirado. Por favor, inicia sesión nuevamente.";
+            $data["message"] = "Tu sesión ha expirado. Por favor, inicia sesión nuevamente.";
         }
 
         $vista->show("login",$data);

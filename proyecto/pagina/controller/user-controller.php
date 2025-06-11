@@ -162,10 +162,6 @@ class UserController extends PageController{
 
         $id = $_SESSION['id_usuario'];
 
-        if (UserController::checkToken($id)) {
-            header("Location: /pagina/index.php?controller=MainController&action=login&error=1");
-        }
-        
         $solicitud = new Solicitud("usuario","get",$id, null);
         $model = new SolicitudModel();
         $data["usuario"]=  (object)  $model->enviarSolicitud($solicitud);
@@ -175,6 +171,7 @@ class UserController extends PageController{
 
     public static function changePass(){
         $vista = new View;
+        $data = [];
 
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
@@ -189,27 +186,44 @@ class UserController extends PageController{
             $repeatpassword = $_POST['repeat_password'];
 
             if ($newpassword !== $repeatpassword) {
-                $data = ["error" => "Las contraseñas no coinciden."];
-                $vista->show("change-passw", $data);
+                header("Location: /pagina/index.php?controller=UserController&action=changePassPage&error=1");
+                exit;
             }
+
+            $id = $_SESSION['id_usuario'];
 
             $login = new stdClass();
                 $login->nombre_usuario = $_POST['nombre_usuario'];
-                $login->passw = $_POST['password'];
+                $login->passw = $_POST['ant_password'];
     
             $solicitud = new Solicitud("usuario","login",null, $login);
-            $model = new SolicitudModel();
-            $resultado = $model->enviarSolicitud($solicitud);
-
-            if ($resultado["status"] == "success") {
-
-                $id = $_SESSION['id_usuario'];
-                $objeto = new stdClass();
-                $objeto->password = $_POST['newpassword'];
-                
-                $solicitud = new Solicitud("usuario","login",$id, $login);
                 $model = new SolicitudModel();
-                $resultado = $model->enviarSolicitud($solicitud);
+                $resultado1 = $model->enviarSolicitud($solicitud);
+
+            if ($resultado1["status"] == "success") {
+
+                $objeto = new stdClass();
+                $objeto->passw = $_POST['new_password'];
+                
+                $solicitud = new Solicitud("usuario","changePassword",$id, $login);
+                $model = new SolicitudModel();
+                $resultado2 = $model->enviarSolicitud($solicitud);
+
+                var_dump($resultado2);
+
+                if ($resultado2["status"] == "success") {
+                    $data = ["message" => "Contraseña cambiada correctamente."];
+                    $vista->show("login", $data);                    
+                }
+
+            }else{
+
+                $solicitud = new Solicitud("usuario","get",$id, null);
+                $model = new SolicitudModel();
+                $data["usuario"] =  (object)  $model->enviarSolicitud($solicitud);
+
+                $data["error"] = "Contraseña incorrecta.";
+                $vista->show("change-passw", $data);
             }
         }
     }

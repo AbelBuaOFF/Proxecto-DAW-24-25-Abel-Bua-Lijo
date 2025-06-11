@@ -60,7 +60,7 @@ class UsuarioController extends controller{
 
     public function login($objecto) {
         $model = new UsuarioModel();
-        $usuario =$model->login($objecto);
+        $usuario = $model->login($objecto);
         if (isset($usuario["id"])) {
             $token = TokenAuthController::generateToken($usuario["id"]);
             $result = [
