@@ -39,24 +39,25 @@ class AuthTokenModel extends Model{
         $bytes = random_bytes(16);
         $token = bin2hex($bytes);
 
-        $sql = "INSERT INTO AuthToken (id_usuario,token,fecha_creacion,fecha_expiracion) 
-                VALUES (:id_usuario,:token,:fecha_creacion,:fecha_expiracion)";
+        $sql = "INSERT INTO AuthToken (id_usuario,token,fecha_expiracion) 
+                VALUES (:id_usuario,:token,:fecha_expiracion)";
         $pdo = Model::getConnection();
 
         $fecha = (new DateTime())->format('Y-m-d H:i:s');
-        $fecha_exp = date('Y-m-d H:i:s', strtotime('+1 hour', strtotime($fecha)));;
-        $resultado = null;
+        $fecha_exp = date('Y-m-d H:i:s', strtotime('+1 hour', strtotime($fecha)));
+        $resultado = new stdClass();
         try {
             $statement = $pdo->prepare($sql);
             $statement->bindValue(':id_usuario', $id_usuario, PDO::PARAM_INT);
             $statement->bindValue(':token', $token, PDO::PARAM_STR);
-            $statement->bindValue(':fecha_creacion', $fecha, PDO::PARAM_STR);
             $statement->bindValue(':fecha_expiracion', $fecha_exp, PDO::PARAM_STR);
             $statement->execute();
-            $resultado = $token;
+            $resultado->token = $token;
+            $resultado->fecha_expiracion = $fecha_exp;
         } catch (\Throwable $th) {
             error_log("Error en->generateToken(".$id_usuario.") AuthToken");
             error_log($th->getMessage());
+            $resultado = null;
         }finally{
             $statement = null;
             $pdo = null;

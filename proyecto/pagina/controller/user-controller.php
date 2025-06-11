@@ -10,25 +10,27 @@ class UserController extends PageController{
     }
 
     public static function home(){
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
         $vista = new View;
         $data = [];
 
-        $token = UserController::verificarToken();
+        $id_usuario = $_SESSION['id_usuario'];
 
-
-        if (isset($token->fecha_expiracion)) {
-            if ($token->fecha_expiracion < date("Y-m-d H:i:s")) {
-                session_destroy();
-                $vista->show("login",["error" => "Token expirado, por favor inicie sesión de nuevo."]);
-            }
+        if (UserController::checkToken($id_usuario)) {
+            header("Location: /pagina/index.php?controller=MainController&action=login&error=1");
         }
-        
         $vista->show("home",$data);
     }
 
     public function userPage($id_usuario){
         $vista = new View;
         $data = [];
+
+        if (UserController::checkToken($id_usuario)) {
+            header("Location: /pagina/index.php?controller=MainController&action=login&error=1");
+        }
 
         $solicitud = new Solicitud("usuario","get",$id_usuario, null);
         $model = new SolicitudModel();
@@ -82,7 +84,6 @@ class UserController extends PageController{
             header("Location: /pagina/index.php?controller=UserController&action=home");
         }
         $vista->show("login",$data);
-
         }else{
             $respuesta = ["error"];
             $vista->show("login",$respuesta);
@@ -98,22 +99,15 @@ class UserController extends PageController{
         session_destroy();
         header("Location: /pagina/index.php?controller=MainController&action=index");
     }
-
-    public static function verificarToken(){
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
-        $data = new stdClass();
-        $data->id_usuario = $_SESSION['id_usuario'];
-        $solicitud = new Solicitud("token","get",null, $data);
-        $model = new SolicitudModel();
-        $resultado = $model->enviarSolicitud($solicitud);
-        return $resultado;
-    }
-
+    
     public static function updateUserPage($id){
         $vista = new View;
         $data = [];
+
+        if (UserController::checkToken($id)) {
+            header("Location: /pagina/index.php?controller=MainController&action=login&error=1");
+        }
+        
         $solicitud = new Solicitud("usuario","get",$id, null);
         $model = new SolicitudModel();
         $data["usuario"]=  (object)  $model->enviarSolicitud($solicitud);
@@ -139,7 +133,6 @@ class UserController extends PageController{
                 $objeto->nombre_comercial = $_POST['nombre_comercial'];
                 $objeto->url_web = $_POST['url_web'];
             }
-
             $solicitud = new Solicitud("usuario","update",$id, $objeto);
             $model = new SolicitudModel();
 
@@ -149,7 +142,6 @@ class UserController extends PageController{
             }
             $vista->show("registro",$data);
         }else{
-            var_dump($_POST);
             $data = [];
             $solicitud = new Solicitud("usuario","get",$id, null);
             $model = new SolicitudModel();
@@ -164,9 +156,63 @@ class UserController extends PageController{
         $vista = new View;
         $data = [];
 
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        $id = $_SESSION['id_usuario'];
+
+        if (UserController::checkToken($id)) {
+            header("Location: /pagina/index.php?controller=MainController&action=login&error=1");
+        }
+        
+        $solicitud = new Solicitud("usuario","get",$id, null);
+        $model = new SolicitudModel();
+        $data["usuario"]=  (object)  $model->enviarSolicitud($solicitud);
+
         $vista->show("change-passw", $data);
     }
 
+    public static function changePass(){
+        $vista = new View;
+
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        if (isset($_POST['ant_password']) &&
+            isset($_POST['new_password']) &&
+            isset($_POST['repeat_password']) &&
+            isset($_POST['nombre_usuario'])) {
+            
+            $newpassword = $_POST['new_password'];
+            $repeatpassword = $_POST['repeat_password'];
+
+            if ($newpassword !== $repeatpassword) {
+                $data = ["error" => "Las contraseñas no coinciden."];
+                $vista->show("change-passw", $data);
+            }
+
+            $login = new stdClass();
+                $login->nombre_usuario = $_POST['nombre_usuario'];
+                $login->passw = $_POST['password'];
+    
+            $solicitud = new Solicitud("usuario","login",null, $login);
+            $model = new SolicitudModel();
+            $resultado = $model->enviarSolicitud($solicitud);
+
+            if ($resultado["status"] == "success") {
+
+                $id = $_SESSION['id_usuario'];
+                $objeto = new stdClass();
+                $objeto->password = $_POST['newpassword'];
+                
+                $solicitud = new Solicitud("usuario","login",$id, $login);
+                $model = new SolicitudModel();
+                $resultado = $model->enviarSolicitud($solicitud);
+            }
+        }
+    }
 
     public static function deleteUser($id){
 
@@ -179,6 +225,29 @@ class UserController extends PageController{
         session_unset(); 
         session_destroy();
         header("Location: /pagina/index.php?controller=MainController&action=index");
+    }
+
+    public static function checkToken($id_usuario):bool{
+        $resultado = false;
+
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        $solicitud = new Solicitud("token","get",$id_usuario, null);
+        $model = new SolicitudModel();
+        $token = $model->enviarSolicitud($solicitud);
+
+        $tokenBD = $token;
+        $tokenSession = $_SESSION['token'];
+
+        if (hash_equals($tokenBD["token"],$tokenSession["token"])) {
+            if (strtotime($tokenBD["fecha_expiracion"]) < time()) {
+                $resultado = true;
+            }
+        }
+        
+        return $resultado;
     }
 }
 

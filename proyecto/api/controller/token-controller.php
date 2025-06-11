@@ -5,8 +5,7 @@ include_once (PATH_MODEL."token-model.php");
 
 class TokenAuthController extends controller{
 
-    public function get($objeto) {
-        $id = $objeto['id_usuario'];
+    public function get($id) {
         $model = new AuthTokenModel();
         $result = $model->getToken($id);
         if (!$result) {
@@ -27,9 +26,7 @@ class TokenAuthController extends controller{
 	}
 
     public static function generateToken($id_usuario) {
-
         TokenAuthController::borrarToken($id_usuario);
-
         $model = new AuthTokenModel();
         $result =$model->generateToken($id_usuario);
         return $result;
@@ -38,7 +35,6 @@ class TokenAuthController extends controller{
     public static function borrarToken($id_usuario) {
         $model = new AuthTokenModel();
         $result = $model->borrarToken($id_usuario);
-    
 	}
 
     public function getAll() {

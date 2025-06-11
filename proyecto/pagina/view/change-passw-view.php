@@ -20,6 +20,7 @@
                 }
                 ?>
                 <h2 class="h2">Iniciar Sesion</h2>
+                <input type="hidden" id="nombre_usuario" name="nombre_usuario" value="<?php echo $data["usuario"]->nombre_usuario ?>">
                 <ul class="fila-form">
                     <label for="ant_password"> Anterior Contraseña:</label>
                     <input type="password" placeholder="abc123." name="ant_password" id="ant_password" required>

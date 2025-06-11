@@ -15,8 +15,8 @@
         <section class="section-login">
             <form action="?controller=UserController&action=userLogin" method="post" class="form-login">
                 <?php 
-                if (isset($data)) {
-                    echo ("<p class='error'>".$data["message"]."</p>");
+                if (isset($data["error"])) {
+                    echo ("<p class='error'>".$data["error"]."</p>");
                 }
                 ?>
                 <h2 class="h2">Iniciar Sesion</h2>

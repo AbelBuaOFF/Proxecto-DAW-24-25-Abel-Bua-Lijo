@@ -121,6 +121,25 @@ class UsuarioController extends controller{
         echo json_encode($result, JSON_PRETTY_PRINT);
 	}
 
+    public function changePassword($id,$data)  {
+        
+        $model = new UsuarioModel();
+        $result = $model->changePassword($id, $data);
+        if ($result) {
+            $result = [
+                "status" => "success",
+                "message" => "Password actualizado correctamente."
+            ];
+        } else {
+            $result = [
+                "status" => "error",
+                "message" => "Error al actualizar la password  del usuario."
+            ];
+        }
+        echo json_encode($result, JSON_PRETTY_PRINT);
+        
+    }
+
 	public function insert($data) {
         //TODO es addUser
 	}

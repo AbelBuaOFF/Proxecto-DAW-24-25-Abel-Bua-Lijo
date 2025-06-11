@@ -30,7 +30,13 @@ class MainController extends PageController{
 
     public static function login(){
         $vista = new View;
-        $vista->show("login");
+        $data = [];
+
+        if (isset($_GET['error']) && $_GET['error'] == 1) {
+            $data['error'] = "Tu sesión ha expirado. Por favor, inicia sesión nuevamente.";
+        }
+
+        $vista->show("login",$data);
     }
     public static function registro(){
         $vista = new View;
