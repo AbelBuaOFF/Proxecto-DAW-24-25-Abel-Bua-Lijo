@@ -154,8 +154,15 @@ class AnuncioModel extends Model{
                 descripcion=:descripcion,
                 contenido=:contenido,
                 fecha_modificacion=:fecha_modificacion,
-                imagen_url=:imagen_url
-                WHERE id=:id";
+                id_tipo_anuncio=:id_tipo_anuncio,
+                id_categoria=:id_categoria,
+                id_localidad=:id_localidad";
+                
+        if ($object->imagen_url != null || $object->imagen_url != "") {
+            $sql .= ", imagen_url=:imagen_url";
+        }
+
+        $sql .= " WHERE id=:id AND borrado = 0";        
         
         $pdo = Model::getConnection();
         $resultado= false;
@@ -167,8 +174,14 @@ class AnuncioModel extends Model{
             $statement->bindValue(':descripcion', $object->descripcion, PDO::PARAM_STR);
             $statement->bindValue(':contenido', $object->contenido, PDO::PARAM_STR);
             $statement->bindValue(':fecha_modificacion', $fecha, PDO::PARAM_STR);
-            $statement->bindValue(':imagen_url', $object->imagen_url, PDO::PARAM_STR);
+            $statement->bindValue(':id_tipo_anuncio', $object->id_tipo_anuncio, PDO::PARAM_INT);
+            $statement->bindValue(':id_categoria', $object->id_categoria, PDO::PARAM_INT);
+            $statement->bindValue(':id_localidad', $object->id_localidad, PDO::PARAM_INT);
 
+            if ($object->imagen_url != null || $object->imagen_url != "") {
+                $statement->bindValue(':imagen_url', $object->imagen_url, PDO::PARAM_STR);
+            }
+            
             $resultado = $statement->execute();
             $resultado = $statement->rowCount() == 1;
 

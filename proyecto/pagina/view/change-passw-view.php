@@ -16,7 +16,7 @@
             <form action="?controller=UserController&action=changePass" method="post" class="form-login">
                 <?php 
                 if (isset($data["error"])) {
-                    echo ("<p class='error'>".$data["error"]."</p>");
+                    echo ("<p class='error'>".$data["message"]."</p>");
                     if (isset($_GET['error']) && $_GET['error'] == 1) {
                         echo ("<p class='error'>Las Contraseñas no coinciden.</p>");
                     }

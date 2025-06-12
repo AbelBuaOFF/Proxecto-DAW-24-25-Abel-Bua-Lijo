@@ -180,25 +180,30 @@ class UsuarioModel extends Model{
         return $resultado;
     }
 
-    public function changePassword($id, $objeto):bool{
-        $resultado= false;
+    public function changePassword($id, $passw):bool{
+        
         $sql = "UPDATE Usuario SET passw = :passw WHERE id = :id";
         $pdo = Model::getConnection();
-        $hash = hash('sha256', $objeto['passw']);
+        $hash = hash('sha256', $passw);
+        $resultado= false;
+
         try {
             $statement = $pdo->prepare($sql);
             $statement->bindValue(':id', $id, PDO::PARAM_INT);
             $statement->bindValue(':passw',$hash , PDO::PARAM_STR);
             $statement->execute();
             $resultado=$statement->rowCount()==1;
+            if (!$resultado) {
+                error_log("La ejecución del statement no afectó ninguna fila.");
+                return false;
+            }
         } catch (\PDOException $th) {
             error_log("Error en->changePassword($id) UsuarioModel");
             error_log($th->getMessage());
 
         } finally {
             $statement = null;
-            $pdo = null;
-            
+            $pdo = null;   
         }
         
         return $resultado;

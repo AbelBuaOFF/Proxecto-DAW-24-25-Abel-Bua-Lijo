@@ -53,18 +53,17 @@ const $d = document,
                             <img class="anuncio-img" src="${anuncio.imagen_url}" alt="${anuncio.titulo}">
                         </figure>
                         <p class="anuncio-texto">Descripcion: ${anuncio.descripcion}</p>
-                        <ul class="anuncio-links">
+                        <ul class="anuncio-btn">
                             <li>
-                                <a href="?controller=AnuncioController&action=updateAnuncioPage&id="${anuncio.id}"><i class="fas fa-edit"></i></a>
+                                 <button class="btn-modal verMas" data-id=${anuncio.id} onclick="window.modal.showModal()"><i class="fa fa-eye"></i></button>
                             </li>
                             <li>
-                                <a href="?controller=AnuncioController&action=deleteAnuncio&id="${anuncio.id}"><i class="fa fa-trash"></i></a>
+                                <a class="editar" href="?controller=AnuncioController&action=updateAnuncioPage&id=${anuncio.id}"><i class="fas fa-edit"></i></a>
                             </li>
                             <li>
-                                <a href="?controller=AnuncioController&action=anuncioPage&id="${anuncio.id}"><i class="fas fa-arrow-right"></i></a>
+                                <a href="?controller=AnuncioController&action=anuncioPage&id=${anuncio.id}"><i class="fas fa-arrow-right"></i></a>
                             </li>
                         </ul>
-                        <button class="btn-modal" data-id="${anuncio.id}" onclick="window.modal.showModal()">Ver mas...</button>
                     </article>`
                 ).join("")
             
@@ -98,7 +97,7 @@ function renderModal(id) {
                             <a href="?controller=AnuncioController&action=anuncioPage&id=${anuncio.id}"><i class="fas fa-arrow-right"></i> Ir al Anuncio</a>
                         </li>
                     </ul>
-                    <a class="modalCerrar" onclick="window.modal.close();"><i class="fas fa-window-close"></i></a>
+           <a class="modalCerrar" onclick="window.modal.close();"><i class="fas fa-window-close"></i></a>
         </article>`
 }
 $d.addEventListener("DOMContentLoaded", ev => {

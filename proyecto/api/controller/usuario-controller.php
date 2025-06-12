@@ -124,7 +124,9 @@ class UsuarioController extends controller{
     public function changePassword($id,$data)  {
         
         $model = new UsuarioModel();
-        $result = $model->changePassword($id, $data);
+        error_log(print_r($data, true));
+        $passw =  $data['passw'];
+        $result = $model->changePassword($id, $passw);
         if ($result) {
             $result = [
                 "status" => "success",

@@ -54,7 +54,7 @@ function renderAnuncios(anuncios){
                     <p class="anuncio-texto">Descripcion: ${anuncio.descripcion}</p>
                     <ul class="anuncio-btn">
                         <li>
-                             <button class="btn-modal" data-id=${anuncio.id} onclick="window.modal.showModal()"><i class="fa fa-eye"></i> Ver mas...</button>
+                             <button class="btn-modal verMas" data-id=${anuncio.id} onclick="window.modal.showModal()"><i class="fa fa-eye"></i></button>
                         </li>
                         <li>
                             <a href="?controller=AnuncioController&action=anuncioPage&id=${anuncio.id}"><i class="fas fa-arrow-right"></i></a>

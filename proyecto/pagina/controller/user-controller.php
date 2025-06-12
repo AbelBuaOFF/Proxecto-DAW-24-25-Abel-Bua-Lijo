@@ -205,17 +205,15 @@ class UserController extends PageController{
                 $objeto = new stdClass();
                 $objeto->passw = $_POST['new_password'];
                 
-                $solicitud = new Solicitud("usuario","changePassword",$id, $login);
+                $solicitud = new Solicitud("usuario","changePassword",$id, $objeto);
                 $model = new SolicitudModel();
                 $resultado2 = $model->enviarSolicitud($solicitud);
-
-                var_dump($resultado2);
-
+                
                 if ($resultado2["status"] == "success") {
                     $data = ["message" => "Contraseña cambiada correctamente."];
                     $vista->show("login", $data);                    
                 }
-
+                
             }else{
 
                 $solicitud = new Solicitud("usuario","get",$id, null);

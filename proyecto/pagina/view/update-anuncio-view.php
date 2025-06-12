@@ -20,7 +20,7 @@
      }
     ?>
     <main class="main">
-    <section class="section-login">
+    <section class="edicionFormulario">
             <form action="?controller=AnuncioController&action=updateAnuncio" method="post" class="form-login" enctype="multipart/form-data">
 
                 <h2 class="h2">Editar Anuncio</h2>
@@ -35,9 +35,7 @@
                     value="<?php echo $data["anuncio"]->descripcion ?>" required>
                 
                     <label for="contenido">Contacto y Mas informacion:</label>
-                    <textarea id="contenido" placeholder="informacion de contacto, y mas informacion.." name="contenido" rows="5" required>
-                        <?php echo $data["anuncio"]->descripcion ?>
-                    </textarea>
+                    <textarea id="contenido" placeholder="informacion de contacto, y mas informacion.." name="contenido" rows="5" required><?php echo $data["anuncio"]->descripcion ?></textarea>
                 </ul>
                 <ul class="anuncio-links">
                     <label for="id_tipo_anuncio">Tipo de Anuncio:</label>

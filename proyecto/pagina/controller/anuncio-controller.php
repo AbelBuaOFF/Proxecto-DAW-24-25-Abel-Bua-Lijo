@@ -119,7 +119,7 @@ class AnuncioController extends PageController{
         $vista = new View;
         if (isset($_POST['titulo']) && isset($_POST['descripcion'])&& isset($_POST['contenido'])) {
 
-            if (isset($_FILES['imagen'])) {
+            if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
                 $rutaImg=AnuncioController::guardarImgAnuncio($_FILES['imagen'], $_POST['titulo']);
 
                 if($rutaImg==false){
@@ -132,9 +132,9 @@ class AnuncioController extends PageController{
 
             
             $data = new stdClass();
-                $data->titulo = $_POST['titulo'];
-                $data->descripcion = $_POST['descripcion'];
-                $data->contenido = $_POST['contenido'];
+                $data->titulo = trim($_POST['titulo']);
+                $data->descripcion = trim($_POST['descripcion']);
+                $data->contenido = trim($_POST['contenido']);
                 $data->id_tipo_anuncio = $_POST['id_tipo_anuncio'];
                 $data->id_categoria = $_POST['id_categoria'];
                 $data->id_localidad = $_POST['id_localidad'];
@@ -150,7 +150,6 @@ class AnuncioController extends PageController{
                header("Location: /pagina/index.php?controller=UserController&action=home");
                 
             }
-
             $solicitud = new Solicitud("categoria","getAll");
             $model = new SolicitudModel();
             $data['categorias'] = $model->enviarSolicitud($solicitud);
@@ -178,7 +177,7 @@ class AnuncioController extends PageController{
         $vista = new View;
         if (isset($_POST['id_anuncio']) && isset($_POST['titulo']) && isset($_POST['descripcion'])&& isset($_POST['contenido'])) {
 
-            if (isset($_FILES['imagen'])) {
+            if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
                 $rutaImg=AnuncioController::guardarImgAnuncio($_FILES['imagen'], $_POST['titulo']);
 
                 if($rutaImg==false){
@@ -186,14 +185,16 @@ class AnuncioController extends PageController{
                 }
             
             }else{
-                $rutaImg= "/pagina/uploads/anuncio/anuncio_default.jpg";  
+                $rutaImg = null;  
             }
+
+            var_dump($_POST);
 
             $anuncio_id = (int) $_POST['id_anuncio'];
             $data = new stdClass();
-                $data->titulo = $_POST['titulo'];
-                $data->descripcion = $_POST['descripcion'];
-                $data->contenido = $_POST['contenido'];
+                $data->titulo = trim($_POST['titulo']);
+                $data->descripcion = trim($_POST['descripcion']);
+                $data->contenido = trim($_POST['contenido']);
                 $data->id_tipo_anuncio = $_POST['id_tipo_anuncio'];
                 $data->id_categoria = $_POST['id_categoria'];
                 $data->id_localidad = $_POST['id_localidad'];
