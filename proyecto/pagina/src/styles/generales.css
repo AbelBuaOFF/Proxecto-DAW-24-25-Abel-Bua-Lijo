@@ -33,6 +33,7 @@ body{
 main{
     padding: 1rem;
     flex-grow: 1;
+  
 }
 
 .btn{
@@ -137,9 +138,13 @@ li{
     font-weight: 600;
     font-size: 2rem;
 }
-.publicar-anuncio i{
-    font-weight: 600;
-    font-size: 2rem;
-    color: var(--color-texto);
-}
+
+.anuncio-links a{
+    text-decoration: none;
+    color: black;
+    background-color: var(--color-bnt);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    box-shadow: 0 0 5px black;
+  }
  /*=====  End of Generales  ======*/

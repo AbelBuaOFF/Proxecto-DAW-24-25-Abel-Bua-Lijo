@@ -55,7 +55,7 @@ const $d = document,
                         <p class="anuncio-texto">Descripcion: ${anuncio.descripcion}</p>
                         <ul class="anuncio-btn">
                             <li>
-                                 <button class="btn-modal verMas" data-id=${anuncio.id} onclick="window.modal.showModal()"><i class="fa fa-eye"></i></button>
+                                 <button class="btn-modal verMas" data-id="${anuncio.id}" onclick="window.modal.showModal()"><i class="fa fa-eye"></i></button>
                             </li>
                             <li>
                                 <a class="editar" href="?controller=AnuncioController&action=updateAnuncioPage&id=${anuncio.id}"><i class="fas fa-edit"></i></a>
