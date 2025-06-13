@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="./assets/fontsawesome/css/all.min.css">
     <script>
         const baseUrl = "http://<?php echo $host . $script; ?>";
+        const categorias = <?php echo json_encode($data["categorias"]) ;?>;
+        const localidades = <?php  echo json_encode($data["localidades"]);?>;
     </script>
     <script src="../pagina/src/scripts/home-script.js" defer></script>
 </head>

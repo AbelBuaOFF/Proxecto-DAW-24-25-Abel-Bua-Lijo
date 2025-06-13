@@ -259,7 +259,17 @@ main .section-publicar{
     gap: 1rem;
     justify-content: space-between;
  } 
-
+ .anuncio-info {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   gap: 1rem;
+   padding: 1rem;
+   width: 100%;
+ }
+ .anuncio-texto{
+   background-color: white;
+ }
 /*=============================================
 =                   Cards            =
 =============================================*/

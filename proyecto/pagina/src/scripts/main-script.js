@@ -10,6 +10,8 @@ const $d = document,
     const url = baseUrl + "?controller=MainController&action=getAnuncios"
     const anuncios = []
 
+   
+
     function ajax(options) {  
         const {url,method,fExito,fError,data}=options
       
@@ -35,7 +37,7 @@ const $d = document,
                 anuncios.splice(0, anuncios.length, ...json);
                 renderAnuncios(anuncios);
             },
-            fError: (error) => console.log(error),
+            fError: (error) => console.log(error)
           });
       }
 function renderAnuncios(anuncios){
@@ -52,6 +54,14 @@ function renderAnuncios(anuncios){
                         <img class="anuncio-img" src="${anuncio.imagen_url}" alt="${anuncio.titulo}">
                     </figure>
                     <p class="anuncio-texto">Descripcion: ${anuncio.descripcion}</p>
+                    <ul class="anuncio-info">
+                        <li>
+                            <p><span class="bold">${categorias.find(c => c.id == anuncio.id_categoria).nombre_categoria}</span></p>
+                        </li>
+                         <li>
+                            <p><span class="bold">${localidades.find(l => l.id == anuncio.id_localidad).nombre_localidad}</span></p>
+                         </li>
+                    </ul>
                     <ul class="anuncio-btn">
                         <li>
                              <button class="btn-modal verMas" data-id=${anuncio.id} onclick="window.modal.showModal()"><i class="fa fa-eye"></i></button>
@@ -75,8 +85,16 @@ function renderModal(id) {
                     <p class="titulo"><span class="bold">${anuncio.titulo}</span></p>
                     <p class="descripcion">${anuncio.descripcion}</p>
                     <p class="contenido">${anuncio.contenido}</p>
-                        
+                    <ul class="anuncio-info">
+                        <li>
+                            <p>Categoria: <span class="bold">${categorias.find(c => c.id == anuncio.id_categoria).nombre_categoria}</span></p>
+                        </li>
+                         <li>
+                            <p>Localidad: <span class="bold">${localidades.find(l => l.id == anuncio.id_localidad).nombre_localidad}</span></p>
+                         </li>
+                    </ul>
                 </div>
+
                 <figure>
                     <img class="anuncio-img" src="${anuncio.imagen_url}" alt="${anuncio.titulo}">
                 </figure>
@@ -88,10 +106,21 @@ function renderModal(id) {
         </article>`
 }
 
+
+function filterAnuncios(anuncios) {
+
+    const filtro =[];
+    
+}
+
+
 $d.addEventListener("DOMContentLoaded", ev => {
     getAnuncios()
-    
-  const $bntModal = $d.querySelectorAll(".btn-modal")
+    console.log("main-script.js cargado");
+    console.log(categorias);
+    console.log(localidades);
+    console.log(anuncios);
+   // const $bntModal = $d.querySelectorAll(".btn-modal")
 })
 
 $secionAnuncios.addEventListener("click", ev => {  

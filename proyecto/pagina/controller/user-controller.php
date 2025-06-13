@@ -16,6 +16,14 @@ class UserController extends PageController{
         $vista = new View;
         $data = [];
 
+        $solicitud = new Solicitud("categoria","getAll");
+        $model = new SolicitudModel();
+        $data['categorias'] = $model->enviarSolicitud($solicitud);
+        
+        $solicitud = new Solicitud("localidad","getAll");
+        $model = new SolicitudModel();
+        $data['localidades'] = $model->enviarSolicitud($solicitud);
+
         $id_usuario = $_SESSION['id_usuario'];
 
         if (UserController::checkToken($id_usuario)) {

@@ -12,6 +12,8 @@
         $script = $_SERVER['SCRIPT_NAME'];
         ?>
         const baseUrl = "http://<?php echo $host . $script; ?>";
+        const categorias = <?php echo json_encode($data["categorias"]) ;?>;
+        const localidades = <?php  echo json_encode($data["localidades"]);?>;
     </script>
     <script src="../pagina/src/scripts/main-script.js" defer></script>
 </head>
