@@ -188,8 +188,6 @@ class AnuncioController extends PageController{
                 $rutaImg = null;  
             }
 
-            var_dump($_POST);
-
             $anuncio_id = (int) $_POST['id_anuncio'];
             $data = new stdClass();
                 $data->titulo = trim($_POST['titulo']);

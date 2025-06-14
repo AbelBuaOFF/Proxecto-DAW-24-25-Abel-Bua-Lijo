@@ -67,6 +67,7 @@ class UsuarioController extends controller{
                 "status" => "success",
                 "message" => "Usuario logueado correctamente.",
                 "id_usuario" => $usuario["id"],
+                "id_rol" => $usuario["id_rol"],
                 "token" => $token
             ];
             echo json_encode($result, JSON_PRETTY_PRINT);

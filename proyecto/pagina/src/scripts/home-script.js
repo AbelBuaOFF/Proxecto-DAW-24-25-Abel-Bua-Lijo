@@ -1,10 +1,10 @@
-const $d = document,
-    $buscador = $d.querySelector("#buscador"),
-    $categorias = $d.querySelectorAll(".categorias"),
-    $localizaciones = $d.querySelectorAll(".localizacion"),
-    $secionAnuncios = $d.querySelector(".section-anuncios"),
-    $btnAdd = $d.querySelector(".publicar-anuncio"),
-    $modal = $d.querySelector("#modal")
+
+const  $buscador = document.querySelector("#buscador"),
+    $categorias = document.querySelectorAll(".categorias"),
+    $localizaciones = document.querySelectorAll(".localizacion"),
+    $secionAnuncios = document.querySelector(".section-anuncios"),
+    $btnAdd = document.querySelector(".publicar-anuncio"),
+    $modal = document.querySelector("#modal")
 
     const url = baseUrl + "?controller=AnuncioController&action=getAnunciosByUser"
     const anuncios = []

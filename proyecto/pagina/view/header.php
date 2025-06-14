@@ -24,7 +24,7 @@
                 }
                 ?>
             </ul>
-            <ul class="menu-hamburguesa off">
+            <ul class="menu-hamburguesa">
                 <?php
                 if (isset($_SESSION['id_usuario']) &&  isset($_SESSION['token'])) {
                     echo '<li><a href="?controller=AnuncioController&action=publicarAnuncio" class="publicar-anuncio"><i class="fa fa-plus" aria-hidden="true"></i> Publicar Anuncio </a></li>';

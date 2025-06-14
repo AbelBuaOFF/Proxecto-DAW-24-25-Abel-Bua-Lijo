@@ -89,6 +89,7 @@ class UserController extends PageController{
             session_start();
             $_SESSION['token'] = $data["token"];
             $_SESSION['id_usuario'] = $data["id_usuario"];
+            $_SESSION['rol'] = $data["id_rol"];
             header("Location: /pagina/index.php?controller=UserController&action=home");
         }
         $vista->show("login",$data);

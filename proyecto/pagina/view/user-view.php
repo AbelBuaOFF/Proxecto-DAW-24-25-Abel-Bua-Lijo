@@ -14,7 +14,11 @@
     <main class="main">
     <h2>Pagina de Usuario:</h2>
         <section class="section-usuario">
-            
+        <?php 
+                if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1) {
+                    include("admin-panel.php");
+                }
+        ?>
             <article class="usuario-card">
                 <figure>
                     <img src="../pagina/uploads/usuarios/perfil_default.jpg" alt="">

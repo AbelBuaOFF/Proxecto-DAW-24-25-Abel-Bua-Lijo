@@ -46,12 +46,12 @@ Visualizacion de anuncios: Ver os anuncios creados por outros usuarios.
  - Entrada: ID del anuncio deseado,
  - Saida: Anuncio Borrado.
 
+
 ## 3- Tipos de usuarios
 
 - Tipos de usuarios:
   - Usuarios Anonimo: Pode ver as publicacions e usar os filtros, non pode publicar contidos.
-  - Usuarios Rexistrado Particular : Pode ver as publicacions e usar os filtros, pode publicar e mofidicar contidos propios.
-  - Usuarios Rexistrado Entidade ou empresa : Pode ver as publicacions e usar os filtros, pode publicar e mofidicar contidos propios, ter mais funcionalidades dependendo da sua subscripcion ou tipo de publicacion.
+  - Usuarios Rexistrado : Pode ver as publicacions e usar os filtros, pode publicar e mofidicar contidos propios.
   - Administradores: Ver o panel de administracion, e xestionar todos os elementos da aplicacion.
 
 ## 4- Contorno operacional

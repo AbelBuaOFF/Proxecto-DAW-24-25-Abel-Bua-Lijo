@@ -89,24 +89,18 @@ function renderModal(id) {
 }
 
 function filterAnuncios(anuncios) {
-
     let anunciosfiltrados = [...anuncios]; 
-
     const buscador = $buscador.value.toLowerCase();
     const categoria= $categorias?.value;
     const localidad = $localidades?.value;
 
-
     if (categoria != 0) {
-       console.log("Categoria seleccionada: " + categoria);
         anunciosfiltrados = anuncios.filter(anuncio => anuncio.id_categoria == categoria);
     }
     if (localidad != 0) {
-        console.log("Localidad seleccionada: " + localidad);
         anunciosfiltrados = anunciosfiltrados.filter(anuncio => anuncio.id_localidad == localidad);
     }
     if (buscador) {
-        console.log("Buscador: " + buscador);
         anunciosfiltrados = anunciosfiltrados.filter(anuncio => 
             anuncio.titulo.toLowerCase().includes(buscador)
         );
@@ -116,9 +110,7 @@ function filterAnuncios(anuncios) {
 }
 
 $d.addEventListener("DOMContentLoaded", ev => {
-
     getAnunciosAxios() 
-    console.log("main-script.js cargado");
 })
 
 $secionAnuncios.addEventListener("click", ev => {   

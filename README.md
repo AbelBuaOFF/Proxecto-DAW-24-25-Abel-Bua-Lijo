@@ -29,8 +29,7 @@ A web estaría desenvolvida empregando HTML, CSS e JavaScript no frontend, e o b
 
 ## Uso
 
-> *EXPLICACIÓN*: É este apartado describe brevemente como se usará a aplicación Web do proxecto. Describe o uso da interface web *só o uso** (a modo de sumario) *dos aspectos máis relevantes do seu funcionamento** (máxima brevidade, coma se fose un anuncio reclamo ou comercial).
->
+Aplicación de web, de publicacion e xestión de anuncios e usuarios, Podese usar tanto en Sobremesas, tabletas e mobiles.
 
 ## Sobre o autor
 
@@ -42,7 +41,8 @@ Email: abelbualijo.off@gmail.com
 
 ## Licenza
 
-> *EXPLICACIÓN*: É requisito INDISPENSABLE o licenciar explicitamente o proxecto software. Recoméndase licenciar con GNU Free Documentation License Version 1.3*. Crear un ficheiro `LICENSE` na raiz do repo, co teu ficheiro de licenza. Lembra que se empregas unha licenza de software libre estás a autorizar a derivación da túa obra baixo a mesma licenza que elixas, podendo dar continuidade, p. e. outro alumno, para continuar o teu proxecto noutro curso.
+Usa GNU Free Documentation License, Version 1.3.
+ 
 
 ## Índice
 
@@ -57,6 +57,11 @@ Email: abelbualijo.off@gmail.com
 ## Guía de contribución
 
 > EXPLICACIÓN*: Tratándose dun proxecto de software libre, é moi importante que expoñas como se pode contribuír co teu proxecto. Algúns exemplos disto son realizar novas funcionalidades, corrección e/o optimización do código, realización de tests automatizados, novas interfaces de integración, desenvolvemento de plugins etc. Se o máis conciso que poidas.
+
+  Puedes contribuir haciendo:
+  - Añadiendo as novas funcionalidades que estan no arquivo de Implatación 3-Melloras futuras ou maís se son oportunas.
+  - Correxir o codigo e optimizalo.
+  - Realizar tests automatizados.
 
 ## Links
 

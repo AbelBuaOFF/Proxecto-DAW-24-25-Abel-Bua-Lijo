@@ -22,8 +22,10 @@
 <body>
     <?php
     include("header.php");
+
     ?>
     <main class="main">
+        
         <section class="buscador">
             <div>
             <h2 class="h2">Buscador de anuncios.</h2>
@@ -50,6 +52,11 @@
             </form>
             </div>
         </section>
+        <?php 
+                if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1) {
+                    include("admin-panel.php");
+                }
+        ?>
         <section class="section-anuncios">
         </section>
             <dialog id="modal">
