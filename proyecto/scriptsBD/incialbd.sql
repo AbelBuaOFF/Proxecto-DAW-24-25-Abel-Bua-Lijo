@@ -131,4 +131,7 @@ VALUES ('empresa', 'empresa@mail.com', 'f2e53c927c66fe711e8e88ef9b37a8e3187f1652
 -- Insertar Anuncios
 INSERT INTO Anuncio (id_usuario, titulo, descripcion, contenido, id_tipo_anuncio, id_categoria, id_localidad) VALUES
 (2, 'Venta de furgoneta en A Coruña', 'Furgoneta en buen estado, lista para trabajar', 'Furgoneta Ford Transit 2018, 80.000 km, ITV al día', 1, 1, 1),
-(2, 'Busco piso en Vigo', 'Piso céntrico y bien comunicado', 'Busco piso de 3 habitaciones en Vigo, zona centro', 2, 3, 8);
+(2, 'Busco piso en Vigo', 'Piso céntrico y bien comunicado', 'Busco piso de 3 habitaciones en Vigo, zona centro', 2, 3, 8),
+(2, 'Evento de música en vivo', 'Concierto gratuito en el parque', 'Ven a disfrutar de una tarde de música en vivo con bandas locales', 4, 5, 7),
+(3, 'Se alquila local comercial en Santiago', 'Local en pleno centro, ideal para negocio', 'Local de 100 m² con escaparate, zona de paso', 1, 6, 2);
+

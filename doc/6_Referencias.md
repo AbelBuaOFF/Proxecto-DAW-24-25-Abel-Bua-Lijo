@@ -11,12 +11,14 @@
 ## 1- Sitios web de documentación técnica
 
 Documentación de cURL php: https://www.php.net/manual/es/book.curl.php
+Exemplo de uso de Axios: https://axios-http.com/es/docs/example
 
 ## 2- Fontes de interes
  fuente header y footer: https://fonts.google.com/specimen/Jersey+25
 
 ## 3- Sitios oficiais do software utilizado
  fuentes y elementos decorativos: https://fontawesome.com/
+ Axios: https://axios-http.com/es/docs/intro
 
 ## 4- Normas ou documentos legais
 

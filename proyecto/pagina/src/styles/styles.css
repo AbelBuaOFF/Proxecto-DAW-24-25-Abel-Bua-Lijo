@@ -269,6 +269,8 @@ main .section-publicar{
  }
  .anuncio-texto{
    background-color: white;
+   outline: 2px dotted var(--color-borde-anuncio);
+   padding: 1rem;
  }
 /*=============================================
 =                   Cards            =
@@ -276,30 +278,43 @@ main .section-publicar{
 
 
 main .anuncio-card{
+   margin: 0 auto;
    font-size: 1rem;
    padding: 1rem;
    background-color: var(--color-fondo-anuncio);
-   width: 100%;
-   min-height: 500px;
+
    display: flex;
    flex-direction: column;
+   justify-content: space-between;
    border: 4px solid var(--color-borde-anuncio);
    gap: 1rem;
    margin-bottom: 5rem;
+   overflow: hidden;
 }
 
-main .anuncio-card .anuncio-texto{
-   background-color: white;
-   padding: 1rem;
-   border: 1px solid var(--color-borde-anuncio);
-   padding: 1rem 1rem 3rem .5rem; 
+main .anuncio-card .anuncio-content{
+   display: flex;
+   flex-direction: column;
+   justify-content: start;
+   gap: 3rem;
+   flex-grow: 1;
 }
 
-main .anuncio-card figure{
+main .anuncio-card .anuncio-content .anuncio-texto{
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   gap: 3rem;
+   padding: 0.5rem;
+   outline: 2px dotted var(--color-borde-anuncio);
+}
+
+main .anuncio-card .anuncio-content figure{
    padding: 1rem;
    max-height: 600px;
    max-width: 600px;
    align-items: center;
+   justify-content: center;
    background-color: white;
 
 }
@@ -309,8 +324,9 @@ main .anuncio-card figure{
    flex-direction: row;
    justify-content: space-between;
    align-items: center;
-   gap: 1rem;
-
+   flex-wrap: wrap;
+   gap: 2rem;
+   margin: 1rem 2rem;
 }
 
 .anuncio-links li{
@@ -333,15 +349,12 @@ main .anuncio-card figure{
    background-color: lightgrey;
    width: 100%;
    padding: 1rem;
-   border: 4px solid var(--color-borde-anuncio);
+   border: 2px dotted gray;
    
 }
 .panelTools p{
    font-size: 1.2rem;
    font-weight: 600;
-}
-.panelTools li{
-   
 }
 
 .panelTools li a{
@@ -397,66 +410,61 @@ main .anuncio-card figure{
 =            MODAL         =
 =============================================*/
 
-
 main #modal{
+   margin: 0 auto;
    background-color: var(--color-fondo-anuncio);
-   width: 100%;
    position: relative;
    top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
-   border: 4px solid var(--color-borde-anuncio);
 
+   border: 4px solid var(--color-borde-anuncio);
+   overflow: hidden;
 }
 
 main #modal article{
    width: 100%;
+   height: 100%;
    display: flex;
    flex-direction: column;
    justify-content: space-between;
-   gap: 1rem;
-   padding: 2rem;
 }
 
 main #modal article .anuncio-content{
    display: flex;
    flex-direction: column;
    gap: 1rem;
+   align-items: end;
+   padding: 1rem;
 }
 main #modal article .anuncio-content h2{
    font-size: 2rem;
-   margin-bottom: 1rem;
+   margin-bottom: 0.5rem;
 }
 
 main #modal article .anuncio-content .anuncio-texto{
+   width: 100%;
    display: flex;
    flex-direction: column;
    gap: 3rem;
-   margin-bottom: 1rem;
-   padding: 2rem;
-
+   padding: 0.5rem;
+   outline: 2px dotted var(--color-borde-anuncio);
 }
 
 main #modal article figure{
    padding: 1rem;
-   max-width: max-content;
-   max-height: max-content;
+   max-width: 100%;
+   max-height: 100%;
    display: flex;
    justify-content: center;
-   overflow: hidden;
-   
 }
 
 main #modal article figure img{
-   height: 100%;
-   width: 100%;
+   height: auto;
+   max-width: 100%;
    object-fit: contain;
 }
 
 main #modal article .modalCerrar{
-
    position: absolute;
-   
    color: red;
    top: 3%;
    right: 5%;
@@ -717,7 +725,8 @@ fieldset {
 
      main #modal{
       width: 80%;
-      padding: 2rem;
+      max-height: max-content;
+      padding: 0.5rem;
      }
 
       main #modal article .anuncio-content{
@@ -728,6 +737,11 @@ fieldset {
       }
       main #modal article .anuncio-content .anuncio-texto{
          margin-top: 2rem;
+      }
+
+      .anuncio-links{
+         margin-bottom: 2rem;
+         flex-direction: row;
       }
 
       .edicionFormulario{
@@ -768,8 +782,8 @@ fieldset {
 
     .panelTools{
       position: fixed;
-      top: 20%;
-      right: 2%;
+      top: 10%;
+      right: 0;
       width: fit-content;
    }
     

@@ -83,7 +83,7 @@ figure{
     height: 100%;
     width: 100%;
     background-color: white;
-    outline: 1px dotted var(--color-borde-anuncio);
+    outline: 2px dotted var(--color-borde-anuncio);
     align-content: center;
     text-align: center;
 }
@@ -134,12 +134,16 @@ li{
 .editar{
     background-color: var(--color-fondo-btn-naranja) !important;
 }
+.eliminar{
+    background-color: var(--color-fondo-btn-rojo) !important;
+}
 .modalCerrar i{
     font-weight: 600;
     font-size: 2rem;
 }
 
 .anuncio-links a{
+
     text-decoration: none;
     color: black;
     background-color: var(--color-bnt);

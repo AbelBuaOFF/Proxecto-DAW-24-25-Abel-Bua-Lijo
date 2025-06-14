@@ -13,20 +13,22 @@
     ?>
     <main class="main">
         <article class="anuncio-card">
-            
                     <h3 class="anuncio-titulo"><?php echo $data["anuncio"]->titulo ?></h3>
-                    <figure>
-                        <img class="anuncio-img" src="<?php echo $data["anuncio"]->imagen_url ?>" alt="${anuncio.titulo}">
-                    </figure>
-
-                    <p><?php echo $data["anuncio"]->descripcion ?></p>
-                    <p class="anuncio-texto"><?php echo $data["anuncio"]->contenido ?></p>
+                    <div class="anuncio-content">
+                        <div class="anuncio-texto">
+                                <p><span class="bold">Descripcion:</span><?php echo $data["anuncio"]->descripcion ?></p>
+                                <p><span class="bold">Contenido: </span><?php echo $data["anuncio"]->contenido ?></p>
+                        </div>
+                        <figure>
+                            <img class="anuncio-img" src="<?php echo $data["anuncio"]->imagen_url ?>" alt="${anuncio.titulo}">
+                        </figure>
+                    </div>
                     <ul class="anuncio-links">
                         <?php if (isset($data["categoria"])) {
-                            echo "<li>Categoria: ".$data["categoria"]->nombre_categoria."</li>";
+                            echo "<li>Categoria: <span class='bold'>".$data["categoria"]->nombre_categoria."</span></li>";
                         }?>
                         <?php if (isset($data["localidad"])) {
-                            echo "<li> Localidad:".$data["localidad"]->nombre_localidad."</li>";
+                            echo "<li>Localidad: <span class='bold'> ".$data["localidad"]->nombre_localidad."</span></li>";
                         }?>
                         <li>Publicado por: <a href="?controller=UserController&action=userPage&id=<?php echo $data["anuncio"]->id_usuario?>">
                         <span class="link" ><?php echo $data["usuario"]->nombre_usuario?><span></a></li>

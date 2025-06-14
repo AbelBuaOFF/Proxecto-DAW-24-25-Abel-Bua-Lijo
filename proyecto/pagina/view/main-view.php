@@ -15,6 +15,7 @@
         const categorias = <?php echo json_encode($data["categorias"]) ;?>;
         const localidades = <?php  echo json_encode($data["localidades"]);?>;
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
     <script src="../pagina/src/scripts/main-script.js" defer></script>
 </head>
 
@@ -26,18 +27,18 @@
         <section class="buscador">
             <div>
             <h2 class="h2">Buscador de anuncios.</h2>
-            <form action="" method="get">
+            <form action="" method="get" class="formBusqueda">
                 <input type="text" name="buscador" id="buscador" placeholder="Buscar Auncio...">
-                <select name="buscador-categorias" id="buscador-categorias" class="categorias">
-                    <option value="">Seleccionar Categoria</option>
+                <select name="categoria" id="categoria" class="categorias">
+                    <option value='0'>Seleccionar Categoria</option>
                     <?php
                     foreach ($data["categorias"] as $categoria) {
                         echo "<option value='{$categoria["id"]}'>{$categoria["nombre_categoria"]}</option>";
                     }
                     ?>
                 </select>
-                <select name="buscador-localizacion" id="buscador-localizacion" class="localizacion">
-                    <option value="">Seleccionar Localizacion</option>
+                <select name="localidad" id="localidad" class="localizacion">
+                    <option value='0'>Seleccionar Localizacion</option>
                     <?php
                     foreach ($data["localidades"] as $localidad) {
                         echo "<option value='{$localidad["id"]}'>{$localidad["nombre_localidad"]}</option>";

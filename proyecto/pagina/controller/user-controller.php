@@ -254,19 +254,22 @@ class UserController extends PageController{
             session_start();
         }
 
-        $solicitud = new Solicitud("token","get",$id_usuario, null);
-        $model = new SolicitudModel();
-        $token = $model->enviarSolicitud($solicitud);
+        if (isset($_SESSION['token']) && isset($_SESSION['id_usuario'])) {
 
-        $tokenBD = $token;
-        $tokenSession = $_SESSION['token'];
-
-        if (hash_equals($tokenBD["token"],$tokenSession["token"])) {
-            if (strtotime($tokenBD["fecha_expiracion"]) < time()) {
-                $resultado = true;
+            $solicitud = new Solicitud("token","get",$id_usuario, null);
+            $model = new SolicitudModel();
+            $token = $model->enviarSolicitud($solicitud);
+    
+            $tokenBD = $token;
+            $tokenSession = $_SESSION['token'];
+    
+            if (hash_equals($tokenBD["token"],$tokenSession["token"])) {
+                if (strtotime($tokenBD["fecha_expiracion"]) < time()) {
+                    $resultado = true;
+                }
             }
         }
-        
+
         return $resultado;
     }
 }

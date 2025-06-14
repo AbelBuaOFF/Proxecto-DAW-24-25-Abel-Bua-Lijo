@@ -9,36 +9,16 @@ const $d = document,
     const url = baseUrl + "?controller=AnuncioController&action=getAnunciosByUser"
     const anuncios = []
 
-    function ajax(options) {  
-        const {url,method,fExito,fError,data}=options
-      
-        fetch(url,{
-          method:method || 'GET',
-          headers:{
-            "Content-type":"application/json;charset=utf-8"
-          },
-          body:JSON.stringify(data)
-        })
-        .then((resp)=>resp.ok?resp.json():Promise.reject(resp))
-        .then((json)=>fExito(json))
-        .catch((error=>fError({
-          status:error.status,
-          statusText:error.statusText
-        })))
-      
-      }
-
-      function getAnuncios(){
-        ajax({
-            url: url,
-            fExito: (json) => {
-                anuncios.splice(0, anuncios.length, ...json);
-                renderAnuncios(anuncios);
-            },
-            fError: (error) => console.log(error),
-          });
-      }
-
+    function getAnunciosAxios() {
+        axios.get(url)
+        .then((response) => {
+            anuncios.splice(0, anuncios.length, ...response.data);
+            renderAnuncios(anuncios);
+        }).catch(error => fError({
+            status: error.response.status,
+            statusText: error.response.statusText || "Error al recuperar anuncios"
+        }));
+    }
       function renderAnuncios(anuncios){
         
             $secionAnuncios.innerHTML = 
@@ -53,9 +33,17 @@ const $d = document,
                             <img class="anuncio-img" src="${anuncio.imagen_url}" alt="${anuncio.titulo}">
                         </figure>
                         <p class="anuncio-texto">Descripcion: ${anuncio.descripcion}</p>
+                        <ul class="anuncio-info">
+                            <li>
+                                <p><span class="bold">${categorias.find(c => c.id == anuncio.id_categoria).nombre_categoria}</span></p>
+                            </li>
+                            <li>
+                                <p><span class="bold">${localidades.find(l => l.id == anuncio.id_localidad).nombre_localidad}</span></p>
+                            </li>
+                        </ul>
                         <ul class="anuncio-btn">
                             <li>
-                                 <button class="btn-modal verMas" data-id="${anuncio.id}" onclick="window.modal.showModal()"><i class="fa fa-eye"></i></button>
+                                 <button class="btn-modal verMas" data-id="${anuncio.id}" onclick="window.modal.showModal()"><i class="fa fa-eye" data-id=${anuncio.id}></i></button>
                             </li>
                             <li>
                                 <a class="editar" href="?controller=AnuncioController&action=updateAnuncioPage&id=${anuncio.id}"><i class="fas fa-edit"></i></a>
@@ -78,9 +66,16 @@ function renderModal(id) {
                     <h3 class="anuncio-titulo">${anuncio.titulo}</h3>
                     <div class="anuncio-content">
                         <div class="anuncio-texto">
-                            <p class="titulo"><span class="bold">${anuncio.titulo}</span></p>
-                            <p class="descripcion">${anuncio.descripcion}</p>
-                            <p class="contenido">${anuncio.contenido}</p> 
+                            <p class="descripcion"><span class="bold">Descripcion:</span> ${anuncio.descripcion}</p>
+                            <p class="contenido"><span class="bold">Contenido: </span> ${anuncio.contenido}</p>
+                            <ul class="anuncio-info">
+                                <li>
+                                    <p>Categoria: <span class="bold">${categorias.find(c => c.id == anuncio.id_categoria).nombre_categoria}</span></p>
+                                </li>
+                                <li>
+                                    <p>Localidad: <span class="bold">${localidades.find(l => l.id == anuncio.id_localidad).nombre_localidad}</span></p>
+                                </li>
+                            </ul>
                         </div>
                         <figure>
                             <img class="anuncio-img" src="${anuncio.imagen_url}" alt="${anuncio.titulo}">
@@ -88,10 +83,10 @@ function renderModal(id) {
                     </div>
                     <ul class="anuncio-links">
                         <li>
-                            <a href="?controller=AnuncioController&action=updateAnuncioPage&id=${anuncio.id}"><i class="fas fa-edit"></i> Editar Anuncio</a>
+                            <a class="editar" href="?controller=AnuncioController&action=updateAnuncioPage&id=${anuncio.id}"><i class="fas fa-edit"></i> Editar Anuncio</a>
                         </li>
                         <li>
-                            <a href="?controller=AnuncioController&action=deleteAnuncio&id=${anuncio.id}"><i class="fa fa-trash"></i> Borrar Anuncio</a>
+                            <a class="eliminar" href="?controller=AnuncioController&action=deleteAnuncio&id=${anuncio.id}"><i class="fa fa-trash"></i> Borrar Anuncio</a>
                         </li>
                         <li>
                             <a href="?controller=AnuncioController&action=anuncioPage&id=${anuncio.id}"><i class="fas fa-arrow-right"></i> Ir al Anuncio</a>
@@ -101,11 +96,11 @@ function renderModal(id) {
         </article>`
 }
 $d.addEventListener("DOMContentLoaded", ev => {
-    getAnuncios()
+    getAnunciosAxios() 
     const $bntModal = $d.querySelectorAll(".btn-modal")
 })
 $secionAnuncios.addEventListener("click", ev => {   
-    if (ev.target.classList.contains("btn-modal")) {
+    if (ev.target.dataset.id) {
         const id = ev.target.dataset.id;
         renderModal(id);
         $modal.showModal();

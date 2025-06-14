@@ -15,6 +15,7 @@
         const categorias = <?php echo json_encode($data["categorias"]) ;?>;
         const localidades = <?php  echo json_encode($data["localidades"]);?>;
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
     <script src="../pagina/src/scripts/home-script.js" defer></script>
 </head>
 <body>

@@ -1,8 +1,9 @@
 
 const $d = document,
+    $formBusqueda= $d.querySelector(".formBusqueda"),
     $buscador = $d.querySelector("#buscador"),
-    $categorias = $d.querySelectorAll(".categorias"),
-    $localizaciones = $d.querySelectorAll(".localizacion"),
+    $categorias = $d.querySelector(".categorias"),
+    $localidades = $d.querySelector(".localizacion"),
     $secionAnuncios = $d.querySelector(".section-anuncios"),
     $btnAdd = $d.querySelector(".publicar-anuncio"),
     $modal = $d.querySelector("#modal")
@@ -10,36 +11,17 @@ const $d = document,
     const url = baseUrl + "?controller=MainController&action=getAnuncios"
     const anuncios = []
 
+      function getAnunciosAxios() {
+        axios.get(url)
+        .then((response) => {
+            anuncios.splice(0, anuncios.length, ...response.data);
+            renderAnuncios(anuncios);
+        }).catch(error => fError({
+            status: error.response.status,
+            statusText: error.response.statusText || "Error al recuperar anuncios"
+        }));
+    }
    
-
-    function ajax(options) {  
-        const {url,method,fExito,fError,data}=options
-      
-        fetch(url,{
-          method:method || 'GET',
-          headers:{
-            "Content-type":"application/json;charset=utf-8"
-          },
-          body:JSON.stringify(data)
-        })
-        .then((resp)=>resp.ok?resp.json():Promise.reject(resp))
-        .then((json)=>fExito(json))
-        .catch((error=>fError({
-          status:error.status,
-          statusText:error.statusText
-        })))
-      }
-
-      function getAnuncios(){
-        ajax({
-            url: url,
-            fExito: (json) => {
-                anuncios.splice(0, anuncios.length, ...json);
-                renderAnuncios(anuncios);
-            },
-            fError: (error) => console.log(error)
-          });
-      }
 function renderAnuncios(anuncios){
     if (anuncios.length === 0) {
         $secionAnuncios.innerHTML = 
@@ -53,7 +35,7 @@ function renderAnuncios(anuncios){
                     <figure>
                         <img class="anuncio-img" src="${anuncio.imagen_url}" alt="${anuncio.titulo}">
                     </figure>
-                    <p class="anuncio-texto">Descripcion: ${anuncio.descripcion}</p>
+                    <p class="anuncio-texto">${anuncio.descripcion}</p>
                     <ul class="anuncio-info">
                         <li>
                             <p><span class="bold">${categorias.find(c => c.id == anuncio.id_categoria).nombre_categoria}</span></p>
@@ -64,7 +46,7 @@ function renderAnuncios(anuncios){
                     </ul>
                     <ul class="anuncio-btn">
                         <li>
-                             <button class="btn-modal verMas" data-id=${anuncio.id} onclick="window.modal.showModal()"><i class="fa fa-eye"></i></button>
+                             <button class="btn-modal verMas" data-id=${anuncio.id} onclick="window.modal.showModal()"><i class="fa fa-eye" data-id=${anuncio.id} ></i></button>
                         </li>
                         <li>
                             <a href="?controller=AnuncioController&action=anuncioPage&id=${anuncio.id}"><i class="fas fa-arrow-right"></i></a>
@@ -82,9 +64,8 @@ function renderModal(id) {
         <h3 class="anuncio-titulo">${anuncio.titulo}</h3>
             <div class="anuncio-content">
                 <div class="anuncio-texto">
-                    <p class="titulo"><span class="bold">${anuncio.titulo}</span></p>
-                    <p class="descripcion">${anuncio.descripcion}</p>
-                    <p class="contenido">${anuncio.contenido}</p>
+                    <p class="descripcion"><span class="bold">Descripcion:</span> ${anuncio.descripcion}</p>
+                    <p class="contenido"><span class="bold">Contenido: </span> ${anuncio.contenido}</p>
                     <ul class="anuncio-info">
                         <li>
                             <p>Categoria: <span class="bold">${categorias.find(c => c.id == anuncio.id_categoria).nombre_categoria}</span></p>
@@ -94,41 +75,61 @@ function renderModal(id) {
                          </li>
                     </ul>
                 </div>
-
                 <figure>
                     <img class="anuncio-img" src="${anuncio.imagen_url}" alt="${anuncio.titulo}">
                 </figure>
             </div>
-            <a href="?controller=AnuncioController&action=anuncioPage&id=${anuncio.id}">
-                            <span class="link"><i class="fas fa-arrow-right"></i> Ir a Pagina...</span>
-                        </a>
+            <ul class="anuncio-links">
+                <li>
+                    <a href="?controller=AnuncioController&action=anuncioPage&id=${anuncio.id}"><i class="fas fa-arrow-right"></i> Ir al Anuncio</a>
+                    </li>
+                </ul>
             <a class="modalCerrar" onclick="window.modal.close();"><i class="fas fa-window-close"></i></a>
         </article>`
 }
 
-
 function filterAnuncios(anuncios) {
 
-    const filtro =[];
-    
+    let anunciosfiltrados = [...anuncios]; 
+
+    const buscador = $buscador.value.toLowerCase();
+    const categoria= $categorias?.value;
+    const localidad = $localidades?.value;
+
+
+    if (categoria != 0) {
+       console.log("Categoria seleccionada: " + categoria);
+        anunciosfiltrados = anuncios.filter(anuncio => anuncio.id_categoria == categoria);
+    }
+    if (localidad != 0) {
+        console.log("Localidad seleccionada: " + localidad);
+        anunciosfiltrados = anunciosfiltrados.filter(anuncio => anuncio.id_localidad == localidad);
+    }
+    if (buscador) {
+        console.log("Buscador: " + buscador);
+        anunciosfiltrados = anunciosfiltrados.filter(anuncio => 
+            anuncio.titulo.toLowerCase().includes(buscador)
+        );
+    }   
+
+    return anunciosfiltrados;
 }
 
-
 $d.addEventListener("DOMContentLoaded", ev => {
-    getAnuncios()
+
+    getAnunciosAxios() 
     console.log("main-script.js cargado");
-    console.log(categorias);
-    console.log(localidades);
-    console.log(anuncios);
-   // const $bntModal = $d.querySelectorAll(".btn-modal")
 })
 
-$secionAnuncios.addEventListener("click", ev => {  
-    console.log(anuncios); 
-    if (ev.target.classList.contains("btn-modal")) {
+$secionAnuncios.addEventListener("click", ev => {   
+    if (ev.target.dataset.id) {
         const id = ev.target.dataset.id;
         renderModal(id);
         $modal.showModal();
     }
 }) 
 
+$formBusqueda.addEventListener("submit", ev => {  
+    ev.preventDefault();  
+    renderAnuncios(filterAnuncios(anuncios))
+})
