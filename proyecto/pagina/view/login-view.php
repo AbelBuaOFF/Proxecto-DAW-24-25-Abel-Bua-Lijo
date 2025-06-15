@@ -26,7 +26,7 @@
                 </ul>
                 <ul class="fila-form">
                     <label for="password"> Contraseña:</label>
-                    <input type="password" placeholder="abc123." name="password" id="password" required>
+                    <input type="password" placeholder="Abc123." name="password" id="password" required>
                 </ul>
                 <ul class="grupo-btn">
                     <a href="?controller=MainController&action=index" class="btn-volver btn">Volver</a>

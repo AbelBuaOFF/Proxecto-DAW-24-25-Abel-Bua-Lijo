@@ -95,7 +95,7 @@ function renderModal(id) {
            <a class="modalCerrar" onclick="window.modal.close();"><i class="fas fa-window-close"></i></a>
         </article>`
 }
-$d.addEventListener("DOMContentLoaded", ev => {
+document.addEventListener("DOMContentLoaded", ev => {
     getAnunciosAxios() 
     const $bntModal = $d.querySelectorAll(".btn-modal")
 })

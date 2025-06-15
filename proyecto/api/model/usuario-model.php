@@ -260,13 +260,23 @@ class UsuarioModel extends Model{
     }
 
     public static function getUserByNombre($nombre_usuario) {
-        $sql = "SELECT id FROM Usuario Where nombre_usuario = :nombre_usuario";
+        $sql = "SELECT id,borrado FROM Usuario Where nombre_usuario = :nombre_usuario";
         $pdo = Model::getConnection();
         try {
             $statement = $pdo->prepare($sql);
             $statement->bindValue(':nombre_usuario', $nombre_usuario, PDO::PARAM_STR);
             $statement->execute();
-            $resultado=$statement->rowCount()==1;
+            $objeto=$statement->fetch(PDO::FETCH_ASSOC);
+
+            if ($objeto !== false) {
+                $resultado = [
+                    'existe' => true,
+                    'borrado' => $objeto['borrado'],
+                ];
+            }else{
+                $resultado=false;
+            }
+ 
         } catch (\PDOException $th) {
             error_log("Error en->getUserByNombre() UsuarioModel");
             error_log($th->getMessage());
@@ -276,6 +286,7 @@ class UsuarioModel extends Model{
         }
         return $resultado;
     }
+
     public static function getUserByEmail($email) {
         $sql = "SELECT id FROM Usuario Where email = :email";
         $pdo = Model::getConnection();

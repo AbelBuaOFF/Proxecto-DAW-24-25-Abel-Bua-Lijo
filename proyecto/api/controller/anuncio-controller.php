@@ -55,6 +55,14 @@ class AnuncioController extends controller{
         }
     }
 
+    public function blockAnuncio($id_anuncio){
+        
+        $model = new AnuncioModel();
+        $result = $model->blockAnuncio($id_anuncio);
+    
+        echo json_encode($result, JSON_PRETTY_PRINT);
+    }
+
     public function getByUser($id_usuario)
     {
         $model = new AnuncioModel();

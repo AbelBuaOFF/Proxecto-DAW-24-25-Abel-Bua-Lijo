@@ -52,14 +52,23 @@ class UserController extends PageController{
 
         if (isset($_POST['nombre_usuario']) && isset($_POST['email']) && isset($_POST['password'])) {
             $objeto = new stdClass();
-                $objeto->nombre_usuario = $_POST['nombre_usuario'];
-                $objeto->email = $_POST['email'];
+                $objeto->nombre_usuario = htmlspecialchars(strip_tags(trim($_POST['nombre_usuario'])));
+                $objeto->email = filter_var(trim($_POST['email']),FILTER_SANITIZE_EMAIL);
                 $objeto->password = $_POST['password'];
 
             if (isset($_POST['tipo_usuario'])&& isset($_POST['nombre_comercial']) && isset($_POST['url_web'])) {
                 $objeto->tipo_usuario = "empresa";
-                $objeto->nombre_comercial = $_POST['nombre_comercial'];
-                $objeto->url_web = $_POST['url_web'];
+                $objeto->nombre_comercial = htmlspecialchars(strip_tags(trim($_POST['nombre_comercial'])));
+                $objeto->url_web = filter_var(trim($_POST['url_web']),FILTER_SANITIZE_URL);
+            }
+
+            $errores= UserController::validarUsuario($objeto);
+            if(!empty($errores)){
+
+                $data["errors"]= $errores;
+                $vista->show("registro",$data);
+                exit;
+
             }
 
             $solicitud = new Solicitud("usuario","addUser",null, $objeto);
@@ -75,11 +84,37 @@ class UserController extends PageController{
             $vista->show("registro",$data);
         }   
     }
+
+    public static function validarUsuario($objeto){
+
+        $errores=[];
+
+        if (strlen($objeto->nombre_usuario) < 5) {
+            $errores[]="El nombre de usuario al menos necesita 5 caracteres.";
+        }
+        if (!filter_var($objeto->email,FILTER_VALIDATE_EMAIL)){
+            $errores[]="Emial no valido.";
+        }
+        if (strlen($objeto->password)< 6) {
+            $errores[]="La contraseña al menos necesita 6 caracteres.";
+        }else{
+            $rex = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_])\S+$/';
+
+            if (!preg_match($rex,$objeto->password)) {
+                $errores[]="La contraseña debe tener: 1 Mayuscula ,";
+                $errores[]="1 minuscula, 1 número ,";
+                $errores[]="1 caracter especial y no tener espacios.";
+            }
+        }
+
+        return $errores;
+    }
+
     public static function userLogin(){
         $vista = new View;
         if (isset($_POST['nombre_usuario']) && isset($_POST['password'])) {
         $objeto = new stdClass();
-            $objeto->nombre_usuario = $_POST['nombre_usuario'];
+            $objeto->nombre_usuario = htmlspecialchars(strip_tags(trim($_POST['nombre_usuario'])));;
             $objeto->passw = $_POST['password'];
 
         $solicitud = new Solicitud("usuario","login",null, $objeto);
@@ -135,12 +170,12 @@ class UserController extends PageController{
         if (isset($_POST['nombre_usuario']) && isset($_POST['email'])&& isset($_POST['tipo_usuario'])) {
             $objeto = new stdClass();
                 $objeto->id = $id;
-                $objeto->nombre_usuario = $_POST['nombre_usuario'];
-                $objeto->email = $_POST['email'];
+                $objeto->nombre_usuario = htmlspecialchars(strip_tags(trim($_POST['nombre_usuario'])));
+                $objeto->email = filter_var(trim($_POST['email']));
                 $objeto->tipo_usuario = $_POST['tipo_usuario'];
             if (isset($_POST['nombre_comercial']) && isset($_POST['url_web'])) {
-                $objeto->nombre_comercial = $_POST['nombre_comercial'];
-                $objeto->url_web = $_POST['url_web'];
+                $objeto->nombre_comercial = htmlspecialchars(strip_tags(trim($_POST['nombre_comercial'])));
+                $objeto->url_web = filter_var(trim($_POST['url_web']));
             }
             $solicitud = new Solicitud("usuario","update",$id, $objeto);
             $model = new SolicitudModel();
@@ -233,6 +268,18 @@ class UserController extends PageController{
                 $vista->show("change-passw", $data);
             }
         }
+    }
+
+    public static function blockUser($user_id){
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+    
+        $solicitud = new Solicitud("usuario","blockUser",$user_id,null);
+        $model = new SolicitudModel();
+        $model->enviarSolicitud($solicitud);
+        
+        header("Location: /pagina/index.php?controller=MainController&action=index");
     }
 
     public static function deleteUser($id){

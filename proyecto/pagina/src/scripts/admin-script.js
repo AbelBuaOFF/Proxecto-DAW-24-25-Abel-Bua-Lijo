@@ -5,10 +5,6 @@ const $panel=document.querySelector(".AdminTools"),
       $botonAdmin = document.querySelector(".btn-admin"),
       $bloquear = document.querySelector(".bloquear")
 
-console.log($panel);
-console.log($opciones);
-
-
 $botonAdmin.addEventListener("click", (ev) => {
     ev.preventDefault();
     if ($opciones.classList.contains("off")) {
@@ -18,4 +14,3 @@ $botonAdmin.addEventListener("click", (ev) => {
     }
 
 });
-

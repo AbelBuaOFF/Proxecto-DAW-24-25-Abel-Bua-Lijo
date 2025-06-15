@@ -24,12 +24,28 @@ A web estaría desenvolvida empregando HTML, CSS e JavaScript no frontend, e o b
 
 ## Instalación / Posta en marcha
 
-> *EXPLICACIÓN*: Neste apartado describe con toda precisión e a poder ser coa maior simplicidade/facilidade posible, como poñer en marcha a túa aplicación para probala (nun ambiente local). Valorarase moi positivamente que este proceso sexa o máis fácil posible, cunha simple instrución (p. e. un script de instalación, descarga e posta en marcha dun contedor,...).
->
+  Requisitos Previos:
+
+  - Instalado Docker e Docker Compose.
+
+  Instalación: 
+
+    1.Clonar o repositorio https://github.com/AbelBuaOFF/Proxecto-DAW-24-25-Abel-Bua-Lijo.
+    
+    2.Abrir un terminal na carpeta do repositorio, entrar na carpeta de proyecto : cd proyecto/
+
+    3.Executar o comando: sudo docker-compose up
+
+    4.No navegador ir a http://localhost:8000/ , usuario root contrasinal bitnami
+
+    5.Executar o SQL da carpeta scriptsBD
+
+    6.No navegador ir a http://localhost/pagina/
+  
 
 ## Uso
 
-Aplicación de web, de publicacion e xestión de anuncios e usuarios, Podese usar tanto en Sobremesas, tabletas e mobiles.
+Aplicación de web, de publicacion e xestión de anuncios, os usuarios poden rexistrarse para poder publicar os seus propios anuncios. A Web funciona en todo tipo de dispositivos.
 
 ## Sobre o autor
 
@@ -56,8 +72,6 @@ Usa GNU Free Documentation License, Version 1.3.
 
 ## Guía de contribución
 
-> EXPLICACIÓN*: Tratándose dun proxecto de software libre, é moi importante que expoñas como se pode contribuír co teu proxecto. Algúns exemplos disto son realizar novas funcionalidades, corrección e/o optimización do código, realización de tests automatizados, novas interfaces de integración, desenvolvemento de plugins etc. Se o máis conciso que poidas.
-
   Puedes contribuir haciendo:
   - Añadiendo as novas funcionalidades que estan no arquivo de Implatación 3-Melloras futuras ou maís se son oportunas.
   - Correxir o codigo e optimizalo.
@@ -65,5 +79,3 @@ Usa GNU Free Documentation License, Version 1.3.
 
 ## Links
 
-> EXPLICACIÓN*: Ligazóns externas e descipciones destas ligazóns que creas conveniente indicar aquí. Xeralmente xa van estar integrados coa túa documentación, pero se requires realizar unha listaxe deles, leste é o lugar.
->

@@ -182,10 +182,8 @@ class AnuncioModel extends Model{
                 $statement->bindValue(':imagen_url', $object->imagen_url, PDO::PARAM_STR);
             }
             
-            $resultado = $statement->execute();
+            $statement->execute();
             $resultado = $statement->rowCount() == 1;
-
-            $resultado= true;
 
         } catch (\Throwable $th) {
             error_log("Error en->update($id,".$object->toJson().") Anuncio");
@@ -299,6 +297,29 @@ class AnuncioModel extends Model{
             $statement = null;
             $pdo = null;
         }
+        return $resultado;
+    }
+
+    public static function blockAnuncio($id){
+
+        $sql = "UPDATE Anuncio SET borrado='1' WHERE id=:id";
+        $pdo = Model::getConnection();
+        $resultado= false;
+    try{
+        $statement = $pdo->prepare($sql);
+        $statement->bindParam(':id', $id, PDO::PARAM_INT); 
+
+        $statement->execute();
+        $resultado = $statement->rowCount() == 1;
+
+    } catch (\Throwable $th) {
+        error_log("Error en->blockAnuncio($id) Anuncio");
+        error_log($th->getMessage());
+    }finally{
+        
+        $statement = null;
+        $pdo = null;
+    }
         return $resultado;
     }
 

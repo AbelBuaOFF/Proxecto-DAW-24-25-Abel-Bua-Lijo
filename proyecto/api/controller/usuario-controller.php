@@ -55,6 +55,7 @@ class UsuarioController extends controller{
 
         $model = new UsuarioModel();
         $result = $model->blockUser($id);
+    
         echo json_encode($result, JSON_PRETTY_PRINT);
     }
 
@@ -72,9 +73,12 @@ class UsuarioController extends controller{
             ];
             echo json_encode($result, JSON_PRETTY_PRINT);
         }else {
-            
-            if (UsuarioModel::getUserByNombre($objecto["nombre_usuario"])) {
+            $objeto=UsuarioModel::getUserByNombre($objecto["nombre_usuario"]);
+            if ($objeto["existe"]) {
                 $mensage = "Contraseña incorrecta.";
+                if ($objeto["borrado"]==1){
+                    $mensage = "Usuario Bloquedo contacta con los administradores.";
+                }
             }else {
                 $mensage = "Usuario no encontrado.";
             }

@@ -12,6 +12,11 @@
     include("header.php");
     ?>
     <main class="main">
+    <?php 
+                if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1) {
+                    include("admin-panel.php");
+                }
+        ?>
         <article class="anuncio-card">
                     <h3 class="anuncio-titulo"><?php echo $data["anuncio"]->titulo ?></h3>
                     <div class="anuncio-content">

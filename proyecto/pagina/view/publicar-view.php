@@ -21,12 +21,14 @@
     ?>
     <main class="main">
     <section class="section-login">
-        <?php
-        if (isset($respuesta["error"])) {
-            echo "<p>class='error'>{$respuesta["error"]}</p>";
-        }
-        ?>
             <form action="?controller=AnuncioController&action=sendAnuncio" method="post" class="form-login" enctype="multipart/form-data">
+                <?php
+                        if (isset($data['errors'])) {
+                            foreach ($data['errors'] as $error) {
+                                echo '<p class="error">'.$error.'</p>';
+                            }
+                        }
+                ?>
                 <h2 class="h2">Publicar un Nuevo Anuncio.</h2>
             
                     <label for="titulo">Titulo:</label>
@@ -38,35 +40,37 @@
                     <label for="contenido">Contacto y Mas informacion:</label>
                     <textarea id="contenido" placeholder="informacion de contacto, y mas informacion.." name="contenido" rows="5" required></textarea>
                 </ul>
-                <ul class="fila-form">
-                    <label for="id_tipo_anuncio">Tipo de Anuncio:</label>
-                    <select id="id_tipo_anuncio" name="id_tipo_anuncio" required>
-                        <?php
-                        foreach ($data["tipos_anuncio"] as $tipo) {
-                           echo "<option value='{$tipo["id"]}'>{$tipo["nombre_tipo_anuncio"]}</option>";
-                        }
-                        ?>
-                    </select>
-                </ul>
-                <ul class="fila-form">
-                    <label for="id_categoria">Categoria:</label>
-                    <select id="id_categoria" name="id_categoria" required>
-                        <?php
-                        foreach ($data["categorias"] as $categoria) {
-                            echo "<option value='{$categoria["id"]}'>{$categoria["nombre_categoria"]}</option>";
-                        }
-                        ?>
-                    </select>
-                </ul>
-                <ul class="fila-form">
-                    <label for="id_localidad">Localidad:</label>
-                    <select id="id_localidad" name="id_localidad" required>
-                        <?php
-                        foreach ($data["localidades"] as $localidad) {
-                            echo "<option value='{$localidad["id"]}'>{$localidad["nombre_localidad"]}</option>";
-                        }
-                        ?>
-                    </select>
+                <ul class="anuncio-links">
+                    <ul class="fila-form">
+                        <label for="id_tipo_anuncio">Tipo de Anuncio:</label>
+                        <select id="id_tipo_anuncio" name="id_tipo_anuncio" required>
+                            <?php
+                            foreach ($data["tipos_anuncio"] as $tipo) {
+                            echo "<option value='{$tipo["id"]}'>{$tipo["nombre_tipo_anuncio"]}</option>";
+                            }
+                            ?>
+                        </select>
+                    </ul>
+                    <ul class="fila-form">
+                        <label for="id_categoria">Categoria:</label>
+                        <select id="id_categoria" name="id_categoria" required>
+                            <?php
+                            foreach ($data["categorias"] as $categoria) {
+                                echo "<option value='{$categoria["id"]}'>{$categoria["nombre_categoria"]}</option>";
+                            }
+                            ?>
+                        </select>
+                    </ul>
+                    <ul class="fila-form">
+                        <label for="id_localidad">Localidad:</label>
+                        <select id="id_localidad" name="id_localidad" required>
+                            <?php
+                            foreach ($data["localidades"] as $localidad) {
+                                echo "<option value='{$localidad["id"]}'>{$localidad["nombre_localidad"]}</option>";
+                            }
+                            ?>
+                        </select>
+                    </ul>
                 </ul>
                 <ul class="fila-form">
                     <li>
