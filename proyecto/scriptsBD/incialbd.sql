@@ -127,6 +127,9 @@ VALUES ('particular', 'particular@mail.com', 'f2e53c927c66fe711e8e88ef9b37a8e318
 INSERT INTO Usuario (nombre_usuario, email, passw, tipo_usuario, nombre_comercial, url_web)
 VALUES ('empresa', 'empresa@mail.com', 'f2e53c927c66fe711e8e88ef9b37a8e3187f1652216b313fc8eb2513883dd360', 'empresa', 'Empresa prueba SL', 'empresa.com');
 
+
+/pagina/uploads/anuncio/anuncio_default.jpg
+
 -- Insertar Anuncios
 INSERT INTO Anuncio (id_usuario, titulo, descripcion, contenido, id_tipo_anuncio, id_categoria, id_localidad,imagen_url) VALUES
 (2, 'Venta de furgoneta en A Coruña', 'Furgoneta en buen estado, lista para trabajar', 'Furgoneta Ford Transit 2018, 80.000 km, ITV al día', 1, 1, 1,'/pagina/uploads/anuncio/furgoneta.jpg'),
