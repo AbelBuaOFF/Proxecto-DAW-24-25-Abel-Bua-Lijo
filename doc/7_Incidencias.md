@@ -5,6 +5,19 @@
 
 ## 1- Incidencias
 
+    - O sistema anterior da api non e utilizable para as necesidades da aplicacion, cambiar o sistema por una sistema en base de post pasandolle o a funcion e os datos.
+    - As imaxes dos anuncios no se establecen ben por defecto.
+    - A actualizar un anuncio perdese a sua imaxen e ponse a por defecto
+    - Os anuncios no se asocianse ven coas suas localidades, categorias e tipos.
+    - Os Usuario empresa os datos de url e nome_comercial non se establecen.
+    - Error ao mostrar o menu hamburguesa, o menu esta activado pero non se veia.
+    
+
 ## 2- Tarefas
+
+  - Cambiar o sistema da API para que poida ser utilizado por todas as funcions, facendo que sexa escalable coas futuras funcions do proxecto.
+  - Facer un sistema de solicitudes que funcione para calquer metodo da API, crear a sua clase e metodos.
+  - Facer a eliminacion de todos os anuncios dun usuario borrado.
+  - Meter na bd as imaxes por defecto dos anuncios.
 
 [**<-Anterior**](../README.md)
