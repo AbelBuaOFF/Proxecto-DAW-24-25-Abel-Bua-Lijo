@@ -12,13 +12,12 @@
     $id=0;
     ?>
     <main class="main">
-    <h2>Pagina de Usuario:</h2>
-        <section class="section-usuario">
-        <?php 
+    <h2>Pagina de Usuario:</h2>    <?php 
                 if (isset($_SESSION['rol']) && $_SESSION['rol'] == 1) {
                     include("admin-panel.php");
                 }
         ?>
+        <section class="section-usuario">
             <article class="usuario-card">
                 <figure>
                     <img src="../pagina/uploads/usuarios/perfil_default.jpg" alt="">

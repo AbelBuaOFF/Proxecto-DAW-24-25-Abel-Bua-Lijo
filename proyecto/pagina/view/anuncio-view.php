@@ -18,7 +18,7 @@
                 }
         ?>
         <article class="anuncio-card">
-                    <h3 class="anuncio-titulo"><?php echo $data["anuncio"]->titulo ?></h3>
+                    <h2 class="anuncio-titulo"><?php echo $data["anuncio"]->titulo ?></h2>
                     <div class="anuncio-content">
                         <div class="anuncio-texto">
                                 <p><span class="bold">Descripcion:</span><?php echo $data["anuncio"]->descripcion ?></p>

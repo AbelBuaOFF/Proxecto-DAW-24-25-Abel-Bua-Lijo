@@ -127,11 +127,17 @@ VALUES ('particular', 'particular@mail.com', 'f2e53c927c66fe711e8e88ef9b37a8e318
 INSERT INTO Usuario (nombre_usuario, email, passw, tipo_usuario, nombre_comercial, url_web)
 VALUES ('empresa', 'empresa@mail.com', 'f2e53c927c66fe711e8e88ef9b37a8e3187f1652216b313fc8eb2513883dd360', 'empresa', 'Empresa prueba SL', 'empresa.com');
 
-
 -- Insertar Anuncios
 INSERT INTO Anuncio (id_usuario, titulo, descripcion, contenido, id_tipo_anuncio, id_categoria, id_localidad) VALUES
 (2, 'Venta de furgoneta en A Coruña', 'Furgoneta en buen estado, lista para trabajar', 'Furgoneta Ford Transit 2018, 80.000 km, ITV al día', 1, 1, 1),
 (2, 'Busco piso en Vigo', 'Piso céntrico y bien comunicado', 'Busco piso de 3 habitaciones en Vigo, zona centro', 2, 3, 8),
 (2, 'Evento de música en vivo', 'Concierto gratuito en el parque', 'Ven a disfrutar de una tarde de música en vivo con bandas locales', 4, 5, 7),
-(3, 'Se alquila local comercial en Santiago', 'Local en pleno centro, ideal para negocio', 'Local de 100 m² con escaparate, zona de paso', 1, 6, 2);
+(3, 'Se alquila local comercial en Santiago', 'Local en pleno centro, ideal para negocio', 'Local de 100 m² con escaparate, zona de paso', 1, 6, 2),
+(2, 'Perro perdido en Ourense', 'Se busca perro labrador negro', 'Responde al nombre de Max, se perdió el 10 de junio en el Parque San Lázaro. Recompensa.', 2, 6, 5),
+(2, 'Gato extraviado en Lugo', 'Gato blanco y gris visto por última vez cerca del campus', 'Tiene chip y es muy manso. Contacto: 600123456.', 2, 6, 3),
+(3, 'Fiestas de San Juan en A Coruña', 'Gran celebración en la playa del Orzán', 'Hogueras, conciertos y fuegos artificiales el 23 de junio desde las 20:00.', 4, 5, 1),
+(3, 'Feria del pulpo en Monforte', 'Evento gastronómico', 'Ven a degustar el mejor pulpo á feira, con música tradicional y actividades para niños.', 4, 5, 4),
+(3, 'Fiestas de San Juan en A Coruña', 'Gran celebración en la playa del Orzán', 'Hogueras, conciertos y fuegos artificiales el 23 de junio desde las 20:00.', 4, 5, 1),
+(3, 'Feria del pulpo en Monforte', 'Evento gastronómico', 'Ven a degustar el mejor pulpo á feira, con música tradicional y actividades para niños.', 4, 5, 4);
+
 

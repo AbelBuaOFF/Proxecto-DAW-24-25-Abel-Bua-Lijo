@@ -25,7 +25,12 @@
 
     ?>
     <main class="main">
-        
+        <?php
+        if (!isset($_COOKIE['visitado'])){
+            setcookie('visitado','true',time()+(3600),"/");
+            include("landing.php");
+        }
+        ?>
         <section class="buscador">
             <div>
             <h2 class="h2">Buscador de anuncios.</h2>
@@ -56,7 +61,7 @@
         </section>
             <dialog id="modal">
                 <article class="elemento-modal">
-                <h3 class="anuncio-titulo">Titulo</h3>
+                <h3 class="anuncio-titulo"></h3>
                 <p class="descripcion"></p>
                 <p class="contenido"></p>
                 <figure>

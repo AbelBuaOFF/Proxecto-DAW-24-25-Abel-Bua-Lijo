@@ -45,7 +45,7 @@ A web estaría desenvolvida empregando HTML, CSS e JavaScript no frontend, e o b
 
 ## Uso
 
-Aplicación de web, de publicacion e xestión de anuncios, os usuarios poden rexistrarse para poder publicar os seus propios anuncios. A Web funciona en todo tipo de dispositivos.
+EltablonDigital e unha Aplicación de web, de publicacion e xestión de anuncios, os usuarios poden rexistrarse para poder publicar os seus propios anuncios. A Web funciona en todo tipo de dispositivos.
 
 ## Sobre o autor
 
