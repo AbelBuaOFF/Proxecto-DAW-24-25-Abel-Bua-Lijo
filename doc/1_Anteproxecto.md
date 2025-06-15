@@ -23,9 +23,10 @@
 
 ElTablonDigital
 
-O proxecto consiste é unha páxina web dun taboleiro de anuncios e avisos informativos, onde usuarios e entidades poidan publicar anuncios e comunicados como: mascotas perdidas, anuncios de compra, eventos locais, actividades. Tamén os organismos públicos poidan anunciar eventos e comunicados. Dixitalizar os taboleiros tradicionais, os carteis que colgan nas ruas.
+O proxecto consiste é unha páxina web dun taboleiro de anuncios e avisos informativos, onde usuarios e entidades poidan publicar anuncios e comunicados como: mascotas perdidas, anuncios de compra, eventos locais, actividades. Tamén os asociacions locais poidan anunciar eventos e comunicados. Dixitalizar os taboleiros tradicionais, os carteis que colgan nas ruas.
+A paxina permite actualizar información en tempo real e darlle visibilidade.
 
-O proposito principal dar visivilidade e permitir informacion de interese, avisos e anuncios a persoas, e facilitar a comunicacion entre as persoas e entidades publicas ou empresas.
+O proposito principal dar visivilidade e permitir informacion de interese, avisos e anuncios a persoas, e facilitar a comunicacion entre as persoas e entidades ou empresas.
 
 Este proxecto axuda a empresas locais e individuos poidan publicitarse e ofrecer servizos, pagando tarifas ou subcripcions.
 
@@ -82,17 +83,14 @@ Segmentos:
   - 1 Usuarios: 
       - Rasgos: Persoas de calquera idade que teñan interese en coñecer os avisos, anuncios e eventos que sucedan na súa zona.
       - Necesidades: Ter acceso rápido e cómodo á información, produtos e servizos na súa zona.
-      - Cuantificar: Estimando o 60% das persoas que residen nesa zona.
   
   - 2 Negocios:
       - Rasgos: Pequenos negocios e organizacións locais que queren promocionar os seus produtos e servizos.
       - Necesidades: Poder ter un espazo para anunciar os seus productos.
-      - Cuantificar: Estimando o 30% de empresas locais que necesitan publicitarse.
 
   - 3 Entidades Locais:
       - Rasgos: Institucións, organizacións locais ou asociacións de veciños que necesiten publicar anuncios e alertas importantes.
       - Necesidades: Una plataforma para poder difundir os seus comunicados de maneria rapida.
-      - Cuantificar: Estimando o 10% de entidades que necesiten proporcionar informacion a os usuarios.
 
 Os clientes son os usuarios que publican contido, podendo ser persoas físicas ou entidades tanto públicas como privadas.
 Os usuarios son todas as persoas que acceden á páxina para ver os contidos.
@@ -146,8 +144,8 @@ Os usuarios son todas as persoas que acceden á páxina para ver os contidos.
     -  Mobiliario (Mesa, sillas,etc.) : 300€
     -  Alugueiro de Oficina (6 meses) : 4.200€(700€/mes)  
     -  Suministro electico y agua (6 meses) 150€ (25€/mes)
-    -  Suministro electico y agua (6 meses) 150€ (25€/mes)
     -  Seguridad Social Autonomo(3600€ anuais)
+    
     - TOTAL estimado : 9885€ 
 
 #### 2.7.1- Custos
