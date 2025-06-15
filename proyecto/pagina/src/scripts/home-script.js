@@ -43,13 +43,13 @@ const  $buscador = document.querySelector("#buscador"),
                         </ul>
                         <ul class="anuncio-btn">
                             <li>
-                                 <button class="btn-modal verMas" data-id="${anuncio.id}" onclick="window.modal.showModal()"><i class="fa fa-eye" data-id=${anuncio.id}></i></button>
+                                 <button class="btn-modal verMas" title="Ver Mas..." data-id="${anuncio.id}" onclick="window.modal.showModal()"><i class="fa fa-eye" data-id=${anuncio.id}></i></button>
                             </li>
                             <li>
-                                <a class="editar" href="?controller=AnuncioController&action=updateAnuncioPage&id=${anuncio.id}"><i class="fas fa-edit"></i></a>
+                                <a class="editar" title="Editar" href="?controller=AnuncioController&action=updateAnuncioPage&id=${anuncio.id}"><i class="fas fa-edit"></i></a>
                             </li>
                             <li>
-                                <a href="?controller=AnuncioController&action=anuncioPage&id=${anuncio.id}"><i class="fas fa-arrow-right"></i></a>
+                                <a title="Ir a ..." href="?controller=AnuncioController&action=anuncioPage&id=${anuncio.id}"><i class="fas fa-arrow-right"></i></a>
                             </li>
                         </ul>
                     </article>`
