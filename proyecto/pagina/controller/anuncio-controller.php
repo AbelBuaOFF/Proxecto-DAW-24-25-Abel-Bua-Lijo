@@ -308,7 +308,7 @@ class AnuncioController extends PageController
         $model = new SolicitudModel();
         $model->enviarSolicitud($solicitud);
 
-        $vista->show("home");
+        header("Location: /pagina/index.php?controller=UserController&action=home");
     }
 
     public static function guardarImgAnuncio($img, $titulo)
