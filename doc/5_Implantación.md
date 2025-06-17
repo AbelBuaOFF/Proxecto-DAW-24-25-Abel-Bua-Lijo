@@ -11,12 +11,15 @@
 
 ### 1.1- Instalación
 
+- Host:
+
  - Requirimentos de hardware.
     - Almacenamento: de 500 GB.
     - Memoria Ram: mínimo 8 GB.
     - CPU: mínimo 4 núcleos.
 
  - Software necesario: servidores (Exemplo servidor Web), software externo co que interaciona a nosa aplicación, contenedores, etc.
+
 
   SO:
   - Devian GNU/Linux 12 (bookworm)
